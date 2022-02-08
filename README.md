@@ -20,7 +20,7 @@ $ git  clone  https://github.com/timberr004/Akara.git
 - Run
 
 ## Contributors
-- **Sokchea Kor**, ITED, FE, RUPP (Advisor)
+- **Kor Sokchea**, ITED, FE, RUPP (Advisor)
 - **Nuth Vireak**, ITED, RUPP (Student, M2)
 - **Tan Bunchhay**, ITED, RUPP (Student, M2)
 - **Phan Japon**, ITED, RUPP (Student, M2)
