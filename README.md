@@ -1,4 +1,5 @@
 # អក្ខរា ផតខាស់ - Akara Podcast Project
+![](/src/image/Logo.png)
 ## Contributors
 - **Sokchea Kor**, ITED, FE, RUPP (Advisor)
 - **Nuth Vireak**, ITED, RUPP (Student, M2)
