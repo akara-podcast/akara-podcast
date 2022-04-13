@@ -1,14 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
-         <top>
-            <Label text="MainForm" BorderPane.alignment="CENTER" />
-         </top></BorderPane>
+      <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" styleClass="primary-color" stylesheets="@../css/style.css">
+         <left>
+            <HBox prefHeight="100.0" prefWidth="283.0" styleClass="secondary-color" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="283.0" spacing="4.0">
+                     <children>
+                        <ImageView fitHeight="4.0" fitWidth="44.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@../image/Right.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="11.0" left="119.0" top="15.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="75.0" fitWidth="232.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/logo_text.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Separator maxWidth="244.0" prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="20.0" top="20.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <HBox alignment="CENTER_LEFT" maxWidth="244.0" onMouseClicked="#discoverClick" prefHeight="45.0" prefWidth="244.0" VBox.vgrow="NEVER">
+                           <children>
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/Discover.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Label text="Discover">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="12.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="19.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" maxWidth="244.0" onMouseClicked="#trendingClicked" prefHeight="45.0" prefWidth="244.0">
+                           <children>
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/Trending.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Label text="Trending">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="12.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="19.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" maxWidth="244.0" onMouseClicked="#favoriteClick" prefHeight="45.0" prefWidth="244.0">
+                           <children>
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/Favorite.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Label text="Favorite">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="12.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="19.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" maxWidth="244.0" onMouseClicked="#playlistClick" prefHeight="45.0" prefWidth="244.0">
+                           <children>
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/Playlist.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Label text="Playlist">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="12.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="19.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" maxWidth="244.0" onMouseClicked="#communityClicked" prefHeight="45.0" prefWidth="244.0">
+                           <children>
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/Community.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Label text="Community">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="12.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="19.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Separator maxWidth="244.0" prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="20.0" top="20.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <HBox alignment="CENTER_LEFT" maxWidth="244.0" prefHeight="45.0" prefWidth="244.0">
+                           <children>
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/Light-mode.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Label text="Light Mode">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="12.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="19.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </left></BorderPane>
    </children>
 </StackPane>
