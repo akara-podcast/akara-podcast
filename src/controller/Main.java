@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Main extends Application {
     @Override
@@ -16,7 +17,7 @@ public class Main extends Application {
         stage.setTitle("Akara Podcast");
         stage.setScene(scene);
 
-        Image applicationIcon = new Image(getClass().getResourceAsStream("/image/Logo.png"));
+        Image applicationIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/Logo.png")));
         stage.getIcons().add(applicationIcon);
 
         stage.show();
