@@ -12,3 +12,9 @@
 .secondary-color {
     -fx-background-color: #FFFF;
 }
+
+.search-container {
+    -fx-background-color: #FFFF;
+    -fx-border-color: #D7D7D7;
+    -fx-border-radius: 4;
+}
