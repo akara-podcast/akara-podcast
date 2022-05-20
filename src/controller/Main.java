@@ -17,7 +17,7 @@ public class Main extends Application {
         stage.setTitle("Akara Podcast");
         stage.setScene(scene);
 
-        Image applicationIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/Akara_icon.png")));
+        Image applicationIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/Akara-logo.png")));
         stage.getIcons().add(applicationIcon);
 
         stage.show();
