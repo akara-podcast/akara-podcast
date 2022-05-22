@@ -1,4 +1,5 @@
 package controller;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,6 +10,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 public class MainFormController implements Initializable {
@@ -55,4 +57,11 @@ public class MainFormController implements Initializable {
         VBox trending = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Trending.fxml")));
         borderPane.setCenter(trending);
     }
+
+    @FXML
+    public void profileClicked(MouseEvent event) throws IOException {
+        BorderPane login = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Login.fxml")));
+        borderPane.setCenter(login);
+    }
+
 }

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="primary-color" stylesheets="@../css/style.css">
          <left>
@@ -248,7 +248,7 @@
                <top>
                   <HBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #FFFF;" BorderPane.alignment="CENTER">
                      <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                        <Button fx:id="profileButton" mnemonicParsing="false" onMouseClicked="#profileClicked" style="-fx-background-color: transparent;">
                            <graphic>
                               <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
