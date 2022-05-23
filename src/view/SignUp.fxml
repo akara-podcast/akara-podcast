@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="loginPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<BorderPane fx:id="signupPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
    <center>
       <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="654.0" prefWidth="991.0" style="-fx-background-color: #FFFF;">
          <padding>
@@ -102,20 +102,33 @@
                               <Separator maxWidth="1.0" minWidth="1.0" orientation="VERTICAL" prefWidth="1.0" style="-fx-background-color: #5d5fef;" />
                               <VBox prefHeight="531.0" prefWidth="652.0">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="582.0" text="Login" textFill="#5d5fef">
+                                    <Label alignment="CENTER" prefHeight="37.0" prefWidth="582.0" text="Sign up" textFill="#5d5fef">
                                        <font>
                                           <Font name="System Bold" size="24.0" />
                                        </font>
                                        <padding>
-                                          <Insets right="30.0" />
+                                          <Insets right="20.0" />
                                        </padding>
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </Label>
+                                    <Label alignment="CENTER" prefHeight="13.0" prefWidth="145.0" text="Name">
+                                       <padding>
+                                          <Insets right="65.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="t_username_or_email1" maxWidth="500.0" prefHeight="39.0" prefWidth="500.0">
+                                       <VBox.margin>
+                                          <Insets left="22.0" />
+                                       </VBox.margin>
+                                    </TextField>
                                     <Label alignment="CENTER" prefHeight="13.0" prefWidth="145.0" text="Email">
                                        <VBox.margin>
-                                          <Insets top="30.0" />
+                                          <Insets top="10.0" />
                                        </VBox.margin>
                                        <padding>
                                           <Insets right="70.0" />
@@ -128,10 +141,20 @@
                                     </TextField>
                                     <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Password">
                                        <VBox.margin>
-                                          <Insets top="25.0" />
+                                          <Insets top="15.0" />
                                        </VBox.margin>
                                     </Label>
                                     <PasswordField fx:id="pf_password" maxWidth="500.0" prefHeight="39.0">
+                                       <VBox.margin>
+                                          <Insets left="22.0" />
+                                       </VBox.margin>
+                                    </PasswordField>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Comfirm Password">
+                                       <VBox.margin>
+                                          <Insets left="22.0" top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <PasswordField fx:id="pf_password1" maxWidth="500.0" prefHeight="39.0">
                                        <VBox.margin>
                                           <Insets left="22.0" />
                                        </VBox.margin>
@@ -141,7 +164,7 @@
                                           <Insets left="420.0" top="5.0" />
                                        </VBox.margin>
                                     </CheckBox>
-                                    <Button fx:id="loginButton" mnemonicParsing="false" onMouseClicked="#loginClicked" prefHeight="30.0" prefWidth="450.0" style="-fx-border-color: #5d5fef; -fx-border-radius: 9px; -fx-border-width: 2px; -fx-background-color: transparent;" text="Login" textFill="#5d5fef">
+                                    <Button fx:id="signUpButton" mnemonicParsing="false" onMouseClicked="#signUpClicked" prefHeight="30.0" prefWidth="450.0" style="-fx-border-color: #5d5fef; -fx-border-radius: 9px; -fx-border-width: 2px; -fx-background-color: transparent;" text="Sign up" textFill="#5d5fef">
                                        <VBox.margin>
                                           <Insets left="45.0" top="15.0" />
                                        </VBox.margin>
@@ -149,38 +172,22 @@
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="button_forget_password" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Forget Password?" textFill="#5d5fef" underline="true">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets left="210.0" top="10.0" />
-                                       </VBox.margin>
-                                    </Button>
-                                    <Label opacity="0.55" text="Terms &amp; Conditions">
-                                       <VBox.margin>
-                                          <Insets left="222.0" top="15.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font size="11.0" />
-                                       </font>
-                                    </Label>
                                     <Separator maxWidth="300.0" prefWidth="200.0">
                                        <VBox.margin>
-                                          <Insets left="120.0" />
+                                          <Insets left="120.0" top="15.0" />
                                        </VBox.margin>
                                     </Separator>
-                                    <Label opacity="0.55" text="Don't have an account?">
+                                    <Label opacity="0.55" text="Already have an account?">
                                        <VBox.margin>
                                           <Insets left="210.0" top="25.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Button fx:id="buttonSignUp" mnemonicParsing="false" onMouseClicked="#signUpClicked" style="-fx-background-color: transparent;" text="Sign up" textFill="#5d5fef" underline="true">
+                                    <Button fx:id="buttonLogin" mnemonicParsing="false" onMouseClicked="#loginSwitchClicked" style="-fx-background-color: transparent;" text="Login" textFill="#5d5fef" underline="true">
                                        <font>
                                           <Font name="System Bold Italic" size="14.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets left="235.0" top="3.0" />
+                                          <Insets left="245.0" top="3.0" />
                                        </VBox.margin>
                                     </Button>
                                  </children>

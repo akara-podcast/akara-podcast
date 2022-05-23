@@ -16,7 +16,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane fx:id="loginPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <center>
       <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="654.0" prefWidth="991.0" style="-fx-background-color: #FFFF;">
@@ -114,12 +113,15 @@
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="13.0" prefWidth="145.0" text="Email or username">
+                                    <Label alignment="CENTER" prefHeight="13.0" prefWidth="145.0" text="Email">
                                        <VBox.margin>
                                           <Insets top="30.0" />
                                        </VBox.margin>
+                                       <padding>
+                                          <Insets right="70.0" />
+                                       </padding>
                                     </Label>
-                                    <TextField maxWidth="500.0" prefHeight="39.0" prefWidth="500.0">
+                                    <TextField fx:id="t_username_or_email" maxWidth="500.0" prefHeight="39.0" prefWidth="500.0">
                                        <VBox.margin>
                                           <Insets left="22.0" />
                                        </VBox.margin>
@@ -129,7 +131,7 @@
                                           <Insets top="25.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <PasswordField maxWidth="500.0" prefHeight="39.0">
+                                    <PasswordField fx:id="pf_password" maxWidth="500.0" prefHeight="39.0">
                                        <VBox.margin>
                                           <Insets left="22.0" />
                                        </VBox.margin>
@@ -147,14 +149,14 @@
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Button>
-                                    <Label text="Forget Password?" textFill="#5d5fef">
-                                       <VBox.margin>
-                                          <Insets left="225.0" top="10.0" />
-                                       </VBox.margin>
+                                    <Button fx:id="button_forget_password" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Forget Password?" textFill="#5d5fef" underline="true">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
-                                    </Label>
+                                       <VBox.margin>
+                                          <Insets left="210.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
                                     <Label opacity="0.55" text="Terms &amp; Conditions">
                                        <VBox.margin>
                                           <Insets left="222.0" top="15.0" />
@@ -170,20 +172,17 @@
                                     </Separator>
                                     <Label opacity="0.55" text="Don't have an account?">
                                        <VBox.margin>
-                                          <Insets left="215.0" top="25.0" />
+                                          <Insets left="210.0" top="25.0" />
                                        </VBox.margin>
-                                       <font>
-                                          <Font size="11.0" />
-                                       </font>
                                     </Label>
-                                    <Label text="Sign up" textFill="#5d5fef">
+                                    <Button fx:id="buttonSignUp" mnemonicParsing="false" onMouseClicked="#signUpClicked" style="-fx-background-color: transparent;" text="Sign up" textFill="#5d5fef" underline="true">
                                        <font>
                                           <Font name="System Bold Italic" size="14.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets left="246.0" top="3.0" />
+                                          <Insets left="235.0" top="3.0" />
                                        </VBox.margin>
-                                    </Label>
+                                    </Button>
                                  </children>
                               </VBox>
                            </children>

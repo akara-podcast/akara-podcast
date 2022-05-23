@@ -109,34 +109,6 @@
                                                 </Button>
                                              </children>
                                           </HBox>
-                                          <Label opacity="0.57" text="Phone Number">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets left="30.0" top="35.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <HBox prefHeight="26.0" prefWidth="427.0">
-                                             <children>
-                                                <Label prefHeight="20.0" prefWidth="167.0" text="012345678">
-                                                   <font>
-                                                      <Font size="13.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="30.0" />
-                                                   </HBox.margin>
-                                                   <padding>
-                                                      <Insets top="5.0" />
-                                                   </padding>
-                                                </Label>
-                                                <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: #5d5fef; -fx-border-radius: 5;" text="Edit">
-                                                   <HBox.margin>
-                                                      <Insets left="190.0" />
-                                                   </HBox.margin>
-                                                </Button>
-                                             </children>
-                                          </HBox>
                                           <Label opacity="0.57" text="Password">
                                              <font>
                                                 <Font size="14.0" />
