@@ -8,10 +8,7 @@ import model.Podcast;
 
 import java.util.Objects;
 
-public class PodcastController {
-
-    @FXML
-    private Label description;
+public class PodcastVboxController {
 
     @FXML
     private ImageView img;
@@ -24,6 +21,5 @@ public class PodcastController {
         Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
         img.setImage(image);
         title.setText(podcast.getTitle());
-        description.setText(podcast.getDescription());
     }
 }

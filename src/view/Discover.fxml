@@ -65,6 +65,50 @@
                      <padding>
                         <Insets bottom="20.0" top="20.0" />
                      </padding></ScrollPane>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
+                     <children>
+                        <Label prefHeight="23.0" prefWidth="139.0" text="Popular Podcast">
+                           <font>
+                              <Font name="CircularStd-Medium" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="6.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="83.0">
+                           <children>
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/Chevron_Left.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/Chevron_Right.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="270.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                     <content>
+                        <HBox fx:id="popularPodcastContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
+                     </content>
+                     <padding>
+                        <Insets bottom="20.0" top="20.0" />
+                     </padding>
+                  </ScrollPane>
                </children>
             </VBox>
          </content>
