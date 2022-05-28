@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -121,7 +122,7 @@
                                           <Insets right="70.0" />
                                        </padding>
                                     </Label>
-                                    <TextField fx:id="t_username_or_email" maxWidth="500.0" prefHeight="39.0" prefWidth="500.0">
+                                    <TextField fx:id="tf_Email" maxWidth="500.0" prefHeight="39.0" prefWidth="500.0">
                                        <VBox.margin>
                                           <Insets left="22.0" />
                                        </VBox.margin>
@@ -131,12 +132,23 @@
                                           <Insets top="25.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <PasswordField fx:id="pf_password" maxWidth="500.0" prefHeight="39.0">
+                                    <StackPane fx:id="passwordPane">
                                        <VBox.margin>
-                                          <Insets left="22.0" />
+                                          <Insets />
                                        </VBox.margin>
-                                    </PasswordField>
-                                    <CheckBox mnemonicParsing="false" text="Show Password">
+                                       <children>
+                                          <TextField fx:id="tf_showPassword" maxWidth="500.0" prefHeight="39.0" prefWidth="500.0">
+                                             <StackPane.margin>
+                                                <Insets />
+                                             </StackPane.margin>
+                                          </TextField>
+                                          <PasswordField fx:id="pf_password" maxWidth="500.0" prefHeight="39.0" prefWidth="500.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="32.0" />
+                                       </padding>
+                                    </StackPane>
+                                    <CheckBox fx:id="checkToShowPassword" mnemonicParsing="false" text="Show Password">
                                        <VBox.margin>
                                           <Insets left="420.0" top="5.0" />
                                        </VBox.margin>
