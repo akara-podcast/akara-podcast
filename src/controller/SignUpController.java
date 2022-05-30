@@ -31,7 +31,13 @@ public class SignUpController implements Initializable {
     private PasswordField pf_password;
 
     @FXML
+    private TextField tf_password;
+
+    @FXML
     private PasswordField pf_cf_password;
+
+    @FXML
+    private TextField tf_cf_password;
 
     @FXML
     private CheckBox check_showPassword;
@@ -75,6 +81,22 @@ public class SignUpController implements Initializable {
 
             }
         });
+
+        // show passwords
+        pf_password.textProperty().bindBidirectional(tf_password.textProperty());
+        pf_cf_password.textProperty().bindBidirectional(tf_cf_password.textProperty());
+        check_showPassword.setSelected(false);
+
+        check_showPassword.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                tf_password.toFront();
+                tf_cf_password.toFront();
+            } else {
+                pf_password.toFront();
+                pf_cf_password.toFront();
+            }
+        });
+
     }
 
 }

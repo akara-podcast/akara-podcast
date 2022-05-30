@@ -10,11 +10,6 @@ import static java.sql.DriverManager.getConnection;
 
 
 public class DbUtils {
-
-    public static void changePane(ActionEvent event, String fxmlFile, String title) {
-
-    }
-
     public static void signUpUser(ActionEvent event, String name, String email, String password, LocalDate created_at) {
 
         Connection connection = null;
@@ -25,13 +20,13 @@ public class DbUtils {
         try {
             connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "050903");
             psCheckUserExists = connection.prepareStatement("SELECT * FROM user WHERE email = ?");
-            psCheckUserExists.setString(1, name);
+            psCheckUserExists.setString(1, email);
             resultSet = psCheckUserExists.executeQuery();
 
             if (resultSet.isBeforeFirst()) {
                 System.out.println("User already Exists!");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("You cannot use this name.");
+                alert.setContentText("Please use another email!");
                 alert.show();
             }
             else {

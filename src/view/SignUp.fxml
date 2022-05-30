@@ -144,21 +144,29 @@
                                           <Insets top="15.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <PasswordField fx:id="pf_password" maxWidth="500.0" prefHeight="39.0">
+                                    <AnchorPane maxWidth="500.0" prefHeight="39.0" prefWidth="500.0">
                                        <VBox.margin>
                                           <Insets left="22.0" />
                                        </VBox.margin>
-                                    </PasswordField>
+                                       <children>
+                                          <TextField fx:id="tf_password" maxWidth="500.0" prefHeight="39.2" prefWidth="500.0" />
+                                          <PasswordField fx:id="pf_password" maxWidth="500.0" prefHeight="39.0" prefWidth="501.0" />
+                                       </children>
+                                    </AnchorPane>
                                     <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Comfirm Password">
                                        <VBox.margin>
                                           <Insets left="22.0" top="15.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <PasswordField fx:id="pf_cf_password" maxWidth="500.0" prefHeight="39.0">
+                                    <AnchorPane maxWidth="500.0" prefHeight="39.2" prefWidth="500.0">
                                        <VBox.margin>
                                           <Insets left="22.0" />
                                        </VBox.margin>
-                                    </PasswordField>
+                                       <children>
+                                          <TextField fx:id="tf_cf_password" maxWidth="500.0" prefHeight="39.2" prefWidth="500.0" />
+                                          <PasswordField fx:id="pf_cf_password" maxWidth="500.0" prefHeight="39.0" prefWidth="500.0" />
+                                       </children>
+                                    </AnchorPane>
                                     <CheckBox fx:id="check_showPassword" mnemonicParsing="false" text="Show Password">
                                        <VBox.margin>
                                           <Insets left="420.0" top="5.0" />

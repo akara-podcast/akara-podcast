@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -132,22 +131,15 @@
                                           <Insets top="25.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <StackPane fx:id="passwordPane">
+                                    <AnchorPane maxWidth="500.0" prefHeight="39.2" prefWidth="500.0">
                                        <VBox.margin>
-                                          <Insets />
+                                          <Insets left="22.0" />
                                        </VBox.margin>
                                        <children>
-                                          <TextField fx:id="tf_showPassword" maxWidth="500.0" prefHeight="39.0" prefWidth="500.0">
-                                             <StackPane.margin>
-                                                <Insets />
-                                             </StackPane.margin>
-                                          </TextField>
+                                          <TextField fx:id="tf_showPassword" maxWidth="500.0" prefHeight="39.0" prefWidth="500.0" />
                                           <PasswordField fx:id="pf_password" maxWidth="500.0" prefHeight="39.0" prefWidth="500.0" />
                                        </children>
-                                       <padding>
-                                          <Insets right="32.0" />
-                                       </padding>
-                                    </StackPane>
+                                    </AnchorPane>
                                     <CheckBox fx:id="checkToShowPassword" mnemonicParsing="false" text="Show Password">
                                        <VBox.margin>
                                           <Insets left="420.0" top="5.0" />
