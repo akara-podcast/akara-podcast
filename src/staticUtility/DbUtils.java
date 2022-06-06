@@ -2,6 +2,8 @@ package staticUtility;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -10,6 +12,9 @@ import static java.sql.DriverManager.getConnection;
 
 
 public class DbUtils {
+
+    private static String retrievedName;
+    private static String retrievedPassword;
     public static void signUpUser(ActionEvent event, String name, String email, String password, LocalDate created_at) {
 
         Connection connection = null;
@@ -71,7 +76,7 @@ public class DbUtils {
         }
     }
 
-    public static void logInUser(ActionEvent event, String email, String password) {
+    public static void logInUser(ActionEvent event, Label alertLabel, String email, String password) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -86,17 +91,24 @@ public class DbUtils {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Email or Password are incorrect!");
                 alert.show();
+                alert.close();
+
+                alertLabel.setText("Email or Password are incorrect!");
+                alertLabel.setTextFill(Color.RED);
             }   else {
                 while (resultSet.next()) {
-                    String retrievedPassword = resultSet.getString("password");
-                    String retrievedName = resultSet.getString("name");
+                    retrievedPassword = resultSet.getString("password");
+                    retrievedName = resultSet.getString("name");
                     if (retrievedPassword.equals(password)) {
 
                     }   else {
                         System.out.println("Password did not match!");
                         Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("The provided credentials are incorrect!");
                         alert.show();
+                        alert.close();
+
+                        alertLabel.setText("The password are incorrect!");
+                        alertLabel.setTextFill(Color.RED);
                     }
                 }
             }
@@ -125,5 +137,12 @@ public class DbUtils {
                 }
             }
         }
+    }
+
+    public static String getRetrievedName() {
+        return retrievedName;
+    }
+    public static String getRetrievedPassword() {
+        return retrievedPassword;
     }
 }
