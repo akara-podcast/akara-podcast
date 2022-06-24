@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -13,7 +14,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -132,27 +132,31 @@
                                           <Insets top="25.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <StackPane fx:id="passwordPane">
+                                    <AnchorPane maxWidth="500.0" prefHeight="39.2" prefWidth="500.0">
                                        <VBox.margin>
-                                          <Insets />
+                                          <Insets left="22.0" />
                                        </VBox.margin>
                                        <children>
-                                          <TextField fx:id="tf_showPassword" maxWidth="500.0" prefHeight="39.0" prefWidth="500.0">
-                                             <StackPane.margin>
-                                                <Insets />
-                                             </StackPane.margin>
-                                          </TextField>
+                                          <TextField fx:id="tf_showPassword" maxWidth="500.0" prefHeight="39.0" prefWidth="500.0" />
                                           <PasswordField fx:id="pf_password" maxWidth="500.0" prefHeight="39.0" prefWidth="500.0" />
                                        </children>
-                                       <padding>
-                                          <Insets right="32.0" />
-                                       </padding>
-                                    </StackPane>
-                                    <CheckBox fx:id="checkToShowPassword" mnemonicParsing="false" text="Show Password">
+                                    </AnchorPane>
+                                    <HBox maxWidth="500.0" prefHeight="18.0" prefWidth="500.0">
                                        <VBox.margin>
-                                          <Insets left="420.0" top="5.0" />
+                                          <Insets left="22.0" top="5.0" />
                                        </VBox.margin>
-                                    </CheckBox>
+                                       <children>
+                                          <Label fx:id="alertLabel" prefHeight="18.0" prefWidth="395.0" textFill="RED">
+                                             <font>
+                                                <Font name="System Italic" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <CheckBox fx:id="checkToShowPassword" mnemonicParsing="false" text="Show Password">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></CheckBox>
+                                       </children>
+                                    </HBox>
                                     <Button fx:id="loginButton" mnemonicParsing="false" onMouseClicked="#loginClicked" prefHeight="30.0" prefWidth="450.0" style="-fx-border-color: #5d5fef; -fx-border-radius: 9px; -fx-border-width: 2px; -fx-background-color: transparent;" text="Login" textFill="#5d5fef">
                                        <VBox.margin>
                                           <Insets left="45.0" top="15.0" />
@@ -160,6 +164,9 @@
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                     <Button fx:id="button_forget_password" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Forget Password?" textFill="#5d5fef" underline="true">
                                        <font>
@@ -194,6 +201,9 @@
                                        <VBox.margin>
                                           <Insets left="235.0" top="3.0" />
                                        </VBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                  </children>
                               </VBox>

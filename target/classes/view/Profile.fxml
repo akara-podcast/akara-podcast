@@ -65,12 +65,12 @@
                                           <Insets left="15.0" top="15.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <Label text="User Name" textAlignment="CENTER">
+                                    <Label fx:id="userNameLabel" text="User Name" textAlignment="CENTER">
                                        <HBox.margin>
                                           <Insets left="25.0" top="70.0" />
                                        </HBox.margin>
                                        <font>
-                                          <Font name="System Bold" size="18.0" />
+                                          <Font name="System Bold" size="24.0" />
                                        </font>
                                     </Label>
                                  </children>
@@ -87,7 +87,7 @@
                                                 <Insets left="30.0" top="35.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <Label text="user_example@example.com">
+                                          <Label fx:id="emailLabel" text="user_example@example.com">
                                              <font>
                                                 <Font size="13.0" />
                                              </font>
@@ -103,7 +103,7 @@
                                                 <Insets left="30.0" top="35.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <Label text="****************************************">
+                                          <Label fx:id="passwordLabel" text="****************************************">
                                              <font>
                                                 <Font size="13.0" />
                                              </font>

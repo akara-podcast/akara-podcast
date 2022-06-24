@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import staticUtility.DbUtils;
 
 import java.io.IOException;
@@ -31,13 +32,22 @@ public class SignUpController implements Initializable {
     private PasswordField pf_password;
 
     @FXML
+    private TextField tf_password;
+
+    @FXML
     private PasswordField pf_cf_password;
+
+    @FXML
+    private TextField tf_cf_password;
 
     @FXML
     private CheckBox check_showPassword;
 
     @FXML
     private BorderPane signupPane;
+
+    @FXML
+    private Label alertLabel;
 
     @FXML
     public void signUpClicked(MouseEvent event) throws IOException {
@@ -58,10 +68,20 @@ public class SignUpController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
 
+                // check email format
+                boolean format = false;
+                for (int i = 0; i < tf_email.getText().length(); i++) {
+                    if (tf_email.getText().charAt(i) == '@') {
+                        format = true;
+                        break;
+                    }
+                }
+
                 if (!tf_name.getText().trim().isEmpty()
                         && !tf_email.getText().trim().isEmpty()
                         && !pf_password.getText().trim().isEmpty()
-                        && pf_cf_password.getText().equals(pf_password.getText()))
+                        && pf_cf_password.getText().equals(pf_password.getText())
+                        && format)
                 {
                     DbUtils.signUpUser(event, tf_name.getText(), tf_email.getText(),
                                         pf_password.getText(), LocalDate.now());
@@ -69,12 +89,35 @@ public class SignUpController implements Initializable {
                 else {
                     System.out.println("Please fill in all information!");
                     Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("Please fill all information to sign up correctly!");
                     alert.show();
-                }
+                    alert.close();
 
+                    if (!format) {
+                        alertLabel.setText("Your email is wrong format!");
+                    }
+                    else {
+                        alertLabel.setText("Please fill all information to sign up correctly!");
+                    }
+                    alertLabel.setTextFill(Color.RED);
+                }
             }
         });
+
+        // show passwords
+        pf_password.textProperty().bindBidirectional(tf_password.textProperty());
+        pf_cf_password.textProperty().bindBidirectional(tf_cf_password.textProperty());
+        check_showPassword.setSelected(false);
+
+        check_showPassword.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                tf_password.toFront();
+                tf_cf_password.toFront();
+            } else {
+                pf_password.toFront();
+                pf_cf_password.toFront();
+            }
+        });
+
     }
 
 }

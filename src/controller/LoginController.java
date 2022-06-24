@@ -5,13 +5,9 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import staticUtility.DbUtils;
 
 import java.io.IOException;
@@ -40,7 +36,8 @@ public class LoginController implements Initializable {
     private CheckBox checkToShowPassword;
 
     @FXML
-    private StackPane passwordPane;
+    private Label alertLabel;
+
 
     @FXML
     public void loginClicked(MouseEvent event) throws IOException {
@@ -60,7 +57,7 @@ public class LoginController implements Initializable {
         loginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DbUtils.logInUser(event, tf_Email.getText(), pf_password.getText());
+                DbUtils.logInUser(event, alertLabel, tf_Email.getText(), pf_password.getText());
             }
         });
 
