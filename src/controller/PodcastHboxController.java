@@ -1,3 +1,15 @@
+/*-----------------------------------------------------------------------------------------
+ * NAME : PodcastHboxController.java
+ * VER  : v0.1
+ * PROJ : Akara
+ *-----------------------------------------------------------------------------------------
+ *                      H      I      S      T      O      R      Y
+ *-----------------------------------------------------------------------------------------
+ *   DATE        AUTHOR         DESCRIPTION
+ * ----------  --------------  ------------------------------------------------------------
+ * 2022-06-24   Nuth Vireak     creation
+ *---------------------------------------------------------------------------------------*/
+
 package controller;
 
 import javafx.fxml.FXML;
@@ -5,10 +17,20 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.Podcast;
-
 import java.util.Objects;
 
+/**
+ * <PRE>
+ *     --- PodcastHboxController ---
+ * </PRE>
+ * @author Nuth Vireak
+ * @EditDate 2020-06-24
+ */
 public class PodcastHboxController {
+
+//------------------------------------------------------------------------------------
+// fields declaration                                                               |
+//------------------------------------------------------------------------------------
 
     @FXML
     private Label description;
@@ -18,6 +40,11 @@ public class PodcastHboxController {
 
     @FXML
     private Label title;
+
+
+//------------------------------------------------------------------------------------
+//  Methods declaration                                                              |
+//------------------------------------------------------------------------------------
 
     public void setData(Podcast podcast) {
 

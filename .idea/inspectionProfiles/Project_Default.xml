@@ -6,5 +6,8 @@
         <language minSize="85" name="Java" />
       </Languages>
     </inspection_tool>
+    <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ADDITIONAL_TAGS" value="Date,LogicalName:,EditDate" />
+    </inspection_tool>
   </profile>
 </component>
