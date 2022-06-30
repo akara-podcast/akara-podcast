@@ -49,10 +49,22 @@ public class DiscoverController implements Initializable {
     @FXML
     private HBox topPodcastInTechnologyContainer;
 
+    @FXML
+    private HBox topPodcastInHistoryContainer;
+
+    @FXML
+    private HBox topPodcastInComedyContainer;
+
+    @FXML
+    private HBox topPodcastInProgrammingLanguageContainer;
+
     List<Podcast> recentlyPlayed;
     List<Podcast> popularPodcast;
     List<Podcast> topPodcastInGaming;
     List<Podcast> topPodcastInTechnology;
+    List<Podcast> topPodcastInHistory;
+    List<Podcast> topPodcastInComedy;
+    List<Podcast> topPodcastInProgrammingLanguage;
 
 
     //------------------------------------------------------------------------------------
@@ -66,6 +78,9 @@ public class DiscoverController implements Initializable {
         popularPodcast = new ArrayList<>(getPopularPodcast());
         topPodcastInGaming = new ArrayList<>(getTopPodcastInGaming());
         topPodcastInTechnology = new ArrayList<>(getTopPodcastInTechnology());
+        topPodcastInHistory = new ArrayList<>(getTopPodcastInHistory());
+        topPodcastInComedy = new ArrayList<>(getTopPodcastInComedy());
+        topPodcastInProgrammingLanguage = new ArrayList<>(getTopPodcastInProgrammingLanguage());
 
         try {
 
@@ -114,6 +129,42 @@ public class DiscoverController implements Initializable {
                 podcastVboxController.setData(podcast);
 
                 topPodcastInTechnologyContainer.getChildren().add(vBox);
+
+            }
+
+            for (Podcast podcast : topPodcastInHistory) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/view/podcastVbox.fxml"));
+
+                VBox vBox = fxmlLoader.load();
+                PodcastVboxController podcastVboxController = fxmlLoader.getController();
+                podcastVboxController.setData(podcast);
+
+                topPodcastInHistoryContainer.getChildren().add(vBox);
+
+            }
+
+            for (Podcast podcast : topPodcastInComedy) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/view/podcastVbox.fxml"));
+
+                VBox vBox = fxmlLoader.load();
+                PodcastVboxController podcastVboxController = fxmlLoader.getController();
+                podcastVboxController.setData(podcast);
+
+                topPodcastInComedyContainer.getChildren().add(vBox);
+
+            }
+
+            for (Podcast podcast : topPodcastInProgrammingLanguage) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/view/podcastVbox.fxml"));
+
+                VBox vBox = fxmlLoader.load();
+                PodcastVboxController podcastVboxController = fxmlLoader.getController();
+                podcastVboxController.setData(podcast);
+
+                topPodcastInProgrammingLanguageContainer.getChildren().add(vBox);
 
             }
 
@@ -304,6 +355,210 @@ public class DiscoverController implements Initializable {
 
 
     private List<Podcast> getTopPodcastInTechnology() {
+
+        List<Podcast> ls = new ArrayList<>();
+
+        Podcast podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        return ls;
+    }
+
+
+    private List<Podcast> getTopPodcastInHistory() {
+
+        List<Podcast> ls = new ArrayList<>();
+
+        Podcast podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        return ls;
+    }
+
+
+    private List<Podcast> getTopPodcastInComedy() {
+
+        List<Podcast> ls = new ArrayList<>();
+
+        Podcast podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        podcast = new Podcast();
+        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
+        podcast.setCover("/image/Podcast_EP-10-web_1.png");
+        ls.add(podcast);
+
+        return ls;
+    }
+
+
+    private List<Podcast> getTopPodcastInProgrammingLanguage() {
 
         List<Podcast> ls = new ArrayList<>();
 
