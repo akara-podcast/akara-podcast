@@ -11,16 +11,19 @@
  *---------------------------------------------------------------------------------------*/
 
 package controller;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 
 /**
  * <PRE>
@@ -81,6 +84,7 @@ public class MainFormController implements Initializable {
 
         // create a Community VBox object to store the Community VBox in the FXML file
         VBox community = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Community.fxml")));
+        community.setAlignment(Pos.CENTER);
         // set the Community VBox to the center of the BorderPane of the MainForm
         borderPane.setCenter(community);
     }
@@ -170,4 +174,11 @@ public class MainFormController implements Initializable {
         borderPane.setCenter(login);
     }
 
+    @FXML
+    public void feedbackClicked(MouseEvent event) throws IOException {
+        // create a Feedback VBox object to store the Feedback VBox in the FXML file
+        VBox feedback = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Feedback.fxml")));
+        // set the Feedback VBox to the center of the BorderPane of the MainForm
+        borderPane.setCenter(feedback);
+    }
 }
