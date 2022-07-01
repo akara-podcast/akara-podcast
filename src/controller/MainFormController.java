@@ -42,7 +42,7 @@ public class MainFormController implements Initializable {
 
 
 //------------------------------------------------------------------------------------
-//  Methods declaration                                                              |
+//  Methods declaration s                                                             |
 //------------------------------------------------------------------------------------
 
     /**
