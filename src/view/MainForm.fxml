@@ -16,7 +16,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
    <children>
-      <BorderPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" styleClass="primary-color" stylesheets="@../css/style.css">
+      <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="primary-color" stylesheets="@../css/style.css">
          <left>
             <HBox prefHeight="100.0" prefWidth="283.0" styleClass="secondary-color" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
                <children>
@@ -208,9 +208,9 @@
                               <Insets bottom="20.0" top="20.0" />
                            </VBox.margin>
                         </Separator>
-                        <HBox alignment="CENTER_LEFT" maxWidth="244.0" onMouseClicked="#modeClicked" prefHeight="45.0" prefWidth="244.0">
+                        <HBox alignment="CENTER_LEFT" maxWidth="244.0" prefHeight="45.0" prefWidth="244.0">
                            <children>
-                              <Button fx:id="modeButton" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
                                  <graphic>
                                     <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -219,7 +219,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label fx:id="modeLabel" text="Light Mode">
+                              <Label text="Light Mode">
                                  <font>
                                     <Font name="CircularStd-Medium" size="16.0" />
                                  </font>
@@ -273,7 +273,7 @@
          <center>
             <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <top>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="200.0" spacing="10.0" styleClass="secondary-color" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #FFFF;" BorderPane.alignment="CENTER">
                      <children>
                         <Button fx:id="profileButton" mnemonicParsing="false" onMouseClicked="#profileClicked" style="-fx-background-color: transparent;">
                            <graphic>
@@ -312,7 +312,6 @@
                   </HBox>
                </top>
             </BorderPane>
-         </center>
-      </BorderPane>
+         </center></BorderPane>
    </children>
 </StackPane>

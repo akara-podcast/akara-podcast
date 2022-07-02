@@ -16,7 +16,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -39,13 +38,8 @@ public class MainFormController implements Initializable {
 // fields declaration                                                               |
 //------------------------------------------------------------------------------------
     @FXML
-    private BorderPane mainPane;
-
-    @FXML
     private BorderPane borderPane;
 
-    @FXML
-    private Label modeLabel;
 
 //------------------------------------------------------------------------------------
 //  Methods declaration s                                                             |
@@ -186,32 +180,5 @@ public class MainFormController implements Initializable {
         VBox feedback = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Feedback.fxml")));
         // set the Feedback VBox to the center of the BorderPane of the MainForm
         borderPane.setCenter(feedback);
-    }
-
-    private boolean isLightMode = true;
-    @FXML
-    public void modeClicked(MouseEvent event) throws IOException {
-        isLightMode = !isLightMode;
-        if(!isLightMode) {
-            modeLabel.setText("Dark Mode");
-            setDarkMode();
-        }
-        else {
-            modeLabel.setText("Light Mode");
-            setLightMode();
-        }
-    }
-
-
-    private void setLightMode() {
-        mainPane.getStylesheets().remove((getClass().getResource("/css/darkMode.css")).toString());
-        mainPane.getStylesheets().add((getClass().getResource("/css/style.css")).toString());
-        System.out.println("Light");
-    }
-
-    private void setDarkMode() {
-        mainPane.getStylesheets().add((getClass().getResource("/css/style.css")).toString());
-        mainPane.getStylesheets().add((getClass().getResource("/css/darkMode.css")).toString());
-        System.out.println("Dark");
     }
 }
