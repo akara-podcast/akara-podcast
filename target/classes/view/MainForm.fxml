@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="primary-color" stylesheets="@../css/style.css">
          <left>
@@ -208,18 +208,18 @@
                               <Insets bottom="20.0" top="20.0" />
                            </VBox.margin>
                         </Separator>
-                        <HBox alignment="CENTER_LEFT" maxWidth="244.0" prefHeight="45.0" prefWidth="244.0">
+                        <HBox alignment="CENTER_LEFT" maxWidth="244.0" onMouseClicked="#modeClicked" prefHeight="45.0" prefWidth="244.0">
                            <children>
                               <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
                                  <graphic>
-                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="modeIcon" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../image/Light-mode.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label text="Light Mode">
+                              <Label fx:id="modeLabel" text="Light Mode">
                                  <font>
                                     <Font name="CircularStd-Medium" size="16.0" />
                                  </font>
