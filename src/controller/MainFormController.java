@@ -19,7 +19,6 @@ import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
@@ -30,7 +29,7 @@ import java.util.ResourceBundle;
  *     --- MainFormController ---
  * </PRE>
  * @author Nuth Vireak
- * @EditDate 2020-06-24
+ * @EditDate 2020-07-02
  */
 public class MainFormController implements Initializable {
 
@@ -40,6 +39,8 @@ public class MainFormController implements Initializable {
     @FXML
     private BorderPane borderPane;
 
+    @FXML
+    private VBox mediaPlayerContainer;
 
 //------------------------------------------------------------------------------------
 //  Methods declaration s                                                             |
@@ -59,9 +60,16 @@ public class MainFormController implements Initializable {
         // create a Discover VBox object to store the Discover VBox in the FXML file
         VBox discover;
 
+        // create a VBox object to store the MediaPlayer VBox in the FXML file
+        VBox mediaPlayer;
+
         try {
             // load the FXML file and store it in the Discover variable
             discover = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Discover.fxml")));
+
+            // load the FXML file and store it in the MediaPlayer variable
+            mediaPlayer = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/MediaPlayer.fxml")));
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -69,6 +77,10 @@ public class MainFormController implements Initializable {
 
         // set the Discover VBox to the center of the BorderPane of the MainForm
         borderPane.setCenter(discover);
+
+        // set the MediaPlayer VBox to the bottom of the BorderPane of the MainForm
+        mediaPlayerContainer.getChildren().add(mediaPlayer);
+
     }
 
 
