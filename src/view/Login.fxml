@@ -144,14 +144,22 @@
                                           <PasswordField fx:id="pf_password" prefHeight="39.0" prefWidth="500.0" />
                                        </children>
                                     </AnchorPane>
-                                    <CheckBox fx:id="checkToShowPassword" alignment="TOP_LEFT" contentDisplay="TOP" mnemonicParsing="false" prefWidth="110.0" text="Show Password">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
+                                    <HBox>
                                        <VBox.margin>
-                                          <Insets left="415.0" top="5.0" />
+                                          <Insets left="22.0" right="60.0" top="5.0" />
                                        </VBox.margin>
-                                    </CheckBox>
+                                       <children>
+                                          <Label fx:id="alertLabel" prefHeight="17.0" prefWidth="396.0" />
+                                          <CheckBox fx:id="checkToShowPassword" alignment="TOP_LEFT" contentDisplay="TOP" mnemonicParsing="false" prefWidth="110.0" text="Show Password">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </CheckBox>
+                                       </children>
+                                    </HBox>
                                     <Button fx:id="loginButton" mnemonicParsing="false" onMouseClicked="#loginClicked" prefHeight="30.0" prefWidth="450.0" style="-fx-border-color: #5d5fef; -fx-border-radius: 9px; -fx-border-width: 2px; -fx-background-color: transparent;" text="Login" textFill="#5d5fef">
                                        <VBox.margin>
                                           <Insets left="45.0" top="15.0" />
