@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox minHeight="-Infinity" minWidth="-Infinity" styleClass="primary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0">
          <children>
-            <Label prefHeight="7.0" prefWidth="133.0" text="Feedback">
+            <Label prefHeight="7.0" prefWidth="133.0" styleClass="primary-color" text="Feedback">
                <font>
                   <Font name="CircularStd-Medium" size="18.0" />
                </font>
@@ -51,7 +51,7 @@
          </children>
       </HBox>
       <Separator prefWidth="200.0" />
-      <Label text="What do you think about our Akara Podcast?">
+      <Label styleClass="primary-color" text="What do you think about our Akara Podcast?">
          <font>
             <Font size="15.0" />
          </font>
@@ -59,7 +59,7 @@
             <Insets left="10.0" top="10.0" />
          </VBox.margin>
       </Label>
-      <CheckBox mnemonicParsing="false" text="Great">
+      <CheckBox mnemonicParsing="false" styleClass="primary-color" text="Great">
          <VBox.margin>
             <Insets left="10.0" top="5.0" />
          </VBox.margin>
@@ -67,7 +67,7 @@
             <Font size="15.0" />
          </font>
       </CheckBox>
-      <CheckBox mnemonicParsing="false" text="Good">
+      <CheckBox mnemonicParsing="false" styleClass="primary-color" text="Good">
          <VBox.margin>
             <Insets left="10.0" top="9.0" />
          </VBox.margin>
@@ -75,7 +75,7 @@
             <Font size="15.0" />
          </font>
       </CheckBox>
-      <CheckBox mnemonicParsing="false" text="Not Bad">
+      <CheckBox mnemonicParsing="false" styleClass="primary-color" text="Not Bad">
          <VBox.margin>
             <Insets left="10.0" top="9.0" />
          </VBox.margin>
@@ -83,7 +83,7 @@
             <Font size="15.0" />
          </font>
       </CheckBox>
-      <CheckBox mnemonicParsing="false" text="Bad">
+      <CheckBox mnemonicParsing="false" styleClass="primary-color" text="Bad">
          <VBox.margin>
             <Insets left="10.0" top="9.0" />
          </VBox.margin>
@@ -91,7 +91,7 @@
             <Font size="15.0" />
          </font>
       </CheckBox>
-      <Label text="Recommend us more...">
+      <Label styleClass="primary-color" text="Recommend us more...">
          <font>
             <Font size="15.0" />
          </font>

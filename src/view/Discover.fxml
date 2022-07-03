@@ -12,15 +12,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" minWidth="-Infinity" prefWidth="987.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DiscoverController">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefWidth="987.0" styleClass="primary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DiscoverController">
    <children>
-      <ScrollPane fitToWidth="true" prefHeight="103.0" prefWidth="993.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+      <ScrollPane fitToWidth="true" prefHeight="103.0" prefWidth="993.0" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
          <content>
             <VBox prefWidth="991.0">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                      <children>
-                        <Label prefHeight="7.0" prefWidth="133.0" text="Recently played">
+                        <Label prefHeight="7.0" prefWidth="133.0" styleClass="primary-color" text="Recently played">
                            <font>
                               <Font name="CircularStd-Medium" size="18.0" />
                            </font>
@@ -67,7 +67,7 @@
                      </padding></ScrollPane>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                      <children>
-                        <Label prefHeight="23.0" prefWidth="139.0" text="Popular Podcast">
+                        <Label prefHeight="23.0" prefWidth="139.0" styleClass="primary-color" text="Popular Podcast">
                            <font>
                               <Font name="CircularStd-Medium" size="18.0" />
                            </font>
@@ -111,7 +111,7 @@
                   </ScrollPane>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                      <children>
-                        <Label prefHeight="23.0" prefWidth="236.0" text="Top Podcast in Gaming">
+                        <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in Gaming">
                            <font>
                               <Font name="CircularStd-Medium" size="18.0" />
                            </font>
@@ -155,7 +155,7 @@
                   </ScrollPane>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                      <children>
-                        <Label prefHeight="23.0" prefWidth="236.0" text="Top Podcast in Technology">
+                        <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in Technology">
                            <font>
                               <Font name="CircularStd-Medium" size="18.0" />
                            </font>
@@ -199,7 +199,7 @@
                   </ScrollPane>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                      <children>
-                        <Label prefHeight="23.0" prefWidth="236.0" text="Top Podcast in History">
+                        <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in History">
                            <font>
                               <Font name="CircularStd-Medium" size="18.0" />
                            </font>
@@ -243,7 +243,7 @@
                   </ScrollPane>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                      <children>
-                        <Label prefHeight="23.0" prefWidth="236.0" text="Top Podcast in Comedy">
+                        <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in Comedy">
                            <font>
                               <Font name="CircularStd-Medium" size="18.0" />
                            </font>
@@ -287,7 +287,7 @@
                   </ScrollPane>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                      <children>
-                        <Label prefHeight="23.0" prefWidth="370.0" text="Top Podcast in Programming language">
+                        <Label prefHeight="23.0" prefWidth="370.0" styleClass="primary-color" text="Top Podcast in Programming language">
                            <font>
                               <Font name="CircularStd-Medium" size="18.0" />
                            </font>

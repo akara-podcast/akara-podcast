@@ -16,7 +16,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="primary-color" stylesheets="@../css/style.css">
+      <BorderPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" styleClass="primary-color" stylesheets="@../css/style.css">
          <left>
             <HBox prefHeight="100.0" prefWidth="283.0" styleClass="secondary-color" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
                <children>
@@ -79,7 +79,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label text="Discover">
+                              <Label styleClass="secondary-color" text="Discover">
                                  <font>
                                     <Font name="CircularStd-Medium" size="16.0" />
                                  </font>
@@ -106,7 +106,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label text="Trending">
+                              <Label styleClass="secondary-color" text="Trending">
                                  <font>
                                     <Font name="CircularStd-Medium" size="16.0" />
                                  </font>
@@ -133,7 +133,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label text="Favorite">
+                              <Label styleClass="secondary-color" text="Favorite">
                                  <font>
                                     <Font name="CircularStd-Medium" size="16.0" />
                                  </font>
@@ -160,7 +160,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label text="Playlist">
+                              <Label styleClass="secondary-color" text="Playlist">
                                  <font>
                                     <Font name="CircularStd-Medium" size="16.0" />
                                  </font>
@@ -187,7 +187,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label text="Community">
+                              <Label styleClass="secondary-color" text="Community">
                                  <font>
                                     <Font name="CircularStd-Medium" size="16.0" />
                                  </font>
@@ -219,7 +219,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label fx:id="modeLabel" text="Light Mode">
+                              <Label fx:id="modeLabel" styleClass="secondary-color" text="Light Mode">
                                  <font>
                                     <Font name="CircularStd-Medium" size="16.0" />
                                  </font>
@@ -246,7 +246,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label text="Feedback">
+                              <Label styleClass="secondary-color" text="Feedback">
                                  <font>
                                     <Font name="CircularStd-Medium" size="16.0" />
                                  </font>
@@ -271,9 +271,9 @@
             </HBox>
          </left>
          <center>
-            <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" styleClass="secondary-color" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
                <top>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #FFFF;" BorderPane.alignment="CENTER">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="200.0" spacing="10.0" styleClass="primary-color" BorderPane.alignment="CENTER">
                      <children>
                         <Button fx:id="profileButton" mnemonicParsing="false" onMouseClicked="#profileClicked" style="-fx-background-color: transparent;">
                            <graphic>

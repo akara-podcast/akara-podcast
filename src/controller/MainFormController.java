@@ -41,6 +41,9 @@ public class MainFormController implements Initializable {
     private BorderPane borderPane;
 
     @FXML
+    private BorderPane mainPane;
+
+    @FXML
     private VBox mediaPlayerContainer;
 
     @FXML
@@ -214,14 +217,14 @@ public class MainFormController implements Initializable {
 
 
     private void setLightMode() {
-        borderPane.getStylesheets().remove((getClass().getResource("/css/darkMode.css")).toString());
-        borderPane.getStylesheets().add((getClass().getResource("/css/style.css")).toString());
+        mainPane.getStylesheets().remove((getClass().getResource("/css/darkMode.css")).toString());
+        mainPane.getStylesheets().add((getClass().getResource("/css/style.css")).toString());
         System.out.println("Light");
     }
 
     private void setDarkMode() {
-        borderPane.getStylesheets().add((getClass().getResource("/css/style.css")).toString());
-        borderPane.getStylesheets().add((getClass().getResource("/css/darkMode.css")).toString());
+        mainPane.getStylesheets().add((getClass().getResource("/css/style.css")).toString());
+        mainPane.getStylesheets().add((getClass().getResource("/css/darkMode.css")).toString());
         System.out.println("Dark");
     }
 }

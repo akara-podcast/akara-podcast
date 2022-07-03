@@ -17,16 +17,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="signupPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
+<BorderPane fx:id="signupPane" styleClass="primary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
    <center>
-      <VBox minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FFFF;">
+      <VBox minHeight="-Infinity" minWidth="-Infinity" styleClass="primary-color">
          <padding>
             <Insets left="24.0" right="24.0" />
          </padding>
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="50.0">
                <children>
-                  <Label prefHeight="7.0" prefWidth="133.0" text="Sign Up">
+                  <Label prefHeight="7.0" prefWidth="133.0" styleClass="primary-color" text="Sign Up">
                      <font>
                         <Font name="CircularStd-Medium" size="18.0" />
                      </font>
@@ -114,7 +114,7 @@
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="13.0" prefWidth="145.0" text="Name">
+                                    <Label alignment="CENTER" prefHeight="13.0" prefWidth="145.0" styleClass="primary-color" text="Name">
                                        <padding>
                                           <Insets right="65.0" />
                                        </padding>
@@ -130,7 +130,7 @@
                                           <TextField fx:id="tf_name" prefHeight="39.0" prefWidth="500.0" />
                                        </children>
                                     </AnchorPane>
-                                    <Label alignment="CENTER" prefHeight="13.0" prefWidth="145.0" text="Email">
+                                    <Label alignment="CENTER" prefHeight="13.0" prefWidth="145.0" styleClass="primary-color" text="Email">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
@@ -146,7 +146,7 @@
                                           <TextField fx:id="tf_email" prefHeight="39.0" prefWidth="500.0" />
                                        </children>
                                     </AnchorPane>
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Password">
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" styleClass="primary-color" text="Password">
                                        <VBox.margin>
                                           <Insets top="15.0" />
                                        </VBox.margin>
@@ -160,7 +160,7 @@
                                           <PasswordField fx:id="pf_password" maxWidth="500.0" prefHeight="39.0" prefWidth="501.0" />
                                        </children>
                                     </AnchorPane>
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Comfirm Password">
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" styleClass="primary-color" text="Comfirm Password">
                                        <VBox.margin>
                                           <Insets left="22.0" top="15.0" />
                                        </VBox.margin>
@@ -180,7 +180,7 @@
                                        </VBox.margin>
                                        <children>
                                           <Label fx:id="alertLabel" prefHeight="17.0" prefWidth="392.0" />
-                                          <CheckBox fx:id="check_showPassword" mnemonicParsing="false" prefHeight="17.0" prefWidth="105.0" text="Show Password">
+                                          <CheckBox fx:id="check_showPassword" mnemonicParsing="false" prefHeight="17.0" prefWidth="105.0" styleClass="primary-color" text="Show Password">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
