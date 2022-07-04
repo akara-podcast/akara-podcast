@@ -1,30 +1,34 @@
 .primary-color {
-    -fx-background-color: #EBEDF0;
+    -fx-background-color: #FFFF;
+    -fx-text-fill: #000000;
 }
 
 .secondary-color {
     -fx-background-color: #FFFF;
-}
-.primary-color {
-    -fx-background-color: #EBEDF0;
-}
-
-.secondary-color {
-    -fx-background-color: #FFFF;
+    -fx-text-fill: #000000;
 }
 
 .search-container {
     -fx-background-color: #FFFF;
     -fx-border-color: #D7D7D7;
     -fx-border-radius: 4;
+    -fx-text-fill: #000000;
 }
 
 .menu-bar {
-    -fx-border-color: #EBEDF0;
+    -fx-border-color: #D7D7D7;
     -fx-border-width: 0 5 0 0;
     -fx-background-color: #FFFF;
+    -fx-text-fill: #000000;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
 }
 
 .scroll-pane > .viewport {
     -fx-background-color: #FFFF;
+    -fx-text-fill: #000000;
+
 }
+
