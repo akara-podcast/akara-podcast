@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="173.0" spacing="2.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PodcastVboxController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="173.0" spacing="2.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PodcastVboxController">
    <children>
       <ImageView fx:id="img" fitHeight="176.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/ScreenShot2021-12-07at14.271.png" />
          </image>
       </ImageView>
-      <Label fx:id="title" maxWidth="155.0" prefWidth="173.0" text="កម្មវិធីតោះនិយាយប្រវត្តិជាមួយនឹងហេ្គម" wrapText="true">
+      <Label fx:id="title" maxWidth="155.0" prefWidth="173.0" styleClass="primary-color" text="កម្មវិធីតោះនិយាយប្រវត្តិជាមួយនឹងហេ្គម" wrapText="true">
          <font>
             <Font name="Chantrea SR UI" size="14.0" />
          </font>
