@@ -18,6 +18,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import model.Podcast;
+import podcastData.Data;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -65,8 +67,6 @@ public class DiscoverController implements Initializable {
     List<Podcast> topPodcastInHistory;
     List<Podcast> topPodcastInComedy;
     List<Podcast> topPodcastInProgrammingLanguage;
-
-
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
@@ -173,116 +173,35 @@ public class DiscoverController implements Initializable {
         }
     }
 
-
     private List<Podcast> getRecentlyPlayed() {
 
-        List<Podcast> ls = new ArrayList<>();
+        Data data = new Data();
+        List<Podcast> recentlyPlayed = new ArrayList<>();
 
-        Podcast podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setDescription("តេស្តលេងៗហ្នឹងហារ អ្នកទាំងអស់គ្នាគិតយ៉ាងម៊ិចចំពោះ Podcast សាកល្បងមួយនេះ?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
+        // loop through the list of Data and find the ones that have the recentlyPlayed attribute set to true
+        for (Podcast d : data.podcastList()) {
+            if (d.getWasPlayed()) {
+                recentlyPlayed.add(d);
+            }
+        }
 
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setDescription("តេស្តលេងៗហ្នឹងហារ អ្នកទាំងអស់គ្នាគិតយ៉ាងម៊ិចចំពោះ Podcast សាកល្បងមួយនេះ?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setDescription("តេស្តលេងៗហ្នឹងហារ អ្នកទាំងអស់គ្នាគិតយ៉ាងម៊ិចចំពោះ Podcast សាកល្បងមួយនេះ?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setDescription("តេស្តលេងៗហ្នឹងហារ អ្នកទាំងអស់គ្នាគិតយ៉ាងម៊ិចចំពោះ Podcast សាកល្បងមួយនេះ?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setDescription("តេស្តលេងៗហ្នឹងហារ អ្នកទាំងអស់គ្នាគិតយ៉ាងម៊ិចចំពោះ Podcast សាកល្បងមួយនេះ?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setDescription("តេស្តលេងៗហ្នឹងហារ អ្នកទាំងអស់គ្នាគិតយ៉ាងម៊ិចចំពោះ Podcast សាកល្បងមួយនេះ?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        return ls;
+        return recentlyPlayed;
     }
 
 
     private List<Podcast> getPopularPodcast() {
 
-        List<Podcast> ls = new ArrayList<>();
+        Data data = new Data();
+        List<Podcast> popularPodcast = new ArrayList<>();
 
-        Podcast podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
+        // loop through the list of Data and find the ones that have the popular attribute set to true
+        for (Podcast d : data.podcastList()) {
+            if (d.getViewCount() > 5000) {
+                popularPodcast.add(d);
+            }
+        }
 
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        podcast = new Podcast();
-        podcast.setTitle("Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?");
-        podcast.setCover("/image/Podcast_EP-10-web_1.png");
-        ls.add(podcast);
-
-        return ls;
+        return popularPodcast;
     }
 
 
