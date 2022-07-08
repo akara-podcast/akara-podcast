@@ -1,3 +1,17 @@
+/*-----------------------------------------------------------------------------------------
+ * NAME : MediaPlayerController.java
+ * VER  : v0.1
+ * PROJ : Akara
+ *-----------------------------------------------------------------------------------------
+ *                      H      I      S      T      O      R      Y
+ *-----------------------------------------------------------------------------------------
+ *   DATE        AUTHOR         DESCRIPTION
+ * ----------  --------------  ------------------------------------------------------------
+ * 2022-07-06   Nuth Vireak     creation
+ * ----------  --------------  ---------------------------------------------------------
+ * 2022-07-08   Nuth Vireak     Modification
+ *---------------------------------------------------------------------------------------*/
+
 package controller;
 
 import javafx.event.ActionEvent;
@@ -18,6 +32,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MediaPlayerController implements Initializable {
+
+    //------------------------------------------------------------------------------------
+    // fields declaration                                                               |
+    //------------------------------------------------------------------------------------
 
     @FXML
     private ImageView img;
@@ -60,6 +78,11 @@ public class MediaPlayerController implements Initializable {
     private Timer timer;
     private TimerTask task;
     private boolean running;
+
+
+    //------------------------------------------------------------------------------------
+    //  Methods declarations                                                             |
+    //------------------------------------------------------------------------------------
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

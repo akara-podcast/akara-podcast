@@ -8,6 +8,8 @@
  *   DATE        AUTHOR         DESCRIPTION
  * ----------  --------------  ------------------------------------------------------------
  * 2022-06-24   Nuth Vireak     creation
+ * ----------  --------------  ------------------------------------------------------------
+ * 2022-07-08   Nuth Vireak     Modification
  *---------------------------------------------------------------------------------------*/
 
 package controller;
@@ -19,18 +21,12 @@ import javafx.scene.image.ImageView;
 import model.Podcast;
 import java.util.Objects;
 
-/**
- * <PRE>
- *     --- PodcastHboxController ---
- * </PRE>
- * @author Nuth Vireak
- * @EditDate 2020-06-24
- */
+
 public class PodcastHboxController {
 
-//------------------------------------------------------------------------------------
-// fields declaration                                                               |
-//------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------
+    // fields declaration                                                               |
+    //------------------------------------------------------------------------------------
 
     @FXML
     private Label description;
@@ -41,16 +37,26 @@ public class PodcastHboxController {
     @FXML
     private Label title;
 
+    //------------------------------------------------------------------------------------
+    //  Methods declaration                                                              |
+    //------------------------------------------------------------------------------------
 
-//------------------------------------------------------------------------------------
-//  Methods declaration                                                              |
-//------------------------------------------------------------------------------------
-
+    /**
+     * Set the data of the Hbox (Podcast)
+     * @param podcast the podcast
+     */
     public void setData(Podcast podcast) {
 
+        // create an image object
         Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
+
+        // set the image object to the image view
         img.setImage(image);
+
+        // set the title text
         title.setText(podcast.getTitle());
+
+        // set the description text
         description.setText(podcast.getDescription());
     }
 }
