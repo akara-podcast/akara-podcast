@@ -23,6 +23,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.net.URL;
@@ -108,27 +109,122 @@ public class MediaPlayerController implements Initializable {
     }
 
     @FXML
-    void nextMedia(ActionEvent event) {
+    void playMedia() {
 
-    }
-
-    @FXML
-    void playMedia(ActionEvent event) {
-
+        beginTimer();
+        mediaPlayer.play();
     }
 
     @FXML
     void previousMedia(ActionEvent event) {
 
+        if (songNumbers > 0) {
+
+            songNumbers--;
+
+            mediaPlayer.stop();
+
+            if (running) {
+                cancelTimer();
+            }
+
+            media = new Media(songs.get(songNumbers).toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+
+            title.setText(songs.get(songNumbers).getName());
+
+            playMedia();
+        }
+        else {
+
+            songNumbers = songs.size() - 1;
+
+            mediaPlayer.stop();
+
+            media = new Media(songs.get(songNumbers).toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+
+            title.setText(songs.get(songNumbers).getName());
+
+            playMedia();
+        }
+    }
+
+    @FXML
+    void nextMedia(ActionEvent event) {
+
+        if (songNumbers < songs.size() - 1) {
+
+            songNumbers++;
+
+            mediaPlayer.stop();
+
+            if (running) {
+                cancelTimer();
+            }
+
+            media = new Media(songs.get(songNumbers).toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+
+            title.setText(songs.get(songNumbers).getName());
+
+            playMedia();
+        }
+        else {
+
+            songNumbers = 0;
+
+            mediaPlayer.stop();
+
+            if (running) {
+                cancelTimer();
+            }
+
+            media = new Media(songs.get(songNumbers).toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+
+            title.setText(songs.get(songNumbers).getName());
+
+            playMedia();
+        }
     }
 
     @FXML
     void replayMedia(ActionEvent event) {
 
+        podcastProgressBar.setProgress(0);
+        mediaPlayer.seek(Duration.seconds(0));
     }
 
     @FXML
     void suffleMedia(ActionEvent event) {
 
+    }
+
+    public void beginTimer() {
+
+        timer = new Timer();
+        task = new TimerTask() {
+
+            @Override
+            public void run() {
+                running = true;
+                double current = mediaPlayer.getCurrentTime().toSeconds();
+                double end = media.getDuration().toSeconds();
+                System.out.println(current/end);
+                podcastProgressBar.setProgress(current/end);
+
+                if (current/end == 1) {
+                    cancelTimer();
+                }
+            }
+        };
+
+        timer.scheduleAtFixedRate(task, 1000, 1000);
+    }
+
+    public void cancelTimer() {
+        running = false;
+        timer.cancel();
     }
 }

@@ -32,3 +32,9 @@
 
 }
 
+.progress-bar .bar {
+    -fx-padding: 1px;
+    -fx-background-insets: 0;
+}
+
+

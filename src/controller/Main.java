@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.Objects;
 
@@ -28,6 +29,8 @@ public class Main extends Application {
         stage.setMaximized(true);
         stage.setTitle("Akara Podcast");
         stage.setScene(scene);
+
+
 
         Image applicationIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/Akara-logo.png")));
         stage.getIcons().add(applicationIcon);
