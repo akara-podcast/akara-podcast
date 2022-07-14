@@ -15,6 +15,12 @@ public class DbUtils {
 
     private static String retrievedName;
     private static String retrievedPassword;
+    private static char[] arrPW;
+    private static StringBuilder pwBuilder = new StringBuilder();
+    private static String strPW = new String();
+    private static int key = 9;
+
+
     public static void signUpUser(ActionEvent event, String name, String email, String password, LocalDate created_at) {
 
         Connection connection = null;
@@ -38,7 +44,17 @@ public class DbUtils {
                 psInsert = connection.prepareStatement("INSERT INTO user (name, email, password, created_at) VALUES (?, ?, ?, ?)");
                 psInsert.setString(1, name);
                 psInsert.setString(2, email);
-                psInsert.setString(3, password);
+
+                // encrypt password and insert into database
+                pwBuilder.setLength(0); // clear string builder
+                arrPW = password.toCharArray();
+                for (char c : arrPW) {
+                    c += key;
+                    pwBuilder.append(c);
+                }
+                strPW = pwBuilder.toString();
+                psInsert.setString(3, strPW);
+
                 psInsert.setDate(4, Date.valueOf(created_at));
                 psInsert.executeUpdate();
             }
@@ -98,6 +114,15 @@ public class DbUtils {
             }   else {
                 while (resultSet.next()) {
                     retrievedPassword = resultSet.getString("password");
+                    pwBuilder.setLength(0); // clear string builder
+                    arrPW = retrievedPassword.toCharArray();
+                    for (char c : arrPW) {
+                        c -= key;
+                        pwBuilder.append(c);
+                    }
+                    strPW = pwBuilder.toString();
+                    retrievedPassword = strPW;
+
                     retrievedName = resultSet.getString("name");
                     if (retrievedPassword.equals(password)) {
 
