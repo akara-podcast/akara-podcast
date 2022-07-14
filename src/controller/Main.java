@@ -30,7 +30,7 @@ public class Main extends Application {
         stage.setTitle("Akara Podcast");
         stage.setScene(scene);
 
-
+        // fuck you
 
         Image applicationIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/Akara-logo.png")));
         stage.getIcons().add(applicationIcon);
