@@ -31,6 +31,7 @@ public class Main extends Application {
         stage.setScene(scene);
 
         // fuck you
+        // nuth vireak create pull request
 
         Image applicationIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/Akara-logo.png")));
         stage.getIcons().add(applicationIcon);
