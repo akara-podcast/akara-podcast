@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MediaPlayerController">
+<VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" styleClass="secondary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MediaPlayerController">
    <children>
       <ProgressBar fx:id="podcastProgressBar" maxWidth="1.7976931348623157E308" prefHeight="8.0" prefWidth="430.0" progress="0.0" />
       <BorderPane maxWidth="1.7976931348623157E308" prefHeight="70.0" prefWidth="1286.0">
@@ -28,7 +28,7 @@
                   </ImageView>
                   <VBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="350.0" spacing="4.0">
                      <children>
-                        <Label fx:id="title" prefHeight="20.0" prefWidth="291.0" text="Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?">
+                        <Label fx:id="title" prefHeight="20.0" prefWidth="291.0" style="-fx-background-color: transparent;" styleClass="primary-color" text="Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?">
                            <font>
                               <Font name="Chantrea SR UI" size="14.0" />
                            </font>
