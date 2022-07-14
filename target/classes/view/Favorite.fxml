@@ -1,10 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FavoriteController">
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FavoriteController">
    <children>
-      <Label text="Favorite" />
+      <HBox prefHeight="180.0" prefWidth="987.0">
+         <children>
+            <ImageView fitHeight="178.0" fitWidth="282.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Podcast_EP-10-web_1.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="20.0" top="40.0" />
+               </HBox.margin>
+            </ImageView>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="222.0" prefWidth="223.0" text="Favourite">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" top="40.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <AnchorPane prefHeight="222.0" prefWidth="634.0" />
+         </children>
+      </HBox>
+      <HBox prefHeight="42.0" prefWidth="987.0">
+         <children>
+            <Label prefHeight="54.0" prefWidth="972.0" text="Your Favourite Podcast:">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <Separator prefWidth="200.0">
+         <VBox.margin>
+            <Insets left="20.0" right="20.0" />
+         </VBox.margin>
+      </Separator>
+      <ScrollPane prefHeight="415.0" prefWidth="957.0">
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="5.0" />
+         </VBox.margin>
+         <content>
+            <HBox prefHeight="577.0" prefWidth="941.0">
+               <children>
+                  <VBox fx:id="favouritePodcastContainer" prefHeight="577.0" prefWidth="224.0" />
+                  <VBox prefHeight="577.0" prefWidth="256.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="201.0" prefWidth="222.0" text="Education">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="30.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="201.0" prefWidth="222.0" text="Education">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="30.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="577.0" prefWidth="236.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="201.0" prefWidth="222.0" text="1hr 45mn">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="30.0" />
+                           </padding>
+                        </Label>
+                        <Label prefHeight="201.0" prefWidth="222.0" text="1hr 45mn">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="30.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="577.0" prefWidth="224.0" spacing="30.0">
+                     <children>
+                        <HBox prefHeight="206.0" prefWidth="76.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/Favorite.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="50.0" top="75.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="30.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/List_Add.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets bottom="2.0" left="50.0" top="75.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="3.0" left="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="195.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/Favorite.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="50.0" top="70.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="30.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/List_Add.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets bottom="2.0" left="50.0" top="70.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </content>
+      </ScrollPane>
    </children>
 </VBox>
