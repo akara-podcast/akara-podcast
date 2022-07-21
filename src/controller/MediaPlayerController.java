@@ -20,17 +20,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
+import model.Podcast;
+import org.w3c.dom.Text;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class MediaPlayerController implements Initializable {
 
@@ -63,7 +63,7 @@ public class MediaPlayerController implements Initializable {
     private Button suffleButton;
 
     @FXML
-    private Label title;
+    public Label title;
 
     @FXML
     private Media media;
@@ -80,10 +80,32 @@ public class MediaPlayerController implements Initializable {
     private TimerTask task;
     private boolean running;
 
+    Podcast podcast = new Podcast();
 
     //------------------------------------------------------------------------------------
     //  Methods declarations                                                             |
     //------------------------------------------------------------------------------------
+
+    public Label getTitle() {
+        return title;
+    }
+
+    public void setTitle(Label title) {
+        this.title = title;
+    }
+
+    public void setData(Podcast podcast) {
+
+        // create an image object
+        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
+
+        // set the image object to the image view
+        img.setImage(image);
+
+        // set the title text
+        title.setText(podcast.getTitle());
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -105,7 +127,7 @@ public class MediaPlayerController implements Initializable {
         media = new Media(songs.get(songNumbers).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
 
-        title.setText(songs.get(songNumbers).getName());
+        title.setText(podcast.getTitle());
     }
 
     @FXML
@@ -227,4 +249,5 @@ public class MediaPlayerController implements Initializable {
         running = false;
         timer.cancel();
     }
+
 }

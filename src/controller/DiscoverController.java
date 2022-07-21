@@ -17,6 +17,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -113,11 +114,11 @@ public class DiscoverController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/view/podcastVbox.fxml"));
 
-                VBox vBox = fxmlLoader.load();
+                AnchorPane anchorPane = fxmlLoader.load();
                 PodcastVboxController podcastVboxController = fxmlLoader.getController();
                 podcastVboxController.setData(podcast);
 
-                popularPodcastContainer.getChildren().add(vBox);
+                popularPodcastContainer.getChildren().add(anchorPane);
 
             }
 
@@ -126,11 +127,11 @@ public class DiscoverController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/view/podcastVbox.fxml"));
 
-                VBox vBox = fxmlLoader.load();
+                AnchorPane anchorPane = fxmlLoader.load();
                 PodcastVboxController podcastVboxController = fxmlLoader.getController();
                 podcastVboxController.setData(podcast);
 
-                topPodcastInGamingContainer.getChildren().add(vBox);
+                topPodcastInGamingContainer.getChildren().add(anchorPane);
 
             }
 
@@ -139,11 +140,11 @@ public class DiscoverController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/view/podcastVbox.fxml"));
 
-                VBox vBox = fxmlLoader.load();
+                AnchorPane anchorPane = fxmlLoader.load();
                 PodcastVboxController podcastVboxController = fxmlLoader.getController();
                 podcastVboxController.setData(podcast);
 
-                topPodcastInTechnologyContainer.getChildren().add(vBox);
+                topPodcastInTechnologyContainer.getChildren().add(anchorPane);
 
             }
 
@@ -152,11 +153,11 @@ public class DiscoverController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/view/podcastVbox.fxml"));
 
-                VBox vBox = fxmlLoader.load();
+                AnchorPane anchorPane = fxmlLoader.load();
                 PodcastVboxController podcastVboxController = fxmlLoader.getController();
                 podcastVboxController.setData(podcast);
 
-                topPodcastInHistoryContainer.getChildren().add(vBox);
+                topPodcastInHistoryContainer.getChildren().add(anchorPane);
 
             }
 
@@ -165,11 +166,11 @@ public class DiscoverController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/view/podcastVbox.fxml"));
 
-                VBox vBox = fxmlLoader.load();
+                AnchorPane anchorPane = fxmlLoader.load();
                 PodcastVboxController podcastVboxController = fxmlLoader.getController();
                 podcastVboxController.setData(podcast);
 
-                topPodcastInComedyContainer.getChildren().add(vBox);
+                topPodcastInComedyContainer.getChildren().add(anchorPane);
 
             }
 
@@ -178,11 +179,11 @@ public class DiscoverController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/view/podcastVbox.fxml"));
 
-                VBox vBox = fxmlLoader.load();
+                AnchorPane anchorPane = fxmlLoader.load();
                 PodcastVboxController podcastVboxController = fxmlLoader.getController();
                 podcastVboxController.setData(podcast);
 
-                topPodcastInProgrammingLanguageContainer.getChildren().add(vBox);
+                topPodcastInProgrammingLanguageContainer.getChildren().add(anchorPane);
 
             }
 

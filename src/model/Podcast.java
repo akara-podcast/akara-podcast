@@ -124,5 +124,4 @@ public class Podcast {
         this.viewCount = viewCount;
     }
 
-
 }

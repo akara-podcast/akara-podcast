@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="173.0" spacing="2.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PodcastVboxController">
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PodcastVboxController">
    <children>
-      <ImageView fx:id="img" fitHeight="176.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/ScreenShot2021-12-07at14.271.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="title" maxWidth="155.0" prefWidth="173.0" styleClass="primary-color" text="កម្មវិធីតោះនិយាយប្រវត្តិជាមួយនឹងហេ្គម" wrapText="true">
-         <font>
-            <Font name="Chantrea SR UI" size="14.0" />
-         </font>
-         <VBox.margin>
-            <Insets left="9.0" right="9.0" />
-         </VBox.margin>
-      </Label>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="173.0" spacing="2.0" stylesheets="@../css/style.css">
+         <children>
+            <ImageView fx:id="img" fitHeight="176.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/ScreenShot2021-12-07at14.271.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="title" maxWidth="155.0" prefWidth="173.0" styleClass="primary-color" text="កម្មវិធីតោះនិយាយប្រវត្តិជាមួយនឹងហេ្គម" wrapText="true">
+               <font>
+                  <Font name="Chantrea SR UI" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="9.0" right="9.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <Button fx:id="playButton" layoutX="51.0" layoutY="56.0" mnemonicParsing="false" onAction="#playMedia" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/play.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
-</VBox>
+</AnchorPane>
