@@ -21,6 +21,7 @@ import java.util.List;
 import com.github.javafaker.Faker;
 import model.RandomGenre;
 import model.RandomImage;
+import model.RandomSoundPodcast;
 
 public class DataInitializer {
 
@@ -40,7 +41,7 @@ public class DataInitializer {
             podcast.setGenre(randomGenre());
             podcast.setArtist(faker.artist().name());
             podcast.setDuration(faker.random().nextInt(30, 60));
-            podcast.setPodcastUrl("podcastSound/KAI-Mascara.mp3");
+            podcast.setPodcastUrl(randomSoundPodcast());
             podcast.setCreatedAt(faker.business().creditCardExpiry());
             podcast.setUpdatedAt(faker.business().creditCardExpiry());
             podcast.setWasPlayed(faker.random().nextBoolean());
@@ -69,4 +70,12 @@ public class DataInitializer {
         return RandomImage.values()[randomNumber].getImageUrl();
     }
 
+    /**
+     * function to generate random podcast sound from the list of podcast sound and get the name of the podcast
+     * @return a random sound podcast from the list of random sound podcast
+     */
+    public String randomSoundPodcast() {
+        int randomNumber = (int) (Math.random() * RandomSoundPodcast.values().length);
+        return RandomSoundPodcast.values()[randomNumber].getSoundPodcastUrl();
+    }
 }
