@@ -16,7 +16,6 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -25,7 +24,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import model.Podcast;
-import podcastData.DataInitializer;
 
 import java.io.File;
 import java.net.URL;
@@ -39,19 +37,20 @@ public class PodcastVboxController implements Initializable {
     //------------------------------------------------------------------------------------
 
     @FXML
-    private ImageView img;
+    private ImageView imgVbox;
 
     @FXML
-    private Label title;
+    private Button playButtonVBox;
 
     @FXML
-    private Button playButton;
+    private Label titleVbox;
 
+    @FXML
+    private Label podcasterVbox;
 
-
-    String path = "podcastSound/I_K_W_Y_B_-_Forget_the_Whale_(2).mp3";
-    Media media = new Media(new File(path).toURI().toString());
-    MediaPlayer mediaPlayer = new MediaPlayer(media);
+    private Media media;
+    private MediaPlayer mediaPlayer;
+    private File file;
 
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
@@ -67,10 +66,17 @@ public class PodcastVboxController implements Initializable {
         Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
 
         // set the image object to the image view
-        img.setImage(image);
+        imgVbox.setImage(image);
 
         // set the title text
-        title.setText(podcast.getTitle());
+        titleVbox.setText(podcast.getTitle());
+
+        podcasterVbox.setText(podcast.getPodcaster());
+
+        file = new File(podcast.getPodcastUrl());
+
+        media = new Media(file.toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
 
     }
 
@@ -80,28 +86,21 @@ public class PodcastVboxController implements Initializable {
 
     }
 
-
     @FXML
-    public void playMedia(ActionEvent actionEvent) throws Exception {
+    public void setDataToMediaPlayer(ActionEvent actionEvent) {
 
-        DataInitializer dataInitializer = new DataInitializer();
-        Podcast podcast = new Podcast();
+        String title = titleVbox.getText();
+        String podcaster = podcasterVbox.getText();
+        String source = media.getSource();
 
-        // check if the media player is playing
-        if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
-            mediaPlayer.stop();
-        } else {
-            mediaPlayer.play();
-        }
+        System.out.println(title);
+        System.out.println(podcaster);
+        System.out.println(source);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MediaPlayer.fxml"));
-        MediaPlayerController mediaPlayerController = loader.getController();
-        loader.setController(mediaPlayerController);
-        mediaPlayerController.title.setText(podcast.getTitle());
-    }
+        mediaPlayer.play();
 
-    public void setDataToMediaController(Podcast podcast) {
+        MediaPlayerController.setTitleMediaPlayerStatic(title);
+        MediaPlayerController.setPodcasterMediaPlayerStatic(podcaster);
 
     }
-
 }

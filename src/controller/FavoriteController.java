@@ -25,22 +25,22 @@ public class FavoriteController implements Initializable {
 
         favouritePodcast = new ArrayList<>(getFavouritePodcast());
 
-        try {
-            for (Podcast podcast : favouritePodcast) {
-
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/view/podcastVbox.fxml"));
-
-                VBox vBox = fxmlLoader.load();
-                PodcastVboxController podcastVboxController = fxmlLoader.getController();
-                podcastVboxController.setData(podcast);
-
-                favouritePodcastContainer.getChildren().add(vBox);
-            }
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            for (Podcast podcast : favouritePodcast) {
+//
+////                FXMLLoader fxmlLoader = new FXMLLoader();
+////                fxmlLoader.setLocation(getClass().getResource("/view/podcastVbox.fxml"));
+////
+////                VBox vBox = fxmlLoader.load();
+////                PodcastVboxController podcastVboxController = fxmlLoader.getController();
+////                podcastVboxController.setData(podcast);
+////
+////                favouritePodcastContainer.getChildren().add(vBox);
+//            }
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     private List<Podcast> getFavouritePodcast() {
