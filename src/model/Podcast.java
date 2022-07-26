@@ -24,7 +24,7 @@ public class Podcast {
     private String title;
     private String description;
     private String genre;
-    private String artist;
+    private String podcaster;
     private int duration;
     private String podcastUrl;
     private String createdAt;
@@ -68,12 +68,12 @@ public class Podcast {
         this.genre = genre;
     }
 
-    public String getArtist() {
-        return artist;
+    public String getPodcaster() {
+        return podcaster;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
+    public void setPodcaster(String podcaster) {
+        this.podcaster = podcaster;
     }
 
     public int getDuration() {

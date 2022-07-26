@@ -14,12 +14,12 @@
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="173.0" spacing="2.0" stylesheets="@../css/style.css">
          <children>
-            <ImageView fx:id="img" fitHeight="176.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgVbox" fitHeight="176.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/ScreenShot2021-12-07at14.271.png" />
                </image>
             </ImageView>
-            <Label fx:id="title" maxWidth="155.0" prefWidth="173.0" styleClass="primary-color" text="កម្មវិធីតោះនិយាយប្រវត្តិជាមួយនឹងហេ្គម" wrapText="true">
+            <Label fx:id="titleVbox" maxWidth="155.0" prefWidth="173.0" styleClass="primary-color" text="កម្មវិធីតោះនិយាយប្រវត្តិជាមួយនឹងហេ្គម" wrapText="true">
                <font>
                   <Font name="Chantrea SR UI" size="14.0" />
                </font>
@@ -29,7 +29,7 @@
             </Label>
          </children>
       </VBox>
-      <Button fx:id="playButton" layoutX="51.0" layoutY="56.0" mnemonicParsing="false" onAction="#playMedia" style="-fx-background-color: transparent;">
+      <Button fx:id="playButtonVBox" layoutX="51.0" layoutY="56.0" mnemonicParsing="false" onAction="#setDataToMediaPlayer" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -41,5 +41,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Label fx:id="podcasterVbox" text="Label" />
    </children>
 </AnchorPane>
