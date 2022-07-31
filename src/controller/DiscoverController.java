@@ -221,7 +221,7 @@ public class DiscoverController implements Initializable {
      * Get the list of podcasts that are popular
      * @return the list of podcasts that are popular
      */
-    private List<Podcast> getPopularPodcast() {
+    public static List<Podcast> getPopularPodcast() {
 
         // Create data initializer object to get the list of all podcasts
         DataInitializer dataInitializer = new DataInitializer();

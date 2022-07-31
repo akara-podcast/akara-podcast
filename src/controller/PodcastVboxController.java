@@ -49,7 +49,6 @@ public class PodcastVboxController implements Initializable {
     private Label podcasterVbox;
 
     private Media media;
-    private MediaPlayer mediaPlayer;
     private File file;
 
     //------------------------------------------------------------------------------------
@@ -76,14 +75,11 @@ public class PodcastVboxController implements Initializable {
         file = new File(podcast.getPodcastUrl());
 
         media = new Media(file.toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
     }
 
     @FXML
@@ -92,15 +88,16 @@ public class PodcastVboxController implements Initializable {
         String title = titleVbox.getText();
         String podcaster = podcasterVbox.getText();
         String source = media.getSource();
+        Image image = imgVbox.getImage();
 
-        System.out.println(title);
-        System.out.println(podcaster);
-        System.out.println(source);
-
-        mediaPlayer.play();
+        System.out.println("title: " + title);
+        System.out.println("podcaster: " + podcaster);
+        System.out.println("source podcast: " + source);
+        System.out.println("");
 
         MediaPlayerController.setTitleMediaPlayerStatic(title);
         MediaPlayerController.setPodcasterMediaPlayerStatic(podcaster);
-
+        MediaPlayerController.setImgMediaPlayerStatic(image);
+        MediaPlayerController.setMediaStatic(media);
     }
 }
