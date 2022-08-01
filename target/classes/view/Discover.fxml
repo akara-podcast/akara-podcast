@@ -8,250 +8,256 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" minWidth="-Infinity" prefWidth="987.0" styleClass="primary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DiscoverController">
-   <children>
-      <ScrollPane fitToWidth="true" prefHeight="103.0" prefWidth="993.0" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
-         <content>
-            <VBox prefWidth="991.0">
-               <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
+<BorderPane fx:id="borderPane" prefWidth="987.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DiscoverController">
+   <center>
+      <VBox minHeight="-Infinity" minWidth="-Infinity" prefWidth="987.0" styleClass="primary-color" stylesheets="@../css/style.css">
+         <children>
+            <ScrollPane fitToWidth="true" prefHeight="103.0" prefWidth="993.0" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+               <content>
+                  <VBox prefWidth="991.0">
                      <children>
-                        <Label prefHeight="7.0" prefWidth="133.0" styleClass="primary-color" text="Recently played">
-                           <font>
-                              <Font name="CircularStd-Medium" size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets top="6.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="83.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                            <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
-                                 <graphic>
-                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../image/Chevron_Left.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
-                                 <graphic>
-                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../image/Chevron_Right.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
+                              <Label prefHeight="7.0" prefWidth="133.0" styleClass="primary-color" text="Recently played">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="6.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                              <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="83.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/Chevron_Left.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/Chevron_Right.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets top="8.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="134.0" prefWidth="989.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                           <content>
+                              <HBox fx:id="recentlyPlayedContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
+                           </content>
+                           <padding>
+                              <Insets bottom="20.0" top="20.0" />
+                           </padding>
+                        </ScrollPane>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
+                           <children>
+                              <Label prefHeight="23.0" prefWidth="210.0" styleClass="primary-color" text="Popular Podcast">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="6.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                              <Label fx:id="seeAllPopularPodcast" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                                 <font>
+                                    <Font name="Chantrea SR UI" size="14.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                           <content>
+                              <HBox fx:id="popularPodcastContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
+                           </content>
+                           <padding>
+                              <Insets bottom="20.0" top="20.0" />
+                           </padding>
+                        </ScrollPane>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
+                           <children>
+                              <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in Gaming">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="6.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                              <Label fx:id="seeAllTopPodcastInGaming" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                                 <font>
+                                    <Font name="Chantrea SR UI" size="14.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                           <content>
+                              <HBox fx:id="topPodcastInGamingContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
+                           </content>
+                           <padding>
+                              <Insets bottom="20.0" top="20.0" />
+                           </padding>
+                        </ScrollPane>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
+                           <children>
+                              <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in Technology">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="6.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                                 <font>
+                                    <Font name="Chantrea SR UI" size="14.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                           <content>
+                              <HBox fx:id="topPodcastInTechnologyContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
+                           </content>
+                           <padding>
+                              <Insets bottom="20.0" top="20.0" />
+                           </padding>
+                        </ScrollPane>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
+                           <children>
+                              <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in History">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="6.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                                 <font>
+                                    <Font name="Chantrea SR UI" size="14.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                           <content>
+                              <HBox fx:id="topPodcastInHistoryContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
+                           </content>
+                           <padding>
+                              <Insets bottom="20.0" top="20.0" />
+                           </padding>
+                        </ScrollPane>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
+                           <children>
+                              <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in Comedy">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="6.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                                 <font>
+                                    <Font name="Chantrea SR UI" size="14.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                           <content>
+                              <HBox fx:id="topPodcastInComedyContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
+                           </content>
+                           <padding>
+                              <Insets bottom="20.0" top="20.0" />
+                           </padding>
+                        </ScrollPane>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
+                           <children>
+                              <Label prefHeight="23.0" prefWidth="370.0" styleClass="primary-color" text="Top Podcast in Programming language">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="6.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                                 <font>
+                                    <Font name="Chantrea SR UI" size="14.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                           <content>
+                              <HBox fx:id="topPodcastInProgrammingLanguageContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
+                           </content>
+                           <padding>
+                              <Insets bottom="20.0" top="20.0" />
+                           </padding>
+                        </ScrollPane>
                      </children>
-                  </HBox>
-                  <Separator prefWidth="200.0">
-                     <VBox.margin>
-                        <Insets top="8.0" />
-                     </VBox.margin>
-                  </Separator>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="134.0" prefWidth="989.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
-                     <content>
-                        <HBox fx:id="recentlyPlayedContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
-                     </content>
-                     <padding>
-                        <Insets bottom="20.0" top="20.0" />
-                     </padding></ScrollPane>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
-                     <children>
-                        <Label prefHeight="23.0" prefWidth="210.0" styleClass="primary-color" text="Popular Podcast">
-                           <font>
-                              <Font name="CircularStd-Medium" size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets top="6.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Label alignment="CENTER_RIGHT" lineSpacing="1.0" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
-                           <font>
-                              <Font name="Chantrea SR UI" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <Separator prefWidth="200.0" />
-                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
-                     <content>
-                        <HBox fx:id="popularPodcastContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
-                     </content>
-                     <padding>
-                        <Insets bottom="20.0" top="20.0" />
-                     </padding>
-                  </ScrollPane>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
-                     <children>
-                        <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in Gaming">
-                           <font>
-                              <Font name="CircularStd-Medium" size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets top="6.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Label alignment="CENTER_RIGHT" lineSpacing="1.0" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
-                           <font>
-                              <Font name="Chantrea SR UI" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <Separator prefWidth="200.0" />
-                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
-                     <content>
-                        <HBox fx:id="topPodcastInGamingContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
-                     </content>
-                     <padding>
-                        <Insets bottom="20.0" top="20.0" />
-                     </padding>
-                  </ScrollPane>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
-                     <children>
-                        <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in Technology">
-                           <font>
-                              <Font name="CircularStd-Medium" size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets top="6.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Label alignment="CENTER_RIGHT" lineSpacing="1.0" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
-                           <font>
-                              <Font name="Chantrea SR UI" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <Separator prefWidth="200.0" />
-                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
-                     <content>
-                        <HBox fx:id="topPodcastInTechnologyContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
-                     </content>
-                     <padding>
-                        <Insets bottom="20.0" top="20.0" />
-                     </padding>
-                  </ScrollPane>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
-                     <children>
-                        <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in History">
-                           <font>
-                              <Font name="CircularStd-Medium" size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets top="6.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Label alignment="CENTER_RIGHT" lineSpacing="1.0" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
-                           <font>
-                              <Font name="Chantrea SR UI" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <Separator prefWidth="200.0" />
-                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
-                     <content>
-                        <HBox fx:id="topPodcastInHistoryContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
-                     </content>
-                     <padding>
-                        <Insets bottom="20.0" top="20.0" />
-                     </padding>
-                  </ScrollPane>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
-                     <children>
-                        <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in Comedy">
-                           <font>
-                              <Font name="CircularStd-Medium" size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets top="6.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Label alignment="CENTER_RIGHT" lineSpacing="1.0" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
-                           <font>
-                              <Font name="Chantrea SR UI" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <Separator prefWidth="200.0" />
-                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
-                     <content>
-                        <HBox fx:id="topPodcastInComedyContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
-                     </content>
-                     <padding>
-                        <Insets bottom="20.0" top="20.0" />
-                     </padding>
-                  </ScrollPane>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
-                     <children>
-                        <Label prefHeight="23.0" prefWidth="370.0" styleClass="primary-color" text="Top Podcast in Programming language">
-                           <font>
-                              <Font name="CircularStd-Medium" size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets top="6.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Label alignment="CENTER_RIGHT" lineSpacing="1.0" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
-                           <font>
-                              <Font name="Chantrea SR UI" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <Separator prefWidth="200.0" />
-                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
-                     <content>
-                        <HBox fx:id="topPodcastInProgrammingLanguageContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
-                     </content>
-                     <padding>
-                        <Insets bottom="20.0" top="20.0" />
-                     </padding>
-                  </ScrollPane>
-               </children>
-            </VBox>
-         </content>
-      </ScrollPane>
-   </children>
-   <padding>
-      <Insets left="24.0" right="24.0" />
-   </padding>
-</VBox>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+         <padding>
+            <Insets left="24.0" right="24.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>
