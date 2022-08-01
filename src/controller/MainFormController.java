@@ -199,7 +199,7 @@ public class MainFormController implements Initializable {
 
     private boolean isLightMode = true;
     @FXML
-    public void modeClicked(MouseEvent event) throws IOException {
+    public void modeClicked(MouseEvent event) {
         isLightMode = !isLightMode;
         if(!isLightMode) {
             modeLabel.setText("Dark Mode");
@@ -213,14 +213,14 @@ public class MainFormController implements Initializable {
 
 
     private void setLightMode() {
-        mainPane.getStylesheets().remove((getClass().getResource("/css/darkMode.css")).toString());
-        mainPane.getStylesheets().add((getClass().getResource("/css/style.css")).toString());
+        mainPane.getStylesheets().remove((Objects.requireNonNull(getClass().getResource("/css/darkMode.css"))).toString());
+        mainPane.getStylesheets().add((Objects.requireNonNull(getClass().getResource("/css/style.css"))).toString());
         System.out.println("Light");
     }
 
     private void setDarkMode() {
-        mainPane.getStylesheets().add((getClass().getResource("/css/style.css")).toString());
-        mainPane.getStylesheets().add((getClass().getResource("/css/darkMode.css")).toString());
+        mainPane.getStylesheets().add((Objects.requireNonNull(getClass().getResource("/css/style.css"))).toString());
+        mainPane.getStylesheets().add((Objects.requireNonNull(getClass().getResource("/css/darkMode.css"))).toString());
         System.out.println("Dark");
     }
 }
