@@ -17,7 +17,11 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -28,6 +32,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -36,6 +41,10 @@ public class DiscoverController implements Initializable {
     //------------------------------------------------------------------------------------
     // fields declaration                                                               |
     //------------------------------------------------------------------------------------
+
+    @FXML
+    private BorderPane borderPane;
+
 
     @FXML
     private HBox recentlyPlayedContainer;
@@ -57,6 +66,14 @@ public class DiscoverController implements Initializable {
 
     @FXML
     private HBox topPodcastInProgrammingLanguageContainer;
+
+
+    @FXML
+    private Label seeAllPopularPodcast;
+
+    @FXML
+    private Label seeAllTopPodcastInGaming;
+
 
     List<Podcast> recentlyPlayed;
     List<Podcast> popularPodcast;
@@ -370,6 +387,25 @@ public class DiscoverController implements Initializable {
         }
 
         return topPodcastInProgrammingLanguage; // return the list of top podcasts in programming language
+    }
+
+    @FXML
+    void seeAllClick(MouseEvent event) throws Exception {
+
+        BorderPane discoverSeeAll = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/DiscoverSeeAll.fxml")));
+        borderPane.setCenter(discoverSeeAll);
+
+        if (event.getSource() == seeAllPopularPodcast) {
+            System.out.println("See all popular podcasts");
+            String title = "Popular Podcasts";
+
+            System.out.println("Title: " + title);
+
+            DiscoverSeeAllController.setTitleDiscoverSeeAllStatic(title);
+        }
+        if (event.getSource() == seeAllTopPodcastInGaming) {
+            System.out.println("See all top podcasts in gaming");
+        }
     }
 
 } // end of class DiscoverController

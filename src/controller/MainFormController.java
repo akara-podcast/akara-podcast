@@ -34,7 +34,7 @@ public class MainFormController implements Initializable {
     // fields declaration                                                               |
     //------------------------------------------------------------------------------------
     @FXML
-    private BorderPane borderPane;
+    public BorderPane borderPane;
 
     @FXML
     private BorderPane mainPane;
@@ -61,7 +61,7 @@ public class MainFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         // create a Discover VBox object to store the Discover VBox in the FXML file
-        VBox discover;
+        BorderPane discover;
 
         // create a VBox object to store the MediaPlayer VBox in the FXML file
         VBox mediaPlayer;
@@ -116,7 +116,7 @@ public class MainFormController implements Initializable {
     private void discoverClick(MouseEvent event) throws IOException {
 
         // create a Discover VBox object to store the Discover VBox in the FXML file
-        VBox discover = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Discover.fxml")));
+        BorderPane discover = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Discover.fxml")));
         // set the Discover VBox to the center of the BorderPane of the MainForm
         borderPane.setCenter(discover);
     }
