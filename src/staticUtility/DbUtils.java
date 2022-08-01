@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
+import model.TripleDes;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -15,12 +16,6 @@ public class DbUtils {
 
     private static String retrievedName;
     private static String retrievedPassword;
-    private static char[] arrPW;
-    private static StringBuilder pwBuilder = new StringBuilder();
-    private static String strPW = new String();
-    private static int key = 9;
-
-
     public static void signUpUser(ActionEvent event, String name, String email, String password, LocalDate created_at) {
 
         Connection connection = null;
@@ -46,21 +41,18 @@ public class DbUtils {
                 psInsert.setString(2, email);
 
                 // encrypt password and insert into database
-                pwBuilder.setLength(0); // clear string builder
-                arrPW = password.toCharArray();
-                for (char c : arrPW) {
-                    c += key;
-                    pwBuilder.append(c);
-                }
-                strPW = pwBuilder.toString();
-                psInsert.setString(3, strPW);
+                TripleDes tripleDes = new TripleDes();
+
+                psInsert.setString(3, tripleDes.encrypt(password)); // need encrypt here
 
                 psInsert.setDate(4, Date.valueOf(created_at));
                 psInsert.executeUpdate();
             }
         }   catch (SQLException e) {
             e.printStackTrace();
-        }   finally {
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
             if (resultSet != null) {
                 try {
                     resultSet.close();
@@ -113,16 +105,8 @@ public class DbUtils {
                 alertLabel.setTextFill(Color.RED);
             }   else {
                 while (resultSet.next()) {
-                    retrievedPassword = resultSet.getString("password");
-                    pwBuilder.setLength(0); // clear string builder
-                    arrPW = retrievedPassword.toCharArray();
-                    for (char c : arrPW) {
-                        c -= key;
-                        pwBuilder.append(c);
-                    }
-                    strPW = pwBuilder.toString();
-                    retrievedPassword = strPW;
-
+                    TripleDes tripleDes = new TripleDes();
+                    retrievedPassword = tripleDes.decrypt(resultSet.getString("password")); // need decrypt here
                     retrievedName = resultSet.getString("name");
                     if (retrievedPassword.equals(password)) {
 
@@ -139,7 +123,9 @@ public class DbUtils {
             }
         }   catch (SQLException e) {
             e.printStackTrace();
-        }   finally {
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
             if (resultSet != null) {
                 try {
                     resultSet.close();
