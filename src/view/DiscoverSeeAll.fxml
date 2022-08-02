@@ -45,7 +45,7 @@
                                     <Insets bottom="15.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label alignment="TOP_LEFT" prefHeight="87.0" prefWidth="799.0" styleClass="primary-color" text="Music is about to change forever. Introducing Spatial Audio with Dolby Atmos on Apple Music—at no extra cost. It’s a premium listening experience where sound comes to you from around and above you—the next quantum leap in recorded music from mono to stereo and beyond. Now you can hear (and make) music that’s crisper, clearer, truer to its original studio recordings—" textFill="#9e9ba1" wrapText="true" VBox.vgrow="ALWAYS">
+                              <Label fx:id="descriptionSeeAll" alignment="TOP_LEFT" prefHeight="87.0" prefWidth="799.0" styleClass="primary-color" text="Music is about to change forever. Introducing Spatial Audio with Dolby Atmos on Apple Music—at no extra cost. It’s a premium listening experience where sound comes to you from around and above you—the next quantum leap in recorded music from mono to stereo and beyond. Now you can hear (and make) music that’s crisper, clearer, truer to its original studio recordings—" textFill="#9e9ba1" wrapText="true" VBox.vgrow="ALWAYS">
                                  <font>
                                     <Font name="Chantrea SR UI" size="14.0" />
                                  </font>
@@ -70,7 +70,10 @@
                      </children>
                   </HBox>
                   <Separator VBox.vgrow="ALWAYS" />
-                  <VBox fx:id="podcastContainer" VBox.vgrow="ALWAYS" />
+                  <VBox fx:id="podcastContainer" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></VBox>
                </children>
                <padding>
                   <Insets left="24.0" right="24.0" />

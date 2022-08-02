@@ -14,6 +14,7 @@
 
 package controller;
 
+import com.github.javafaker.Faker;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -74,6 +75,7 @@ public class DiscoverController implements Initializable {
     @FXML
     private Label seeAllTopPodcastInGaming;
 
+    public static int index;
 
     List<Podcast> recentlyPlayed;
     List<Podcast> popularPodcast;
@@ -392,20 +394,27 @@ public class DiscoverController implements Initializable {
     @FXML
     void seeAllClick(MouseEvent event) throws Exception {
 
+        Faker faker = new Faker();
+
         BorderPane discoverSeeAll = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/DiscoverSeeAll.fxml")));
         borderPane.setCenter(discoverSeeAll);
 
         if (event.getSource() == seeAllPopularPodcast) {
+            index = 1;
             System.out.println("See all popular podcasts");
             String title = "Popular Podcasts";
+            String description = faker.lorem().paragraph(10);
 
             System.out.println("Title: " + title);
 
             DiscoverSeeAllController.setTitleDiscoverSeeAllStatic(title);
+            DiscoverSeeAllController.setDescriptionSeeAllStatic(description);
+            DiscoverSeeAllController.setPopularPodcastToView();
+
         }
         if (event.getSource() == seeAllTopPodcastInGaming) {
+            index = 2;
             System.out.println("See all top podcasts in gaming");
         }
     }
-
 } // end of class DiscoverController
