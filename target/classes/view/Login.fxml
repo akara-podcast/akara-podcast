@@ -17,9 +17,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="loginPane" styleClass="primary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<BorderPane fx:id="loginPane" prefHeight="684.0" prefWidth="991.0" styleClass="primary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <center>
-      <VBox minHeight="-Infinity" minWidth="-Infinity" styleClass="primary-color">
+      <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="666.0" prefWidth="991.0" styleClass="primary-color">
          <padding>
             <Insets left="24.0" right="24.0" />
          </padding>
@@ -101,7 +101,7 @@
                                  </children>
                               </AnchorPane>
                               <Separator maxWidth="1.0" minWidth="1.0" orientation="VERTICAL" prefWidth="1.0" style="-fx-background-color: #5d5fef;" />
-                              <VBox prefHeight="531.0" prefWidth="652.0">
+                              <VBox prefHeight="531.0" prefWidth="580.0">
                                  <children>
                                     <Label alignment="CENTER" prefHeight="37.0" prefWidth="582.0" text="Login" textFill="#5d5fef">
                                        <font>

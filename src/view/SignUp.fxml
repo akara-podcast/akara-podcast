@@ -19,7 +19,7 @@
 
 <BorderPane fx:id="signupPane" styleClass="primary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
    <center>
-      <VBox minHeight="-Infinity" minWidth="-Infinity" styleClass="primary-color">
+      <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="666.0" styleClass="primary-color">
          <padding>
             <Insets left="24.0" right="24.0" />
          </padding>
