@@ -14,47 +14,23 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="profileEditPane" styleClass="primary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileEditController">
+<BorderPane fx:id="profileEditPane" prefWidth="987.0" styleClass="primary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileEditController">
    <center>
-      <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="654.0" prefWidth="991.0" styleClass="primary-color">
+      <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefWidth="987.0" styleClass="primary-color">
          <padding>
             <Insets left="24.0" right="24.0" />
          </padding>
          <children>
-            <VBox prefHeight="660.0" prefWidth="943.0" styleClass="primary-color">
+            <VBox styleClass="primary-color">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0" styleClass="primary-color">
+                  <VBox alignment="CENTER">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="58.0" styleClass="primary-color" text="Profile">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Pane prefHeight="50.0" prefWidth="817.0" styleClass="primary-color" />
-                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="40.0" style="-fx-background-color: transparent;">
-                           <graphic>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/Chevron_Left.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="40.0" style="-fx-background-color: transparent;">
-                           <graphic>
-                              <ImageView fitHeight="150.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/Chevron_Right.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <Separator prefWidth="200.0" />
-                  <AnchorPane prefHeight="601.0" prefWidth="943.0" styleClass="primary-color">
-                     <children>
-                        <VBox layoutX="218.0" layoutY="47.0" prefHeight="508.0" prefWidth="507.0" style="-fx-border-color: #5d5fef; -fx-border-width: 1; -fx-border-radius: 25;" styleClass="primary-color">
+                        <HBox alignment="CENTER_LEFT" styleClass="primary-color">
+                           <children>
+                              <Pane prefHeight="50.0" prefWidth="862.0" styleClass="primary-color" />
+                           </children>
+                        </HBox>
+                        <VBox fillWidth="false" maxWidth="508.0" minWidth="463.0" prefHeight="508.0" style="-fx-border-color: #5d5fef; -fx-border-width: 1; -fx-border-radius: 25;" styleClass="primary-color">
                            <children>
                               <HBox>
                                  <children>
@@ -66,7 +42,7 @@
                                           <Insets left="15.0" top="15.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <TextField>
+                                    <TextField fx:id="name_tf">
                                        <HBox.margin>
                                           <Insets left="25.0" top="65.0" />
                                        </HBox.margin>
@@ -79,7 +55,7 @@
                               <AnchorPane prefHeight="357.0" prefWidth="505.0">
                                  <children>
                                     <Button layoutX="34.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: transparent; -fx-border-color: #5d5fef; -fx-border-radius: 5;" text="Upload Photo" />
-                                    <VBox layoutX="21.0" layoutY="67.0" prefHeight="259.0" prefWidth="463.0" style="-fx-border-color: gray; -fx-border-radius: 15;">
+                                    <VBox layoutX="21.0" layoutY="67.0" maxHeight="259.0" maxWidth="463.0" prefHeight="259.0" prefWidth="463.0" style="-fx-border-color: gray; -fx-border-radius: 15;">
                                        <children>
                                           <Label opacity="0.57" styleClass="primary-color" text="E-Mail">
                                              <font>
@@ -143,12 +119,62 @@
                               </AnchorPane>
                            </children>
                         </VBox>
-                        <Button layoutX="847.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#saveClicked" style="-fx-background-color: transparent; -fx-border-color: #5d5fef; -fx-border-radius: 5;" styleClass="primary-color" text="Save Change" />
                      </children>
-                  </AnchorPane>
+                  </VBox>
                </children>
             </VBox>
          </children>
       </VBox>
    </center>
+   <top>
+      <VBox minHeight="-Infinity" minWidth="-Infinity" styleClass="primary-color" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="24.0" right="24.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0">
+               <children>
+                  <Label prefHeight="7.0" prefWidth="133.0" styleClass="primary-color" text="Profile">
+                     <font>
+                        <Font name="CircularStd-Medium" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" top="6.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="83.0">
+                     <children>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/Chevron_Left.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/Chevron_Right.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER_LEFT" layoutX="34.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="saveButton" alignment="TOP_RIGHT" mnemonicParsing="false" onMouseClicked="#saveClicked" style="-fx-background-color: transparent; -fx-border-color: #5d5fef; -fx-border-radius: 5;" styleClass="primary-color" text="Save Change" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
 </BorderPane>

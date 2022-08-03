@@ -24,6 +24,7 @@ public class ProfileController implements Initializable {
 
     @FXML
     public void editPfClicked(MouseEvent event) throws IOException {
+        profilePane.setTop(null);
         BorderPane profileEdit = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/ProfileEdit.fxml")));
         profilePane.setCenter(profileEdit);
     }

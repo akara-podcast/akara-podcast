@@ -1,5 +1,6 @@
 package controller;
 
+import com.github.javafaker.DateAndTime;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,9 +14,10 @@ import staticUtility.DbUtils;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class SignUpController implements Initializable {
 
@@ -51,12 +53,14 @@ public class SignUpController implements Initializable {
 
     @FXML
     public void signUpClicked(MouseEvent event) throws IOException {
+        signupPane.setTop(null);
         BorderPane profile = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Login.fxml")));
         signupPane.setCenter(profile);
     }
 
     @FXML
     public void loginSwitchClicked(MouseEvent event) throws IOException {
+        signupPane.setTop(null);
         BorderPane profile = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Login.fxml")));
         signupPane.setCenter(profile);
     }
@@ -84,7 +88,7 @@ public class SignUpController implements Initializable {
                         && format)
                 {
                     DbUtils.signUpUser(event, tf_name.getText(), tf_email.getText(),
-                                        pf_password.getText(), LocalDate.now());
+                                        pf_password.getText(), LocalDateTime.now());
                 }
                 else {
                     System.out.println("Please fill in all information!");
