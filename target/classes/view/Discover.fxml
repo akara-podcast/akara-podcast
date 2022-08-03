@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" prefWidth="987.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DiscoverController">
+<BorderPane fx:id="borderPane" prefHeight="3000.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DiscoverController">
    <center>
       <VBox minHeight="-Infinity" minWidth="-Infinity" prefWidth="987.0" styleClass="primary-color" stylesheets="@../css/style.css">
          <children>
@@ -141,7 +141,7 @@
                                  </HBox.margin>
                               </Label>
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                              <Label fx:id="seeAllTopPodcastInTechnology" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
                                  <font>
                                     <Font name="Chantrea SR UI" size="14.0" />
                                  </font>
@@ -171,7 +171,7 @@
                                  </HBox.margin>
                               </Label>
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                              <Label fx:id="seeAllTopPodcastInHistory" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
                                  <font>
                                     <Font name="Chantrea SR UI" size="14.0" />
                                  </font>
@@ -201,7 +201,7 @@
                                  </HBox.margin>
                               </Label>
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                              <Label fx:id="seeAllTopPodcastInComedy" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
                                  <font>
                                     <Font name="Chantrea SR UI" size="14.0" />
                                  </font>
@@ -231,7 +231,7 @@
                                  </HBox.margin>
                               </Label>
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                              <Label fx:id="seeAllTopPodcastInProgrammingLanguage" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
                                  <font>
                                     <Font name="Chantrea SR UI" size="14.0" />
                                  </font>

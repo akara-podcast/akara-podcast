@@ -1,3 +1,18 @@
+/*-----------------------------------------------------------------------------------------
+ * NAME : PodcastHboxLongController.java
+ * VER  : v0.1
+ * PROJ : Akara
+ * CODE CLEAN? : Yes
+ *-----------------------------------------------------------------------------------------
+ *                      H      I      S      T      O      R      Y
+ *-----------------------------------------------------------------------------------------
+ *   DATE        AUTHOR         DESCRIPTION
+ * ----------  --------------  ------------------------------------------------------------
+ * 2022-07-30   Nuth Vireak     creation
+ * ----------  --------------  ------------------------------------------------------------
+ * 2022-08-03   Nuth Vireak     Modification
+ *---------------------------------------------------------------------------------------*/
+
 package controller;
 
 import javafx.fxml.FXML;
@@ -41,22 +56,13 @@ public class PodcastHboxLongController implements Initializable {
 
     }
 
-    public void setData(Podcast podcast) {
-
-        // create an image object
+    void setData(Podcast podcast) {
         Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
 
-        // set the image object to the image view
         imgHboxLong.setImage(image);
-
-        // set the title text
         titleHboxLong.setText(podcast.getTitle());
-
-        // set the description text
         podcasterHboxLong.setText(podcast.getPodcaster());
-
         genreHboxLong.setText(podcast.getGenre());
-
         durationHboxLong.setText(podcast.getDuration() + " min");
     }
 }

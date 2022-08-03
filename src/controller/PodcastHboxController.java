@@ -2,6 +2,7 @@
  * NAME : PodcastHboxController.java
  * VER  : v0.1
  * PROJ : Akara
+ * CODE CLEAN? : Yes
  *-----------------------------------------------------------------------------------------
  *                      H      I      S      T      O      R      Y
  *-----------------------------------------------------------------------------------------
@@ -9,7 +10,7 @@
  * ----------  --------------  ------------------------------------------------------------
  * 2022-06-24   Nuth Vireak     creation
  * ----------  --------------  ------------------------------------------------------------
- * 2022-07-08   Nuth Vireak     Modification
+ * 2022-08-03   Nuth Vireak     Modification
  *---------------------------------------------------------------------------------------*/
 
 package controller;
@@ -41,22 +42,11 @@ public class PodcastHboxController {
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
 
-    /**
-     * Set the data of the Hbox (Podcast)
-     * @param podcast the podcast
-     */
-    public void setData(Podcast podcast) {
-
-        // create an image object
+    void setData(Podcast podcast) {
         Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
 
-        // set the image object to the image view
         img.setImage(image);
-
-        // set the title text
         title.setText(podcast.getTitle());
-
-        // set the description text
         description.setText(podcast.getDescription());
     }
 }
