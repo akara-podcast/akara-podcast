@@ -2,6 +2,7 @@
  * NAME : PodcastVboxController.java
  * VER  : v0.1
  * PROJ : Akara
+ * CODE CLEAN? : Yes
  *-----------------------------------------------------------------------------------------
  *                      H      I      S      T      O      R      Y
  *-----------------------------------------------------------------------------------------
@@ -9,7 +10,7 @@
  * ----------  --------------  ------------------------------------------------------------
  * 2022-06-24   Nuth Vireak     creation
  * ----------  --------------  ------------------------------------------------------------
- * 2022-07-08   Nuth Vireak     Modification
+ * 2022-08-03   Nuth Vireak     Modification
  *---------------------------------------------------------------------------------------*/
 
 package controller;
@@ -22,7 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+
 import model.Podcast;
 
 import java.io.File;
@@ -49,37 +50,26 @@ public class PodcastVboxController implements Initializable {
     private Label podcasterVbox;
 
     private Media media;
-    private File file;
 
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
 
-    /**
-     * Set the data of the Vbox (Podcast)
-     * @param podcast the podcast
-     */
-    public void setData(Podcast podcast) {
-
-        // create an image object
+    void setData(Podcast podcast) {
         Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
 
-        // set the image object to the image view
         imgVbox.setImage(image);
-
-        // set the title text
         titleVbox.setText(podcast.getTitle());
-
         podcasterVbox.setText(podcast.getPodcaster());
 
-        file = new File(podcast.getPodcastUrl());
-
+        File file = new File(podcast.getPodcastUrl());
         media = new Media(file.toURI().toString());
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 
     @FXML
@@ -93,11 +83,12 @@ public class PodcastVboxController implements Initializable {
         System.out.println("title: " + title);
         System.out.println("podcaster: " + podcaster);
         System.out.println("source podcast: " + source);
-        System.out.println("");
+        System.out.println("---");
 
         MediaPlayerController.setTitleMediaPlayerStatic(title);
         MediaPlayerController.setPodcasterMediaPlayerStatic(podcaster);
         MediaPlayerController.setImgMediaPlayerStatic(image);
         MediaPlayerController.setMediaStatic(media);
     }
-}
+
+} // end of class PodcastVboxController

@@ -29,7 +29,7 @@
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">
                            <children>
-                              <Label fx:id="titleDiscoverSeeAll" prefHeight="46.0" prefWidth="649.0" styleClass="primary-color" text="Title">
+                              <Label fx:id="titleDiscoverSeeAll" prefHeight="46.0" prefWidth="799.0" styleClass="primary-color" text="Title">
                                  <font>
                                     <Font name="CircularStd-Medium" size="36.0" />
                                  </font>

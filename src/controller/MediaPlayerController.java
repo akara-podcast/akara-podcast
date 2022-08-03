@@ -2,6 +2,7 @@
  * NAME : MediaPlayerController.java
  * VER  : v0.1
  * PROJ : Akara
+ * CODE CLEAN? : No
  *-----------------------------------------------------------------------------------------
  *                      H      I      S      T      O      R      Y
  *-----------------------------------------------------------------------------------------
@@ -25,14 +26,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
-import model.Podcast;
+
 import podcastData.DataInitializer;
 
 import java.io.File;
 import java.net.URL;
 import java.util.*;
-
-import static controller.DiscoverController.getPopularPodcast;
 
 public class MediaPlayerController implements Initializable {
 

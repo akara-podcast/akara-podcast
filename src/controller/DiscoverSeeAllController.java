@@ -1,13 +1,27 @@
+/*-----------------------------------------------------------------------------------------
+ * NAME : DiscoverSeeAllController.java
+ * VER  : v0.1
+ * PROJ : Akara
+ * CODE CLEAN? : Yes
+ *-----------------------------------------------------------------------------------------
+ *                      H      I      S      T      O      R      Y
+ *-----------------------------------------------------------------------------------------
+ *   DATE        AUTHOR         DESCRIPTION
+ * ----------  --------------  ------------------------------------------------------------
+ * 2022-07-23   Nuth Vireak     creation
+ * ----------  --------------  ------------------------------------------------------------
+ * 2022-08-03   Nuth Vireak     Modification
+ *---------------------------------------------------------------------------------------*/
+
 package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
 import model.Podcast;
 import podcastData.DataInitializer;
 
@@ -24,7 +38,7 @@ public class DiscoverSeeAllController implements Initializable {
     //------------------------------------------------------------------------------------
 
     @FXML
-    private static VBox podcastContainer;
+    private VBox podcastContainer;
 
     @FXML
     private Label titleDiscoverSeeAll;
@@ -34,13 +48,14 @@ public class DiscoverSeeAllController implements Initializable {
 
     private static Label titleDiscoverSeeAllStatic;
     private static Label descriptionSeeAllStatic;
+    private static VBox podcastContainerStatic;
 
     static List<Podcast> popularPodcast;
-    List<Podcast> topPodcastInGaming;
-    List<Podcast> topPodcastInTechnology;
-    List<Podcast> topPodcastInHistory;
-    List<Podcast> topPodcastInComedy;
-    List<Podcast> topPodcastInProgrammingLanguage;
+    static List<Podcast> topPodcastInGaming;
+    static List<Podcast> topPodcastInTechnology;
+    static List<Podcast> topPodcastInHistory;
+    static List<Podcast> topPodcastInComedy;
+    static List<Podcast> topPodcastInProgrammingLanguage;
 
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
@@ -59,61 +74,146 @@ public class DiscoverSeeAllController implements Initializable {
 
         titleDiscoverSeeAllStatic = titleDiscoverSeeAll;
         descriptionSeeAllStatic = descriptionSeeAll;
+        podcastContainerStatic = podcastContainer;
 
         popularPodcast = new ArrayList<>(getPopularPodcast());
         topPodcastInGaming = new ArrayList<>(getTopPodcastInGaming());
+        topPodcastInTechnology = new ArrayList<>(getTopPodcastInTechnology());
+        topPodcastInHistory = new ArrayList<>(getTopPodcastInHistory());
+        topPodcastInComedy = new ArrayList<>(getTopPodcastInComedy());
+        topPodcastInProgrammingLanguage = new ArrayList<>(getTopPodcastInProgrammingLanguage());
 
-        setPopularPodcastToView();
     }
 
-    public static List<Podcast> getPopularPodcast() {
+    private static List<Podcast> getPopularPodcast() {
 
         DataInitializer dataInitializer = new DataInitializer();
-
         List<Podcast> popularPodcast = new ArrayList<>();
 
         for (Podcast podcast : dataInitializer.podcastList()) {
             if (podcast.getViewCount() > 5000) {
                     popularPodcast.add(podcast);
-            }
-        }
-
+            }}
         return popularPodcast;
     }
 
     private List<Podcast> getTopPodcastInGaming() {
 
         DataInitializer dataInitializer = new DataInitializer();
-
         List<Podcast> topPodcastInGaming = new ArrayList<>();
 
         for (Podcast podcast : dataInitializer.podcastList()) {
             if (podcast.getGenre().equals("GAMING")) {
                 topPodcastInGaming.add(podcast);
-            }
-        }
-
+            }}
         return topPodcastInGaming;
     }
 
-    private static void setPopularPodcastToView() {
-        try {
-            for (Podcast podcast : popularPodcast) {
+    private List<Podcast> getTopPodcastInTechnology() {
 
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(DiscoverSeeAllController.class.getResource("/view/podcastHboxLong.fxml"));
+        DataInitializer dataInitializer = new DataInitializer();
+        List<Podcast> topPodcastInTechnology = new ArrayList<>();
 
-                HBox hBox = fxmlLoader.load();
-                PodcastHboxLongController podcastHboxLongController = fxmlLoader.getController();
-                podcastHboxLongController.setData(podcast);
+        for (Podcast podcast : dataInitializer.podcastList()) {
+            if (podcast.getGenre().equals("TECHNOLOGY")) {
+                    topPodcastInTechnology.add(podcast);
+            }}
+        return topPodcastInTechnology;
+    }
 
-                podcastContainer.getChildren().add(hBox);
+    private List<Podcast> getTopPodcastInHistory() {
 
-            }
+        DataInitializer dataInitializer = new DataInitializer();
+        List<Podcast> topPodcastInHistory = new ArrayList<>();
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        for (Podcast podcast : dataInitializer.podcastList()) {
+            if (podcast.getGenre().equals("HISTORY")) {
+                    topPodcastInHistory.add(podcast);
+            }}
+        return topPodcastInHistory;
+    }
+
+    private List<Podcast> getTopPodcastInComedy() {
+
+        DataInitializer dataInitializer = new DataInitializer();
+        List<Podcast> topPodcastInComedy = new ArrayList<>();
+
+        for (Podcast podcast : dataInitializer.podcastList()) {
+            if (podcast.getGenre().equals("COMEDY")) {
+                    topPodcastInComedy.add(podcast);
+            }}
+        return topPodcastInComedy;
+    }
+
+    private List<Podcast> getTopPodcastInProgrammingLanguage() {
+
+        DataInitializer dataInitializer = new DataInitializer();
+        List<Podcast> topPodcastInProgrammingLanguage = new ArrayList<>();
+
+        for (Podcast podcast : dataInitializer.podcastList()) {
+            if (podcast.getGenre().equals("PROGRAMMING")) {
+                    topPodcastInProgrammingLanguage.add(podcast);
+            }}
+        return topPodcastInProgrammingLanguage;
+    }
+
+    public static void setPopularPodcastToView() throws IOException {
+
+        for (Podcast podcast : popularPodcast) {
+            HBox hBox = getHBox(podcast);
+            podcastContainerStatic.getChildren().add(hBox);
         }
     }
 
-}
+    public static void setTopPodcastInGamingToView() throws IOException {
+
+        for (Podcast podcast : topPodcastInGaming) {
+            HBox hBox = getHBox(podcast);
+            podcastContainerStatic.getChildren().add(hBox);
+        }
+    }
+
+    public static void setTopPodcastInTechnologyToView() throws IOException {
+
+        for (Podcast podcast : topPodcastInTechnology) {
+            HBox hBox = getHBox(podcast);
+            podcastContainerStatic.getChildren().add(hBox);
+        }
+    }
+
+    public static void setTopPodcastInHistoryToView() throws IOException {
+
+        for (Podcast podcast : topPodcastInHistory) {
+            HBox hBox = getHBox(podcast);
+            podcastContainerStatic.getChildren().add(hBox);
+        }
+    }
+
+    public static void setTopPodcastInComedyToView() throws IOException {
+
+        for (Podcast podcast : topPodcastInComedy) {
+            HBox hBox = getHBox(podcast);
+            podcastContainerStatic.getChildren().add(hBox);
+        }
+    }
+
+    public static void setTopPodcastInProgrammingLanguageToView() throws IOException {
+
+        for (Podcast podcast : topPodcastInProgrammingLanguage) {
+            HBox hBox = getHBox(podcast);
+            podcastContainerStatic.getChildren().add(hBox);
+        }
+    }
+
+    private static HBox getHBox(Podcast podcast) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(DiscoverSeeAllController.class.getResource("/view/podcastHboxLong.fxml"));
+
+        HBox hBox = fxmlLoader.load();
+        PodcastHboxLongController podcastHboxLongController = fxmlLoader.getController();
+        podcastHboxLongController.setData(podcast);
+        return hBox;
+    }
+
+} // End of class DiscoverSeeAllController
