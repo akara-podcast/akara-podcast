@@ -18,10 +18,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import staticUtility.DbUtils;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
@@ -182,9 +185,13 @@ public class MainFormController implements Initializable {
      */
     @FXML
     public void profileClicked(MouseEvent event) throws IOException {
+        BorderPane login; // create a Profile VBox object to store the Profile VBox in the FXML file
+        // check that user login or not
+        if (DbUtils.getRetrievedID() != 0)
+            login = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Profile.fxml")));
+        else
+            login = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Login.fxml")));
 
-        // create a Profile VBox object to store the Profile VBox in the FXML file
-        BorderPane login = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Login.fxml")));
         // set the Profile VBox to the center of the BorderPane of the MainForm
         borderPane.setCenter(login);
     }
