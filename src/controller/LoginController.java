@@ -41,12 +41,14 @@ public class LoginController implements Initializable {
 
     @FXML
     public void loginClicked(MouseEvent event) throws IOException {
+        loginPane.setTop(null);
         BorderPane profile = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Profile.fxml")));
         loginPane.setCenter(profile);
     }
 
     @FXML
     public void signUpClicked(MouseEvent event) throws IOException {
+        loginPane.setTop(null);
         BorderPane profile = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/SignUp.fxml")));
         loginPane.setCenter(profile);
     }
