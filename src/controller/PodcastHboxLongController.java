@@ -16,10 +16,13 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import model.Podcast;
 
 import java.net.URL;
@@ -64,5 +67,12 @@ public class PodcastHboxLongController implements Initializable {
         podcasterHboxLong.setText(podcast.getPodcaster());
         genreHboxLong.setText(podcast.getGenre());
         durationHboxLong.setText(podcast.getDuration() + " min");
+    }
+
+    @FXML
+    void podcasterClicked(MouseEvent event) throws Exception {
+
+        BorderPane channel = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Channel.fxml")));
+        DiscoverSeeAllController.setBorderPaneStatic(channel);
     }
 }

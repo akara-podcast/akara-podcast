@@ -1,11 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChannelController">
-   <children>
-      <Label text="Channel" />
-   </children>
-</VBox>
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChannelController">
+   <center>
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="ALWAYS">
+         <content>
+            <VBox alignment="TOP_CENTER" prefWidth="1082.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <VBox alignment="CENTER" spacing="10.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <children>
+                              <ImageView fitHeight="225.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/9.png" />
+                                 </image>
+                              </ImageView>
+                              <Label styleClass="primary-color" text="Tok Touch">
+                                 <font>
+                                    <Font name="CircularStd-Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label styleClass="primary-color" text="About Tok Touch">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="TOP_LEFT" prefHeight="148.0" prefWidth="799.0" text="FKA twigs knows the importance of discipline. It’s what has made her such a formidable dancer and martial artist. But she also knows that creativity requires freedom as well as focus. “I daydream all the time,” she told Apple Music. “I’ll call up the people I work with and be like, ‘I’ve got an idea. All I need is three elephants, a shoelace, a penguin and a large umbrella.’” She’s joking, but if anyone could pull off a scenario like that, it’s twigs. Born Tahliah Barnett in Cheltenham, England, in 1988, twigs studied dance and opera as a child and began writing her own songs at 13. (She earned her nickname for a habit of loudly" textFill="#9e9ba1" wrapText="true" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Chantrea SR UI" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
+                     <children>
+                        <Label prefHeight="23.0" prefWidth="210.0" text="Popular Released">
+                           <font>
+                              <Font name="CircularStd-Medium" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="6.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="83.0">
+                           <children>
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/Chevron_Left.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/Chevron_Right.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                     <content>
+                        <HBox fx:id="popularReleasedContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
+                     </content>
+                     <padding>
+                        <Insets bottom="20.0" top="20.0" />
+                     </padding>
+                  </ScrollPane>
+                  <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label prefHeight="7.0" prefWidth="133.0" styleClass="primary-color" text="More to Listen">
+                           <font>
+                              <Font name="CircularStd-Medium" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="6.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Separator VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin></Separator>
+                  <VBox fx:id="podcastContainer" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="24.0" right="24.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>
