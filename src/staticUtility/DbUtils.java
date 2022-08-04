@@ -27,7 +27,7 @@ public class DbUtils {
         ResultSet resultSet = null;
 
         try {
-            connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "050903");
+            connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "1234");
             psCheckUserExists = connection.prepareStatement("SELECT * FROM user WHERE email = ?");
             psCheckUserExists.setString(1, email);
             resultSet = psCheckUserExists.executeQuery();
@@ -92,7 +92,7 @@ public class DbUtils {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
-            connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "050903");
+            connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "1234");
             preparedStatement = connection.prepareStatement("SELECT user_id, password, name FROM user WHERE email = ?");
             preparedStatement.setString(1, email);
             resultSet = preparedStatement.executeQuery();
@@ -167,7 +167,7 @@ public class DbUtils {
                 System.out.println("user doesn't change their name");
             }
             else {
-                connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "050903");
+                connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "1234");
                 psUpdate = connection.prepareStatement("UPDATE user SET name=? WHERE user_id=" + id);
                 psUpdate.setString(1, newName);
                 psUpdate.executeUpdate();
