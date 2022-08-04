@@ -47,12 +47,18 @@ public class MainFormController implements Initializable {
     @FXML
     private Label modeLabel;
 
+    public static BorderPane staticMainPane;
+    public static Label staticModelLabel;
+
     //------------------------------------------------------------------------------------
     //  Methods declaration s                                                             |
     //------------------------------------------------------------------------------------
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        staticMainPane = mainPane;
+        staticModelLabel = modeLabel;
 
         BorderPane discover;
         VBox mediaPlayer;
@@ -120,6 +126,8 @@ public class MainFormController implements Initializable {
 
         // set the Profile VBox to the center of the BorderPane of the MainForm
         borderPane.setCenter(login);
+
+        modeClicked(event);
     }
 
     @FXML
@@ -129,30 +137,33 @@ public class MainFormController implements Initializable {
         borderPane.setCenter(feedback);
     }
 
-    private boolean isLightMode = true;
     @FXML
     public void modeClicked(MouseEvent event) {
-        isLightMode = !isLightMode;
-        if(!isLightMode) {
-            modeLabel.setText("Dark Mode");
-            setDarkMode();
+
+        // user can't change anything unless they log in
+        if (DbUtils.getRetrievedID() != 0) {
+            DbUtils.updateTheme(event, DbUtils.getRetrievedID());
         }
-        else {
-            modeLabel.setText("Light Mode");
+        if (!DbUtils.isRetrievedTheme()) {
+            setDarkMode();
+        } else {
             setLightMode();
         }
+
     }
 
 
-    private void setLightMode() {
-        mainPane.getStylesheets().remove((Objects.requireNonNull(getClass().getResource("/css/darkMode.css"))).toString());
-        mainPane.getStylesheets().add((Objects.requireNonNull(getClass().getResource("/css/style.css"))).toString());
+    public static void setLightMode() {
+        staticMainPane.getStylesheets().remove((Objects.requireNonNull(MainFormController.class.getResource("/css/darkMode.css"))).toString());
+        staticMainPane.getStylesheets().add((Objects.requireNonNull(MainFormController.class.getResource("/css/style.css"))).toString());
+        staticModelLabel.setText("Light Mode");
         System.out.println("Light");
     }
 
-    private void setDarkMode() {
-        mainPane.getStylesheets().add((Objects.requireNonNull(getClass().getResource("/css/style.css"))).toString());
-        mainPane.getStylesheets().add((Objects.requireNonNull(getClass().getResource("/css/darkMode.css"))).toString());
+    public static void setDarkMode() {
+        staticMainPane.getStylesheets().add((Objects.requireNonNull(MainFormController.class.getResource("/css/style.css"))).toString());
+        staticMainPane.getStylesheets().add((Objects.requireNonNull(MainFormController.class.getResource("/css/darkMode.css"))).toString());
+        staticModelLabel.setText("Dark Mode");
         System.out.println("Dark");
     }
 }
