@@ -19,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -38,6 +39,9 @@ public class DiscoverSeeAllController implements Initializable {
     //------------------------------------------------------------------------------------
 
     @FXML
+    private BorderPane borderPane;
+
+    @FXML
     private VBox podcastContainer;
 
     @FXML
@@ -49,6 +53,7 @@ public class DiscoverSeeAllController implements Initializable {
     private static Label titleDiscoverSeeAllStatic;
     private static Label descriptionSeeAllStatic;
     private static VBox podcastContainerStatic;
+    private static BorderPane borderPaneStatic;
 
     static List<Podcast> popularPodcast;
     static List<Podcast> topPodcastInGaming;
@@ -69,12 +74,17 @@ public class DiscoverSeeAllController implements Initializable {
         DiscoverSeeAllController.descriptionSeeAllStatic.setText(descriptionSeeAllStatic);
     }
 
+    public static void setBorderPaneStatic(BorderPane borderPaneStatic) {
+        DiscoverSeeAllController.borderPaneStatic.setCenter(borderPaneStatic);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         titleDiscoverSeeAllStatic = titleDiscoverSeeAll;
         descriptionSeeAllStatic = descriptionSeeAll;
         podcastContainerStatic = podcastContainer;
+        borderPaneStatic = borderPane;
 
         popularPodcast = new ArrayList<>(getPopularPodcast());
         topPodcastInGaming = new ArrayList<>(getTopPodcastInGaming());
@@ -82,7 +92,6 @@ public class DiscoverSeeAllController implements Initializable {
         topPodcastInHistory = new ArrayList<>(getTopPodcastInHistory());
         topPodcastInComedy = new ArrayList<>(getTopPodcastInComedy());
         topPodcastInProgrammingLanguage = new ArrayList<>(getTopPodcastInProgrammingLanguage());
-
     }
 
     private static List<Podcast> getPopularPodcast() {
