@@ -1,15 +1,14 @@
 package staticUtility;
 
-import com.github.javafaker.DateAndTime;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import model.TripleDes;
 
 import java.sql.*;
 import java.time.LocalDateTime;
-import java.util.Calendar;
 
 import static java.sql.DriverManager.getConnection;
 
@@ -19,6 +18,8 @@ public class DbUtils {
     private static String retrievedName;
     private static String retrievedPassword;
     private static int retrievedID = 0;
+    private static boolean retrievedTheme = true;
+
     public static void signUpUser(ActionEvent event, String name, String email, String password, LocalDateTime created_at) {
 
         Connection connection = null;
@@ -27,7 +28,7 @@ public class DbUtils {
         ResultSet resultSet = null;
 
         try {
-            connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "1234");
+            connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "050903");
             psCheckUserExists = connection.prepareStatement("SELECT * FROM user WHERE email = ?");
             psCheckUserExists.setString(1, email);
             resultSet = psCheckUserExists.executeQuery();
@@ -92,8 +93,8 @@ public class DbUtils {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
-            connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "1234");
-            preparedStatement = connection.prepareStatement("SELECT user_id, password, name FROM user WHERE email = ?");
+            connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "050903");
+            preparedStatement = connection.prepareStatement("SELECT user_id, password, name, preference_theme FROM user WHERE email = ?");
             preparedStatement.setString(1, email);
             resultSet = preparedStatement.executeQuery();
 
@@ -114,6 +115,7 @@ public class DbUtils {
                     if (retrievedPassword.equals(password)) {
                         retrievedName = resultSet.getString("name");
                         retrievedID = resultSet.getInt("user_id");
+                        retrievedTheme = resultSet.getBoolean("preference_theme");
 
                     }   else {
                         System.out.println("Password did not match!");
@@ -167,12 +169,54 @@ public class DbUtils {
                 System.out.println("user doesn't change their name");
             }
             else {
-                connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "1234");
+                connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "050903");
                 psUpdate = connection.prepareStatement("UPDATE user SET name=? WHERE user_id=" + id);
                 psUpdate.setString(1, newName);
                 psUpdate.executeUpdate();
                 retrievedName = newName;
             }
+        }   catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                }   catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (psUpdate != null) {
+                try {
+                    psUpdate.close();
+                }   catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                }   catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void updateTheme(MouseEvent event, int id) {
+
+        Connection connection = null;
+        PreparedStatement psUpdate = null;
+        ResultSet resultSet = null;
+
+        try {
+                connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "050903");
+                psUpdate = connection.prepareStatement("UPDATE user SET preference_theme=? WHERE user_id=" + id);
+                psUpdate.setBoolean(1, !retrievedTheme);
+                psUpdate.executeUpdate();
+                retrievedTheme = !retrievedTheme;
+
         }   catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -211,5 +255,9 @@ public class DbUtils {
 
     public static int getRetrievedID() {
         return retrievedID;
+    }
+
+    public static boolean isRetrievedTheme() {
+        return retrievedTheme;
     }
 }

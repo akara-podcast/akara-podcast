@@ -68,6 +68,9 @@ public class ProfileEditController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        name_tf.setPromptText(DbUtils.getRetrievedName());
+        name_tf.setFocusTraversable(false);
+
         saveButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
