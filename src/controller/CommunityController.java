@@ -7,8 +7,6 @@ import java.util.ResourceBundle;
 
 public class CommunityController implements Initializable {
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

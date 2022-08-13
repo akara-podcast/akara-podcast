@@ -32,7 +32,7 @@ public class DataInitializer {
 
         List<Podcast> podcastList = new ArrayList<>();
 
-        for (int i = 0; i < 45; i++) {
+        for (int i = 0; i < 70; i++) {
             Podcast podcast = new Podcast();
             podcast.setTitle(faker.friends().quote());
             podcast.setDescription(faker.lorem().paragraph());

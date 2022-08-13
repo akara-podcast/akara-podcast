@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="351.0" spacing="10.0" styleClass="primary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PodcastHboxController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="351.0" spacing="10.0" styleClass="primary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PodcastHboxController">
    <children>
       <ImageView fx:id="img" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -17,14 +17,14 @@
       </ImageView>
       <VBox prefHeight="81.0" prefWidth="272.0" spacing="9.0">
          <children>
-            <Label fx:id="title" styleClass="primary-color" text="Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?">
+            <Label fx:id="title" text="Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?" textFill="#323232">
                <font>
-                  <Font name="Chantrea SR UI" size="14.0" />
+                  <Font name="Inter Medium" size="13.0" />
                </font>
             </Label>
             <Label fx:id="description" text="តេស្តលេងៗហ្នឹងហារ អ្នកទាំងអស់គ្នាគិតយ៉ាងម៊ិចចំពោះ Podcast សាកល្បងមួយនេះ?" textAlignment="JUSTIFY" textFill="#9e9ba1" wrapText="true">
                <font>
-                  <Font name="Chantrea SR UI" size="13.0" />
+                  <Font name="Inter Light" size="12.0" />
                </font>
             </Label>
          </children>
