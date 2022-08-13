@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PodcastVboxController">
+<AnchorPane prefWidth="140.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PodcastVboxController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="173.0" spacing="2.0" stylesheets="@../css/style.css">
          <children>
@@ -19,9 +19,9 @@
                   <Image url="@../image/ScreenShot2021-12-07at14.271.png" />
                </image>
             </ImageView>
-            <Label fx:id="titleVbox" maxWidth="155.0" prefWidth="173.0" styleClass="primary-color" text="កម្មវិធីតោះនិយាយប្រវត្តិជាមួយនឹងហេ្គម" wrapText="true">
+            <Label fx:id="titleVbox" ellipsisString="" lineSpacing="0.5" maxHeight="41.0" maxWidth="155.0" prefWidth="173.0" text="កម្មវិធីតោះនិយាយប្រវត្តិជាមួយនឹងហេ្គម" textFill="#323232" wrapText="true">
                <font>
-                  <Font name="Chantrea SR UI" size="14.0" />
+                  <Font name="Inter Medium" size="13.0" />
                </font>
                <VBox.margin>
                   <Insets left="9.0" right="9.0" />

@@ -24,12 +24,12 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                            <children>
-                              <Label prefHeight="7.0" prefWidth="133.0" styleClass="primary-color" text="Recently played">
+                              <Label prefHeight="23.0" prefWidth="246.0" text="Recently played" textFill="#323232">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="18.0" />
+                                    <Font name="Inter SemiBold" size="18.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets top="6.0" />
+                                    <Insets top="23.0" />
                                  </HBox.margin>
                               </Label>
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
@@ -56,25 +56,31 @@
                                  </children>
                               </HBox>
                            </children>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
                         </HBox>
                         <Separator prefWidth="200.0">
                            <VBox.margin>
-                              <Insets top="8.0" />
+                              <Insets left="20.0" top="8.0" />
                            </VBox.margin>
                         </Separator>
-                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="134.0" prefWidth="989.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="115.0" prefWidth="937.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
                            <content>
                               <HBox fx:id="recentlyPlayedContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
                            </content>
                            <padding>
-                              <Insets bottom="20.0" top="20.0" />
+                              <Insets top="15.0" />
                            </padding>
+                           <VBox.margin>
+                              <Insets left="18.0" />
+                           </VBox.margin>
                         </ScrollPane>
                         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                            <children>
-                              <Label prefHeight="23.0" prefWidth="210.0" styleClass="primary-color" text="Popular Podcast">
+                              <Label prefHeight="23.0" prefWidth="210.0" text="Popular Podcast" textFill="#323232">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="18.0" />
+                                    <Font name="Inter SemiBold" size="18.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets top="6.0" />
@@ -90,21 +96,30 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
                         </HBox>
-                        <Separator prefWidth="200.0" />
-                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                        <Separator prefWidth="200.0">
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding></Separator>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="250.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
                            <content>
                               <HBox fx:id="popularPodcastContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
                            </content>
                            <padding>
-                              <Insets bottom="20.0" top="20.0" />
+                              <Insets top="12.0" />
                            </padding>
+                           <VBox.margin>
+                              <Insets left="13.0" />
+                           </VBox.margin>
                         </ScrollPane>
                         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                            <children>
-                              <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in Gaming">
+                              <Label prefHeight="23.0" prefWidth="236.0" text="Top Podcast in Gaming">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="18.0" />
+                                    <Font name="Inter SemiBold" size="18.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets top="6.0" />
@@ -120,21 +135,30 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
                         </HBox>
-                        <Separator prefWidth="200.0" />
-                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin></Separator>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="250.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
                            <content>
                               <HBox fx:id="topPodcastInGamingContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
                            </content>
                            <padding>
-                              <Insets bottom="20.0" top="20.0" />
+                              <Insets top="12.0" />
                            </padding>
+                           <VBox.margin>
+                              <Insets left="13.0" />
+                           </VBox.margin>
                         </ScrollPane>
                         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                            <children>
-                              <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in Technology">
+                              <Label prefHeight="23.0" prefWidth="374.0" text="Top Podcast in Technology">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="18.0" />
+                                    <Font name="Inter SemiBold" size="18.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets top="6.0" />
@@ -150,21 +174,30 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
                         </HBox>
-                        <Separator prefWidth="200.0" />
-                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin></Separator>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="250.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
                            <content>
                               <HBox fx:id="topPodcastInTechnologyContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
                            </content>
                            <padding>
-                              <Insets bottom="20.0" top="20.0" />
+                              <Insets top="12.0" />
                            </padding>
+                           <VBox.margin>
+                              <Insets left="13.0" />
+                           </VBox.margin>
                         </ScrollPane>
                         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                            <children>
-                              <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in History">
+                              <Label prefHeight="23.0" prefWidth="236.0" text="Top Podcast in History">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="18.0" />
+                                    <Font name="Inter SemiBold" size="18.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets top="6.0" />
@@ -180,21 +213,30 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
                         </HBox>
-                        <Separator prefWidth="200.0" />
-                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin></Separator>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="250.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
                            <content>
                               <HBox fx:id="topPodcastInHistoryContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
                            </content>
                            <padding>
-                              <Insets bottom="20.0" top="20.0" />
+                              <Insets top="12.0" />
                            </padding>
+                           <VBox.margin>
+                              <Insets left="13.0" />
+                           </VBox.margin>
                         </ScrollPane>
                         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                            <children>
-                              <Label prefHeight="23.0" prefWidth="236.0" styleClass="primary-color" text="Top Podcast in Comedy">
+                              <Label prefHeight="23.0" prefWidth="236.0" text="Top Podcast in Comedy">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="18.0" />
+                                    <Font name="Inter SemiBold" size="18.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets top="6.0" />
@@ -210,21 +252,30 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
                         </HBox>
-                        <Separator prefWidth="200.0" />
-                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin></Separator>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="250.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
                            <content>
                               <HBox fx:id="topPodcastInComedyContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
                            </content>
                            <padding>
-                              <Insets bottom="20.0" top="20.0" />
+                              <Insets top="12.0" />
                            </padding>
+                           <VBox.margin>
+                              <Insets left="13.0" />
+                           </VBox.margin>
                         </ScrollPane>
                         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                            <children>
-                              <Label prefHeight="23.0" prefWidth="370.0" styleClass="primary-color" text="Top Podcast in Programming language">
+                              <Label prefHeight="23.0" prefWidth="370.0" text="Top Podcast in Programming language">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="18.0" />
+                                    <Font name="Inter SemiBold" size="18.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets top="6.0" />
@@ -240,15 +291,24 @@
                                  </cursor>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
                         </HBox>
-                        <Separator prefWidth="200.0" />
-                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="280.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin></Separator>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="250.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
                            <content>
                               <HBox fx:id="topPodcastInProgrammingLanguageContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
                            </content>
                            <padding>
-                              <Insets bottom="20.0" top="20.0" />
+                              <Insets top="12.0" />
                            </padding>
+                           <VBox.margin>
+                              <Insets left="13.0" />
+                           </VBox.margin>
                         </ScrollPane>
                      </children>
                   </VBox>
@@ -256,7 +316,7 @@
             </ScrollPane>
          </children>
          <padding>
-            <Insets left="24.0" right="24.0" />
+            <Insets right="24.0" />
          </padding>
       </VBox>
    </center>

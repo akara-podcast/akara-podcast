@@ -20,7 +20,7 @@
          <left>
             <HBox prefHeight="100.0" prefWidth="283.0" styleClass="secondary-color" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="283.0" spacing="5.0" styleClass="menu-bar" stylesheets="@../css/style.css">
+                  <VBox prefHeight="200.0" prefWidth="283.0" spacing="2.0" styleClass="menu-bar" stylesheets="@../css/style.css">
                      <children>
                         <ImageView fitHeight="4.0" fitWidth="44.0" pickOnBounds="true" smooth="false">
                            <image>
@@ -42,7 +42,7 @@
                            <children>
                               <TextField focusTraversable="false" prefHeight="28.0" prefWidth="209.0" promptText="Artist, podcasts..." style="-fx-background-color: transparent;">
                                  <font>
-                                    <Font name="CircularStd-Book" size="14.0" />
+                                    <Font name="Inter Light" size="14.0" />
                                  </font>
                               </TextField>
                               <Separator maxHeight="24.0" orientation="VERTICAL" prefHeight="24.0" />
@@ -79,9 +79,9 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label styleClass="secondary-color" text="Discover">
+                              <Label text="Discover" textFill="#323232">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="16.0" />
+                                    <Font name="Inter SemiBold" size="16.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />
@@ -106,9 +106,9 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label styleClass="secondary-color" text="Trending">
+                              <Label text="Trending" textFill="#323232">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="16.0" />
+                                    <Font name="Inter SemiBold" size="16.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />
@@ -133,9 +133,9 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label styleClass="secondary-color" text="Favorite">
+                              <Label text="Favorite" textFill="#323232">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="16.0" />
+                                    <Font name="Inter SemiBold" size="16.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />
@@ -160,9 +160,9 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label styleClass="secondary-color" text="Playlist">
+                              <Label text="Playlist" textFill="#323232">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="16.0" />
+                                    <Font name="Inter SemiBold" size="16.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />
@@ -187,9 +187,9 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label styleClass="secondary-color" text="Community">
+                              <Label text="Community" textFill="#323232">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="16.0" />
+                                    <Font name="Inter SemiBold" size="16.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />
@@ -219,9 +219,9 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label fx:id="modeLabel" styleClass="secondary-color" text="Light Mode">
+                              <Label fx:id="modeLabel" text="Light Mode" textFill="#323232">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="16.0" />
+                                    <Font name="Inter SemiBold" size="16.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />
@@ -246,9 +246,9 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label styleClass="secondary-color" text="Feedback">
+                              <Label text="Feedback" textFill="#323232">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="16.0" />
+                                    <Font name="Inter SemiBold" size="16.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />
