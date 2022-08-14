@@ -45,6 +45,7 @@ public class DataInitializer {
             podcast.setUpdatedAt(faker.business().creditCardExpiry());
             podcast.setWasPlayed(faker.random().nextBoolean());
             podcast.setViewCount(Integer.parseInt(faker.phoneNumber().subscriberNumber()));
+            podcast.setCreatedAt(faker.backToTheFuture().date());
             podcastList.add(podcast);
         }
 

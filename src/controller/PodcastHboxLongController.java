@@ -74,5 +74,12 @@ public class PodcastHboxLongController implements Initializable {
 
         BorderPane channel = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Channel.fxml")));
         DiscoverSeeAllController.setBorderPaneStatic(channel);
+
+        String podcaster = podcasterHboxLong.getText();
+
+        ChannelController.setPodcasterChannelStatic(podcaster);
+        ChannelController.setPodcasterAboutChannelStatic(podcaster);
+        ChannelController.setPopularPodcastReleaseToView();
+        ChannelController.setMorePodcasterPodcastToView();
     }
 }

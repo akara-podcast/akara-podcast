@@ -18,6 +18,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -45,26 +46,58 @@ public class ChannelController implements Initializable {
     private HBox popularReleaseContainer;
 
     @FXML
-    private VBox podcastContainer;
+    private VBox morePodcastContainer;
 
-    List<Podcast> popularPodcast;
+    @FXML
+    private Label podcasterChannel;
+
+    @FXML
+    private Label podcasterAboutChannel;
+
+    private static Label podcasterChannelStatic;
+    private static Label podcasterAboutChannelStatic;
+    private static HBox popularReleaseContainerStatic;
+    private static VBox morePodcastContainerStatic;
+
+    static List<Podcast> popularPodcast;
+    static List<Podcast> morePodcasterPodcast;
 
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
 
+    public static void setPodcasterChannelStatic(String podcasterChannelStatic) {
+        ChannelController.podcasterChannelStatic.setText(podcasterChannelStatic);
+    }
+
+    public static void setPodcasterAboutChannelStatic(String podcasterAboutChannelStatic) {
+        ChannelController.podcasterAboutChannelStatic.setText(podcasterAboutChannelStatic);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        popularPodcast = new ArrayList<>(getPopularPodcast());
+        podcasterChannelStatic = podcasterChannel;
+        podcasterAboutChannelStatic = podcasterAboutChannel;
+        popularReleaseContainerStatic = popularReleaseContainer;
+        morePodcastContainerStatic = morePodcastContainer;
 
-        try {
+        popularPodcast = new ArrayList<>(getPopularPodcast());
+        morePodcasterPodcast = new ArrayList<>(getMorePodcasterPodcast());
+
+    }
+
+    public static void setPopularPodcastReleaseToView() throws IOException {
             for (Podcast podcast : popularPodcast) {
                 AnchorPane anchorPane = getAnchorPane(podcast);
-                popularReleaseContainer.getChildren().add(anchorPane);
+                popularReleaseContainerStatic.getChildren().add(anchorPane);
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    }
+
+    public static void setMorePodcasterPodcastToView() throws IOException {
+        for (Podcast podcast : morePodcasterPodcast) {
+            HBox hBox = getHBox(podcast);
+            morePodcastContainerStatic.getChildren().add(hBox);
         }
     }
 
@@ -72,6 +105,9 @@ public class ChannelController implements Initializable {
 
         DataInitializer dataInitializer = new DataInitializer();
         List<Podcast> popularPodcast = new ArrayList<>();
+
+        String podcaster = podcasterChannelStatic.getText();
+        System.out.println("podcaster: " + podcaster);
 
         for (Podcast podcast : dataInitializer.podcastList()) {
             if (podcast.getViewCount() > 5000) {
@@ -81,13 +117,31 @@ public class ChannelController implements Initializable {
         return popularPodcast;
     }
 
-    private AnchorPane getAnchorPane(Podcast podcast) throws IOException {
+    private static  List<Podcast> getMorePodcasterPodcast() {
+
+        DataInitializer dataInitializer = new DataInitializer();
+
+        return new ArrayList<>(dataInitializer.podcastList());
+    }
+
+    private static AnchorPane getAnchorPane(Podcast podcast) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/view/podcastVbox.fxml"));
+        fxmlLoader.setLocation(ChannelController.class.getResource("/view/podcastVbox.fxml"));
 
         AnchorPane anchorPane = fxmlLoader.load();
         PodcastVboxController podcastVboxController = fxmlLoader.getController();
         podcastVboxController.setData(podcast);
         return anchorPane;
+    }
+
+    private static HBox getHBox(Podcast podcast) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(ChannelController.class.getResource("/view/podcastHboxLongPodcaster.fxml"));
+
+        HBox hBox = fxmlLoader.load();
+        PodcastHboxLongPodcasterController podcastHboxLongPodcasterController = fxmlLoader.getController();
+        podcastHboxLongPodcasterController.setData(podcast);
+        return hBox;
     }
 }

@@ -27,12 +27,12 @@
                         <Font name="Chantrea SR UI" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="datePostHboxLongPodcaster" styleClass="podcaster_label" text="23 JUN 2022" textAlignment="JUSTIFY" textFill="#9e9ba1" wrapText="true">
+                  <Label fx:id="datePostHboxLongPodcaster" text="23 JUN 2022" textAlignment="JUSTIFY" textFill="#9e9ba1" wrapText="true">
                      <font>
                         <Font name="Chantrea SR UI" size="13.0" />
                      </font>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </Label>
                </children>
