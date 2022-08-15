@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://localhost:3306/akara_db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="sql6512940@sql6.freesqldatabase.com" uuid="31fb2086-3b61-4bd8-9030-55ec4e2661e8">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://sql6.freesqldatabase.com:3306/sql6512940</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

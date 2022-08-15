@@ -14,8 +14,10 @@ import staticUtility.DbUtils;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -88,7 +90,7 @@ public class SignUpController implements Initializable {
                         && format)
                 {
                     DbUtils.signUpUser(event, tf_name.getText(), tf_email.getText(),
-                                        pf_password.getText(), LocalDateTime.now());
+                                        pf_password.getText(), Date.valueOf(LocalDate.now()));
                 }
                 else {
                     System.out.println("Please fill in all information!");

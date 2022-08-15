@@ -20,7 +20,7 @@ public class DbUtils {
     private static int retrievedID = 0;
     private static boolean retrievedTheme = true;
 
-    public static void signUpUser(ActionEvent event, String name, String email, String password, LocalDateTime created_at) {
+    public static void signUpUser(ActionEvent event, String name, String email, String password, Date created_at) {
 
         Connection connection = null;
         PreparedStatement psInsert = null;
@@ -28,8 +28,8 @@ public class DbUtils {
         ResultSet resultSet = null;
 
         try {
-            connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "050903");
-            psCheckUserExists = connection.prepareStatement("SELECT * FROM user WHERE email = ?");
+            connection = getConnection("jdbc:mysql://sql6.freesqldatabase.com:3306/sql6512940", "sql6512940", "Trwp4ZL3hF");
+            psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE email = ?");
             psCheckUserExists.setString(1, email);
             resultSet = psCheckUserExists.executeQuery();
 
@@ -40,7 +40,7 @@ public class DbUtils {
                 alert.show();
             }
             else {
-                psInsert = connection.prepareStatement("INSERT INTO user (name, email, password, created_at) VALUES (?, ?, ?, ?)");
+                psInsert = connection.prepareStatement("INSERT INTO users (name, email, password, created_at) VALUES (?, ?, ?, ?)");
                 psInsert.setString(1, name);
                 psInsert.setString(2, email);
 
@@ -93,8 +93,8 @@ public class DbUtils {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
-            connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "050903");
-            preparedStatement = connection.prepareStatement("SELECT user_id, password, name, preference_theme FROM user WHERE email = ?");
+            connection = getConnection("jdbc:mysql://sql6.freesqldatabase.com:3306/sql6512940", "sql6512940", "Trwp4ZL3hF");
+            preparedStatement = connection.prepareStatement("SELECT user_id, password, name, preference_theme FROM users WHERE email = ?");
             preparedStatement.setString(1, email);
             resultSet = preparedStatement.executeQuery();
 
@@ -169,8 +169,8 @@ public class DbUtils {
                 System.out.println("user doesn't change their name");
             }
             else {
-                connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "050903");
-                psUpdate = connection.prepareStatement("UPDATE user SET name=? WHERE user_id=" + id);
+                connection = getConnection("jdbc:mysql://sql6.freesqldatabase.com:3306/sql6512940", "sql6512940", "Trwp4ZL3hF");
+                psUpdate = connection.prepareStatement("UPDATE users SET name=? WHERE user_id=" + id);
                 psUpdate.setString(1, newName);
                 psUpdate.executeUpdate();
                 retrievedName = newName;
@@ -211,8 +211,8 @@ public class DbUtils {
         ResultSet resultSet = null;
 
         try {
-                connection = getConnection("jdbc:mysql://localhost:3306/akara_db", "root", "050903");
-                psUpdate = connection.prepareStatement("UPDATE user SET preference_theme=? WHERE user_id=" + id);
+                connection = getConnection("jdbc:mysql://sql6.freesqldatabase.com:3306/sql6512940", "sql6512940", "Trwp4ZL3hF");
+                psUpdate = connection.prepareStatement("UPDATE users SET preference_theme=? WHERE user_id=" + id);
                 psUpdate.setBoolean(1, !retrievedTheme);
                 psUpdate.executeUpdate();
                 retrievedTheme = !retrievedTheme;
