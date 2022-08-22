@@ -10,7 +10,7 @@
  * ----------  --------------  ------------------------------------------------------------
  * 2022-07-23   Nuth Vireak     creation
  * ----------  --------------  ------------------------------------------------------------
- * 2022-08-03   Nuth Vireak     Modification
+ * 2022-08-22   Nuth Vireak     Modification
  *---------------------------------------------------------------------------------------*/
 
 package controller;
@@ -76,6 +76,10 @@ public class DiscoverSeeAllController implements Initializable {
 
     public static void setBorderPaneStatic(BorderPane borderPaneStatic) {
         DiscoverSeeAllController.borderPaneStatic.setCenter(borderPaneStatic);
+    }
+
+    public static BorderPane getBorderPaneStatic() {
+        return borderPaneStatic;
     }
 
     @Override

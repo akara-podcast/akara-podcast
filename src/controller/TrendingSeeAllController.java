@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------------
- * NAME : TrendingController.java
+ * NAME : TrendingSeeAllController.java
  * VER  : v0.1
  * PROJ : Akara
  * CODE CLEAN? : No
@@ -8,7 +8,7 @@
  *-----------------------------------------------------------------------------------------
  *   DATE        AUTHOR         DESCRIPTION
  * ----------  --------------  ------------------------------------------------------------
- * 2022-07-30   Nuth Vireak     creation
+ * 2022-08-22   Nuth Vireak     creation
  * ----------  --------------  ------------------------------------------------------------
  * 2022-08-22   Nuth Vireak     Modification
  *---------------------------------------------------------------------------------------*/
@@ -18,11 +18,9 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import model.Podcast;
 import podcastData.DataInitializer;
 
@@ -30,10 +28,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class TrendingController implements Initializable {
+public class TrendingSeeAllController implements Initializable {
 
     //------------------------------------------------------------------------------------
     // fields declaration                                                               |
@@ -43,41 +40,33 @@ public class TrendingController implements Initializable {
     private BorderPane borderPane;
 
     @FXML
-    private HBox recentTrendingContainer;
+    private VBox podcastContainer;
 
-    @FXML
-    private Label seeAllTrendingPodcast;
+    private static VBox podcastContainerStatic;
 
-    @FXML
-    private HBox trendingThisWeekContainer;
+    private static BorderPane borderPaneStatic;
 
-    List<Podcast> recentTrendingPodcast;
-    List<Podcast> trendingThisWeekPodcast;
+    static List<Podcast> popularPodcast;
 
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
 
+    public static void setBorderPaneStatic(BorderPane borderPaneStatic) {
+        TrendingSeeAllController.borderPaneStatic.setCenter(borderPaneStatic);
+    }
+
+    public static BorderPane getBorderPaneStatic() {
+        return borderPaneStatic;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        recentTrendingPodcast = new ArrayList<>(getPopularPodcast());
-        trendingThisWeekPodcast = new ArrayList<>(getPopularPodcast());
+        podcastContainerStatic = podcastContainer;
+        borderPaneStatic = borderPane;
 
-        try {
-            for (Podcast podcast : recentTrendingPodcast) {
-                AnchorPane anchorPane = getAnchorPane(podcast);
-                recentTrendingContainer.getChildren().add(anchorPane);
-            }
-
-            for (Podcast podcast : trendingThisWeekPodcast) {
-                AnchorPane anchorPane = getAnchorPane(podcast);
-                trendingThisWeekContainer.getChildren().add(anchorPane);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        popularPodcast = new ArrayList<>(getPopularPodcast());
     }
 
     private static List<Podcast> getPopularPodcast() {
@@ -87,30 +76,27 @@ public class TrendingController implements Initializable {
 
         for (Podcast podcast : dataInitializer.podcastList()) {
             if (podcast.getViewCount() > 5000) {
-                if (popularPodcast.size() < 10) {
-                    popularPodcast.add(podcast);
-                }}}
+                popularPodcast.add(podcast);
+            }}
         return popularPodcast;
     }
 
-    @FXML
-    void seeAllClick(MouseEvent event) throws IOException {
+    public static void setPopularPodcastToView() throws IOException {
 
-        BorderPane trendingSeeAll = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/TrendingSeeAll.fxml")));
-        borderPane.setCenter(trendingSeeAll);
-
-        TrendingSeeAllController.setPopularPodcastToView();
+        for (Podcast podcast : popularPodcast) {
+            HBox hBox = getHBox(podcast);
+            podcastContainerStatic.getChildren().add(hBox);
+        }
     }
 
-    private AnchorPane getAnchorPane(Podcast podcast) throws IOException {
+    private static HBox getHBox(Podcast podcast) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/view/podcastVbox.fxml"));
+        fxmlLoader.setLocation(DiscoverSeeAllController.class.getResource("/view/podcastHboxLong.fxml"));
 
-        AnchorPane anchorPane = fxmlLoader.load();
-        PodcastVboxController podcastVboxController = fxmlLoader.getController();
-        podcastVboxController.setData(podcast);
-        return anchorPane;
+        HBox hBox = fxmlLoader.load();
+        PodcastHboxLongController podcastHboxLongController = fxmlLoader.getController();
+        podcastHboxLongController.setData(podcast);
+        return hBox;
     }
-
 }

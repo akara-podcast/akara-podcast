@@ -2,6 +2,7 @@
  * NAME : MainFormController.java
  * VER  : v0.1
  * PROJ : Akara
+ * CODE CLEAN? : Yes
  *-----------------------------------------------------------------------------------------
  *                      H      I      S      T      O      R      Y
  *-----------------------------------------------------------------------------------------
@@ -9,7 +10,7 @@
  * ----------  --------------  ------------------------------------------------------------
  * 2022-06-24   Nuth Vireak     creation
  * ----------  --------------  ---------------------------------------------------------
- * 2022-07-08   Nuth Vireak     Modification
+ * 2022-07-22   Nuth Vireak     Modification
  *---------------------------------------------------------------------------------------*/
 
 package controller;
@@ -110,7 +111,7 @@ public class MainFormController implements Initializable {
     @FXML
     private void trendingClicked(MouseEvent event) throws IOException {
 
-        VBox trending = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Trending.fxml")));
+        BorderPane trending = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Trending.fxml")));
         borderPane.setCenter(trending);
     }
 
