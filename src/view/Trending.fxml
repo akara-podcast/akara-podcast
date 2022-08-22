@@ -1,10 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TrendingController">
-   <children>
-      <Label text="Trending" />
-   </children>
-</VBox>
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TrendingController">
+   <center>
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="ALWAYS">
+         <content>
+            <VBox alignment="TOP_CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <ImageView fitHeight="225.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/9.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                        <VBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label prefHeight="46.0" prefWidth="799.0" styleClass="primary-color" text="Trending">
+                                 <font>
+                                    <Font name="CircularStd-Medium" size="36.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
+                     <children>
+                        <Label prefHeight="23.0" prefWidth="210.0" text="Recent Trending" textFill="#323232">
+                           <font>
+                              <Font name="Inter SemiBold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="6.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="83.0">
+                           <children>
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/Chevron_Left.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/Chevron_Right.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="250.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                     <padding>
+                        <Insets top="12.0" />
+                     </padding>
+                     <content>
+                        <HBox fx:id="recentTrendingContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
+                     </content>
+                  </ScrollPane>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
+                     <children>
+                        <Label prefHeight="23.0" prefWidth="210.0" text="Trending This Week" textFill="#323232">
+                           <font>
+                              <Font name="Inter SemiBold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="6.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="seeAllTrendingPodcast" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                           <font>
+                              <Font name="Chantrea SR UI" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="250.0" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                     <padding>
+                        <Insets top="12.0" />
+                     </padding>
+                     <content>
+                        <HBox fx:id="trendingThisWeekContainer" maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" spacing="18.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+               <padding>
+                  <Insets left="24.0" right="24.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>
