@@ -103,7 +103,7 @@ public class MainFormController implements Initializable {
     @FXML
     private void playlistClick(MouseEvent event) throws IOException {
 
-        VBox playlist = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Playlist.fxml")));
+        BorderPane playlist = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Playlist.fxml")));
         borderPane.setCenter(playlist);
     }
 
