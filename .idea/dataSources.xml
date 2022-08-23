@@ -15,5 +15,12 @@
       <jdbc-url>jdbc:mysql://sql6.freesqldatabase.com:3306/sql6512940</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="@akaraAWS" uuid="b502ec55-16ff-4388-92eb-4d98db952e51">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://akara-db1.ccnzcbizgagw.ap-southeast-3.rds.amazonaws.com:3306/akaraDB</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

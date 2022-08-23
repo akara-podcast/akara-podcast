@@ -16,7 +16,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <DialogPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <content>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="583.0">
@@ -39,7 +38,7 @@
             </Label>
             <VBox alignment="CENTER" GridPane.rowIndex="1">
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: tranparent;">
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fx:id="playlistImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -106,7 +105,7 @@
                         </CheckBox>
                      </children>
                   </HBox>
-                  <TextField prefHeight="36.0" prefWidth="383.0" promptText="Playlist Name" style="-fx-border-color: #5d5fef; -fx-border-radius: 5; -fx-background-color: transparent;">
+                  <TextField fx:id="playlistTF" prefHeight="36.0" prefWidth="383.0" promptText="Playlist Name" style="-fx-border-color: #5d5fef; -fx-border-radius: 5; -fx-background-color: transparent;">
                      <VBox.margin>
                         <Insets bottom="36.0" right="36.0" />
                      </VBox.margin>

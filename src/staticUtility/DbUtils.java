@@ -9,6 +9,7 @@ import model.TripleDes;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import static java.sql.DriverManager.getConnection;
 
@@ -20,7 +21,7 @@ public class DbUtils {
     private static int retrievedID = 0;
     private static boolean retrievedTheme = true;
 
-    public static void signUpUser(ActionEvent event, String name, String email, String password, Date created_at) {
+    public static void signUpUser(ActionEvent event, String name, String email, String password, LocalDateTime created_at) {
 
         Connection connection = null;
         PreparedStatement psInsert = null;
@@ -28,7 +29,7 @@ public class DbUtils {
         ResultSet resultSet = null;
 
         try {
-            connection = getConnection("jdbc:mysql://sql6.freesqldatabase.com:3306/sql6512940", "sql6512940", "Trwp4ZL3hF");
+            connection = getConnection("jdbc:mysql://akara-db1.ccnzcbizgagw.ap-southeast-3.rds.amazonaws.com:3306/akaraDB", "admin", "Chay012878770");
             psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE email = ?");
             psCheckUserExists.setString(1, email);
             resultSet = psCheckUserExists.executeQuery();
@@ -49,7 +50,7 @@ public class DbUtils {
 
                 psInsert.setString(3, tripleDes.encrypt(password)); // need encrypt here
 
-                psInsert.setString(4, String.valueOf(created_at));
+                psInsert.setString(4, created_at.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
                 psInsert.executeUpdate();
             }
         }   catch (SQLException e) {
@@ -93,7 +94,7 @@ public class DbUtils {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
-            connection = getConnection("jdbc:mysql://sql6.freesqldatabase.com:3306/sql6512940", "sql6512940", "Trwp4ZL3hF");
+            connection = getConnection("jdbc:mysql://akara-db1.ccnzcbizgagw.ap-southeast-3.rds.amazonaws.com:3306/akaraDB", "admin", "Chay012878770");
             preparedStatement = connection.prepareStatement("SELECT user_id, password, name, preference_theme FROM users WHERE email = ?");
             preparedStatement.setString(1, email);
             resultSet = preparedStatement.executeQuery();
@@ -169,7 +170,7 @@ public class DbUtils {
                 System.out.println("user doesn't change their name");
             }
             else {
-                connection = getConnection("jdbc:mysql://sql6.freesqldatabase.com:3306/sql6512940", "sql6512940", "Trwp4ZL3hF");
+                connection = getConnection("jdbc:mysql://akara-db1.ccnzcbizgagw.ap-southeast-3.rds.amazonaws.com:3306/akaraDB", "admin", "Chay012878770");
                 psUpdate = connection.prepareStatement("UPDATE users SET name=? WHERE user_id=" + id);
                 psUpdate.setString(1, newName);
                 psUpdate.executeUpdate();
@@ -211,7 +212,7 @@ public class DbUtils {
         ResultSet resultSet = null;
 
         try {
-                connection = getConnection("jdbc:mysql://sql6.freesqldatabase.com:3306/sql6512940", "sql6512940", "Trwp4ZL3hF");
+                connection = getConnection("jdbc:mysql://akara-db1.ccnzcbizgagw.ap-southeast-3.rds.amazonaws.com:3306/akaraDB", "admin", "Chay012878770");
                 psUpdate = connection.prepareStatement("UPDATE users SET preference_theme=? WHERE user_id=" + id);
                 psUpdate.setBoolean(1, !retrievedTheme);
                 psUpdate.executeUpdate();
