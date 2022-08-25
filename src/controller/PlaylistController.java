@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -25,9 +26,8 @@ public class PlaylistController implements Initializable {
     Button addButton;
 
     @FXML
-    GridPane playlistContainer;
+    FlowPane playlistContainer;
 
-    private int row =1, column = 0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -45,21 +45,20 @@ public class PlaylistController implements Initializable {
 
                     Optional<ButtonType> clickedButton = dialog.showAndWait();
 
-
+                    // apply button in dialog clicked
                     if (clickedButton.get() == ButtonType.APPLY) {
+                        // check text field is empty
                         if (!AddPlaylistDialogController.staticLabel.getText().trim().equals("")) {
                             FXMLLoader fxmlLoader = new FXMLLoader();
                             fxmlLoader.setLocation(getClass().getResource("/view/playlistVBox.fxml"));
                             VBox vBox = fxmlLoader.load();
 
                             playlistVBoxController playlistVBoxController = fxmlLoader.getController();
+                            // set data to playlist VBox
                             playlistVBoxController.setData(AddPlaylistDialogController.imgURL, AddPlaylistDialogController.staticLabel.getText());
-                            if (row == 4) {
-                                column++;
-                                row = 0;
-                            }
-                            playlistContainer.add(vBox, row, column);
-                            row++;
+
+                            // add playlist to container
+                            playlistContainer.getChildren().add(vBox);
                         }
                     }
 

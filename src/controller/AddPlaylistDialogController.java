@@ -25,7 +25,6 @@ public class AddPlaylistDialogController implements Initializable {
     @FXML
     RadioButton pinkV, purpleV, blueV, yellowV, redV, orangeV, greenV, cyanV, blackV, grayV;
 
-    public static String playlistName;
     public static String imgURL = "/image/pinkPlaylist.png";
     public static Label staticLabel;
 
