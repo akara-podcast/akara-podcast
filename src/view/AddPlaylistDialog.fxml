@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonType?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<DialogPane style="-fx-border-color: #5D5FEF; -fx-border-size: 5; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPlaylistDialogController">
    <content>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="583.0">
         <columnConstraints>
@@ -26,83 +26,51 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" />
           <RowConstraints minHeight="10.0" />
+            <RowConstraints minHeight="10.0" />
         </rowConstraints>
          <children>
-            <Label text="Add Playlist">
+            <Label prefHeight="19.0" prefWidth="149.0" text="Add Playlist">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
                <padding>
-                  <Insets bottom="24.0" right="48.0" top="24.0" />
+                  <Insets right="48.0" />
                </padding>
+               <GridPane.margin>
+                  <Insets top="24.0" />
+               </GridPane.margin>
             </Label>
-            <VBox alignment="CENTER" GridPane.rowIndex="1">
+            <VBox alignment="CENTER" GridPane.rowIndex="2">
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: transparent;">
-                     <graphic>
-                        <ImageView fx:id="playlistImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/pinkPlaylist.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Label fx:id="playlistLabel" />
+                  <ImageView fx:id="playlistImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/pinkPlaylist.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="playlistLabel">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <HBox prefHeight="19.0" prefWidth="383.0">
+                  <HBox prefHeight="19.0" prefWidth="383.0" spacing="3.0">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
                      <children>
-                        <CheckBox fx:id="pinkV" mnemonicParsing="false" selected="true" style="-fx-color: #EA4AC7;" />
-                        <CheckBox fx:id="purpleV" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-color: #AD4AEA;">
-                           <HBox.margin>
-                              <Insets left="2.0" />
-                           </HBox.margin>
-                        </CheckBox>
-                        <CheckBox fx:id="blueV" layoutX="28.0" layoutY="10.0" mnemonicParsing="false" style="-fx-color: #5D5FEF;">
-                           <HBox.margin>
-                              <Insets left="2.0" />
-                           </HBox.margin>
-                        </CheckBox>
-                        <CheckBox fx:id="yellowV" layoutX="44.0" layoutY="10.0" mnemonicParsing="false" style="-fx-color: #DDC842;">
-                           <HBox.margin>
-                              <Insets left="2.0" />
-                           </HBox.margin>
-                        </CheckBox>
-                        <CheckBox fx:id="redV" layoutX="60.0" layoutY="10.0" mnemonicParsing="false" style="-fx-color: #DE4A4A;">
-                           <HBox.margin>
-                              <Insets left="2.0" />
-                           </HBox.margin>
-                        </CheckBox>
-                        <CheckBox fx:id="orangeV" layoutX="82.0" layoutY="10.0" mnemonicParsing="false" style="-fx-color: #EF8E57;">
-                           <HBox.margin>
-                              <Insets left="2.0" />
-                           </HBox.margin>
-                        </CheckBox>
-                        <CheckBox fx:id="greenV" layoutX="98.0" layoutY="10.0" mnemonicParsing="false" style="-fx-color: #05FE00;">
-                           <HBox.margin>
-                              <Insets left="2.0" />
-                           </HBox.margin>
-                        </CheckBox>
-                        <CheckBox fx:id="cyanV" layoutX="114.0" layoutY="10.0" mnemonicParsing="false" style="-fx-color: #00F3F3;">
-                           <HBox.margin>
-                              <Insets left="2.0" />
-                           </HBox.margin>
-                        </CheckBox>
-                        <CheckBox fx:id="blackV" layoutX="130.0" layoutY="10.0" mnemonicParsing="false" style="-fx-color: #1E1E1E;">
-                           <HBox.margin>
-                              <Insets left="2.0" />
-                           </HBox.margin>
-                        </CheckBox>
-                        <CheckBox fx:id="grayV" layoutX="146.0" layoutY="10.0" mnemonicParsing="false" style="-fx-color: #6A6A6A;">
-                           <HBox.margin>
-                              <Insets left="2.0" />
-                           </HBox.margin>
-                        </CheckBox>
+                        <RadioButton fx:id="pinkV" mnemonicParsing="false" onAction="#colorCheck" style="-fx-color: #EA4AC7;" />
+                        <RadioButton fx:id="purpleV" layoutX="180.0" layoutY="10.0" mnemonicParsing="false" onAction="#colorCheck" style="-fx-color: #AD4AEA;" />
+                        <RadioButton fx:id="blueV" layoutX="177.0" layoutY="10.0" mnemonicParsing="false" onAction="#colorCheck" style="-fx-color: #5D5FEF;" />
+                        <RadioButton fx:id="yellowV" layoutX="174.0" layoutY="10.0" mnemonicParsing="false" onAction="#colorCheck" style="-fx-color: #DDC842;" />
+                        <RadioButton fx:id="redV" layoutX="171.0" layoutY="10.0" mnemonicParsing="false" onAction="#colorCheck" style="-fx-color: #DE4A4A;" />
+                        <RadioButton fx:id="orangeV" layoutX="168.0" layoutY="10.0" mnemonicParsing="false" onAction="#colorCheck" style="-fx-color: #EF8E57;" />
+                        <RadioButton fx:id="greenV" layoutX="165.0" layoutY="10.0" mnemonicParsing="false" onAction="#colorCheck" style="-fx-color: #05FE00;" />
+                        <RadioButton fx:id="cyanV" layoutX="163.0" layoutY="10.0" mnemonicParsing="false" onAction="#colorCheck" style="-fx-color: #00F3F3;" />
+                        <RadioButton fx:id="blackV" layoutX="160.0" layoutY="10.0" mnemonicParsing="false" onAction="#colorCheck" style="-fx-color: #1E1E1E;" />
+                        <RadioButton fx:id="grayV" layoutX="176.0" layoutY="10.0" mnemonicParsing="false" onAction="#colorCheck" style="-fx-color: #6A6A6A;" />
                      </children>
                   </HBox>
                   <TextField fx:id="playlistTF" prefHeight="36.0" prefWidth="383.0" promptText="Playlist Name" style="-fx-border-color: #5d5fef; -fx-border-radius: 5; -fx-background-color: transparent;">
@@ -112,6 +80,16 @@
                   </TextField>
                </children>
             </VBox>
+            <Separator prefHeight="0.0" prefWidth="475.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="25.0" />
+               </GridPane.margin>
+            </Separator>
+            <Separator prefWidth="200.0" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="25.0" />
+               </GridPane.margin>
+            </Separator>
          </children>
       </GridPane>
    </content>

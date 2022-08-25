@@ -120,15 +120,17 @@ public class MainFormController implements Initializable {
 
         BorderPane login; // create a Profile VBox object to store the Profile VBox in the FXML file
         // check that user login or not
-        if (DbUtils.getRetrievedID() != 0)
+        if (DbUtils.getRetrievedID() != 0) {
             login = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Profile.fxml")));
-        else
+        }
+        else {
             login = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Login.fxml")));
+            modeClicked(event);
+        }
 
         // set the Profile VBox to the center of the BorderPane of the MainForm
         borderPane.setCenter(login);
 
-        modeClicked(event);
     }
 
     @FXML

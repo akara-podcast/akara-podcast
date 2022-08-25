@@ -6,6 +6,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.StageStyle;
 import org.w3c.dom.events.MouseEvent;
 import staticUtility.DbUtils;
 
@@ -21,13 +25,9 @@ public class PlaylistController implements Initializable {
     Button addButton;
 
     @FXML
-    private void addClicked(MouseEvent event) throws IOException {
-        DialogPane addPlaylist = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/AddPlaylistDialog.fxml")));
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setDialogPane(addPlaylist);
-        dialog.setTitle("Add Playlist");
-    }
+    GridPane playlistContainer;
 
+    private int row =1, column = 0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -41,11 +41,26 @@ public class PlaylistController implements Initializable {
                     Dialog<ButtonType> dialog = new Dialog<>();
                     dialog.setDialogPane(addPlaylist);
                     dialog.setTitle("Add Playlist");
+                    dialog.initStyle(StageStyle.TRANSPARENT);
 
                     Optional<ButtonType> clickedButton = dialog.showAndWait();
 
-                    if (clickedButton.get() == ButtonType.APPLY) {
 
+                    if (clickedButton.get() == ButtonType.APPLY) {
+                        if (!AddPlaylistDialogController.staticLabel.getText().trim().equals("")) {
+                            FXMLLoader fxmlLoader = new FXMLLoader();
+                            fxmlLoader.setLocation(getClass().getResource("/view/playlistVBox.fxml"));
+                            VBox vBox = fxmlLoader.load();
+
+                            playlistVBoxController playlistVBoxController = fxmlLoader.getController();
+                            playlistVBoxController.setData(AddPlaylistDialogController.imgURL, AddPlaylistDialogController.staticLabel.getText());
+                            if (row == 4) {
+                                column++;
+                                row = 0;
+                            }
+                            playlistContainer.add(vBox, row, column);
+                            row++;
+                        }
                     }
 
                 } catch (IOException e) {
