@@ -9,76 +9,48 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlaylistController">
+<BorderPane prefHeight="674.0" prefWidth="886.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlaylistController">
    <center>
-      <ScrollPane>
-         <content>
-            <VBox>
-               <padding>
-                  <Insets left="24.0" right="24.0" />
-               </padding>
-               <children>
-                  <GridPane hgap="100.0" minHeight="-Infinity" minWidth="-Infinity" vgap="100.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="NEVER" minWidth="150.0" />
-                      <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="150.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="150.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <BorderPane>
-                           <GridPane.margin>
-                              <Insets />
-                           </GridPane.margin>
-                           <center>
-                              <Button fx:id="addButton" alignment="CENTER" cache="true" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: transparent;">
-                                 <graphic>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../image/add-playlist.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </center>
-                           <bottom>
-                              <Label text="Add Playlist" BorderPane.alignment="CENTER">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                           </bottom>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </BorderPane>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="36.0" />
-                     </VBox.margin>
-                  </GridPane>
-               </children>
-            </VBox>
-         </content>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
+         <content>
+            <FlowPane fx:id="playlistContainer" hgap="70.0" vgap="50.0">
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Button fx:id="addButton" alignment="CENTER" cache="true" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/add-playlist.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Label text="Add Playlist">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="24.0" right="24.0" top="25.0" />
+               </padding>
+            </FlowPane>
+         </content>
       </ScrollPane>
    </center>
    <top>
