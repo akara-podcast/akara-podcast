@@ -31,7 +31,6 @@ public class PlaylistController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
         addButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -51,17 +50,16 @@ public class PlaylistController implements Initializable {
                         if (!AddPlaylistDialogController.staticLabel.getText().trim().equals("")) {
                             FXMLLoader fxmlLoader = new FXMLLoader();
                             fxmlLoader.setLocation(getClass().getResource("/view/playlistVBox.fxml"));
-                            VBox vBox = fxmlLoader.load();
+                            VBox playlist = fxmlLoader.load();
 
                             playlistVBoxController playlistVBoxController = fxmlLoader.getController();
                             // set data to playlist VBox
                             playlistVBoxController.setData(AddPlaylistDialogController.imgURL, AddPlaylistDialogController.staticLabel.getText());
 
                             // add playlist to container
-                            playlistContainer.getChildren().add(vBox);
+                            playlistContainer.getChildren().add(playlist);
                         }
                     }
-
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
