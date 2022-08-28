@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
    <children>
       <BorderPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" styleClass="primary-color" stylesheets="@../css/style.css">
          <left>
@@ -40,7 +40,7 @@
                         </ImageView>
                         <HBox alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="200.0" styleClass="search-container" stylesheets="@../css/style.css">
                            <children>
-                              <TextField focusTraversable="false" prefHeight="28.0" prefWidth="209.0" promptText="Artist, podcasts..." style="-fx-background-color: transparent;">
+                              <TextField fx:id="searchTF" focusTraversable="false" onMouseClicked="#searchClicked" prefHeight="28.0" prefWidth="209.0" promptText="Artist, podcasts..." style="-fx-background-color: transparent;">
                                  <font>
                                     <Font name="Inter Light" size="14.0" />
                                  </font>

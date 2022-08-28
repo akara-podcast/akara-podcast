@@ -20,6 +20,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -34,7 +36,7 @@ import java.util.ResourceBundle;
 public class MainFormController implements Initializable {
 
     //------------------------------------------------------------------------------------
-    // fields declaration                                                               |
+    // fields declaration                                                                 |
     //------------------------------------------------------------------------------------
     @FXML
     public BorderPane borderPane;
@@ -48,11 +50,14 @@ public class MainFormController implements Initializable {
     @FXML
     private Label modeLabel;
 
+    @FXML
+    private TextField searchTF;
+
     public static BorderPane staticMainPane;
     public static Label staticModelLabel;
 
     //------------------------------------------------------------------------------------
-    //  Methods declaration s                                                             |
+    //  Methods declarations                                                             |
     //------------------------------------------------------------------------------------
 
     @Override
@@ -141,6 +146,13 @@ public class MainFormController implements Initializable {
     }
 
     @FXML
+    public void searchClicked(MouseEvent event) throws IOException {
+
+        ScrollPane search = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Search.fxml")));
+        borderPane.setCenter(search);
+    }
+
+    @FXML
     public void modeClicked(MouseEvent event) {
 
         // user can't change anything unless they log in
@@ -152,7 +164,6 @@ public class MainFormController implements Initializable {
         } else {
             setLightMode();
         }
-
     }
 
 

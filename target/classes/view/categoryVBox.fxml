@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox minHeight="131.0" minWidth="226.1" prefHeight="131.0" prefWidth="226.1" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CategoryVBoxController">
+   <children>
+      <AnchorPane minHeight="131.0" minWidth="226.1" prefHeight="131.0" prefWidth="226.1">
+         <children>
+            <ImageView fx:id="categoryIMG" fitHeight="131.0" fitWidth="226.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/categoryGaming.png" />
+               </image></ImageView>
+            <VBox alignment="CENTER_LEFT" layoutY="85.0" prefHeight="38.0" prefWidth="226.0" style="-fx-background-color: transparent; -fx-background-radius: 6; -fx-border-radius: 6;">
+               <children>
+                  <Label fx:id="categoryName" prefHeight="46.0" prefWidth="186.0" style="-fx-background-color: transparent;" text="name" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" right="3.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
