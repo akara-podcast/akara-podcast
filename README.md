@@ -13,7 +13,7 @@ Akara Podcast application has been created using:
 
 **Clone the source code**
 ```sh
-$ git  clone  https://github.com/timberr004/Akara.git
+$ git  clone  https://github.com/akara-podcast/akara-podcast.git
 ```
 ### Quick Run on Windows
 - Open the project with IntelliJ IDEA.
