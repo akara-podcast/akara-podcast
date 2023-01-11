@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="signupPane" prefHeight="684.0" prefWidth="991.0" styleClass="primary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
+<BorderPane fx:id="signupPane" prefHeight="684.0" prefWidth="991.0" styleClass="primary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
    <top>
       <VBox minHeight="-Infinity" minWidth="-Infinity" styleClass="primary-color" BorderPane.alignment="CENTER">
          <padding>

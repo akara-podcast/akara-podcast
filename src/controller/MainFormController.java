@@ -102,7 +102,7 @@ public class MainFormController implements Initializable {
     @FXML
     private void favoriteClick(MouseEvent event) throws IOException {
 
-        VBox favorite = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Favorite.fxml")));
+        BorderPane favorite = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Favorite.fxml")));
         borderPane.setCenter(favorite);
     }
 

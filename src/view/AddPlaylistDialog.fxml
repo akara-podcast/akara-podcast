@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane style="-fx-border-color: #5D5FEF; -fx-border-size: 5; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPlaylistDialogController">
+<DialogPane style="-fx-border-color: #5D5FEF; -fx-border-size: 5; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPlaylistDialogController">
    <content>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="583.0">
         <columnConstraints>
