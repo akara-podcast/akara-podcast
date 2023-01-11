@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" styleClass="secondary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MediaPlayerController">
+<VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" styleClass="secondary-color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MediaPlayerController">
    <children>
       <ProgressBar fx:id="podcastProgressBar" maxWidth="1.7976931348623157E308" prefHeight="8.0" prefWidth="430.0" progress="0.0" />
       <BorderPane maxWidth="1.7976931348623157E308" prefHeight="70.0" prefWidth="1286.0">

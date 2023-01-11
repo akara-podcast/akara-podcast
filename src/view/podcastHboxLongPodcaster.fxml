@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="60.0" prefWidth="1700.0" styleClass="primary-color" stylesheets="@../css/podcastHboxLong.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PodcastHboxLongPodcasterController">
+<HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="60.0" prefWidth="1700.0" styleClass="primary-color" stylesheets="@../css/podcastHboxLong.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PodcastHboxLongPodcasterController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="359.0" spacing="12.0">
          <children>
