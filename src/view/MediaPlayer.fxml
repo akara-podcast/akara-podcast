@@ -139,7 +139,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="addFavoriteMediaPlayer" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="addFavoriteMediaPlayer" mnemonicParsing="false" onMouseClicked="#addToFavorite" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>

@@ -23,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
@@ -143,6 +144,26 @@ public class MediaPlayerController implements Initializable {
         media = new Media(songs.get(songNumber).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
     }
+
+    @FXML
+    void addToFavorite(MouseEvent event) throws Exception {
+
+        System.out.println("Button is worked");
+
+        FavoriteController.getInstance().addToFavorite();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     @FXML
     void playMedia() {
