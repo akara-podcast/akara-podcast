@@ -7,12 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.StageStyle;
-import org.w3c.dom.events.MouseEvent;
-import staticUtility.DbUtils;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,7 +45,7 @@ public class PlaylistController implements Initializable {
                         // check text field is empty
                         if (!AddPlaylistDialogController.staticLabel.getText().trim().equals("")) {
                             FXMLLoader fxmlLoader = new FXMLLoader();
-                            fxmlLoader.setLocation(getClass().getResource("/view/playlistVBox.fxml"));
+                            fxmlLoader.setLocation(getClass().getResource("/view/PlaylistVBox.fxml"));
                             VBox playlist = fxmlLoader.load();
 
                             playlistVBoxController playlistVBoxController = fxmlLoader.getController();
