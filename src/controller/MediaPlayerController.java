@@ -17,6 +17,7 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,10 +25,12 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
+import model.Podcast;
 import podcastData.DataInitializer;
 
 import java.io.File;
@@ -71,7 +74,7 @@ public class MediaPlayerController implements Initializable {
     private Button suffleButtonMediaPlayer;
 
     @FXML
-    private Label titleMediaPlayer;
+    public Label titleMediaPlayer;
 
     private Timer timer;
     private TimerTask task;
@@ -79,8 +82,8 @@ public class MediaPlayerController implements Initializable {
     public MediaPlayer mediaPlayer;
     public Media media;
 
-    private static Label titleMediaPlayerStatic;
-    private static Label podcasterMediaPlayerStatic;
+    public static Label titleMediaPlayerStatic;
+    public static Label podcasterMediaPlayerStatic;
     private static ImageView imgMediaPlayerStatic;
     public static Media mediaStatic;
     public MediaPlayer mediaPlayerStatic;
@@ -150,16 +153,10 @@ public class MediaPlayerController implements Initializable {
 
         System.out.println("Button is worked");
 
-        FavoriteController.getInstance().addToFavorite();
+        FavoriteController favoriteController = new FavoriteController();
+        favoriteController.addPodcastToFavorite();
+
     }
-
-
-
-
-
-
-
-
 
 
 
