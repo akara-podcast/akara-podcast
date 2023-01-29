@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.StageStyle;
@@ -19,6 +20,11 @@ import java.util.ResourceBundle;
 public class PlaylistController implements Initializable {
 
     @FXML
+    private BorderPane playlistPane;
+
+    private static BorderPane staticPlaylistPane;
+
+    @FXML
     Button addButton;
 
     @FXML
@@ -26,6 +32,7 @@ public class PlaylistController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        staticPlaylistPane = playlistPane;
 
         addButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -62,5 +69,9 @@ public class PlaylistController implements Initializable {
 
             }
         });
+    }
+
+    public static BorderPane getPlaylistPane() {
+        return staticPlaylistPane;
     }
 }

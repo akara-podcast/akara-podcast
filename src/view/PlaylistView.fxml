@@ -34,7 +34,7 @@
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">
                            <children>
-                              <Label fx:id="titleDiscoverSeeAll" prefHeight="46.0" prefWidth="799.0" styleClass="primary-color" text="Title">
+                              <Label fx:id="titleDiscoverSeeAll" prefHeight="46.0" prefWidth="799.0" style="-fx-background-color: null;" styleClass="primary-color" text="Title">
                                  <font>
                                     <Font name="CircularStd-Medium" size="36.0" />
                                  </font>
@@ -48,6 +48,9 @@
                            </HBox.margin>
                         </VBox>
                      </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="15.0" />
+                     </padding>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                      <children>
