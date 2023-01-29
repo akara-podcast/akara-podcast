@@ -26,6 +26,7 @@ import javafx.scene.layout.BorderPane;
 import model.Podcast;
 
 import java.net.URL;
+import java.text.BreakIterator;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -45,10 +46,14 @@ public class PodcastHboxLongController implements Initializable {
     private ImageView imgHboxLong;
 
     @FXML
-    private Label podcasterHboxLong;
+    public Label podcasterHboxLong;
 
     @FXML
-    private Label titleHboxLong;
+    public Label titleHboxLong;
+
+    public static Label titleHboxLongStatic;
+    public static Label podcasterHboxLongStatic;
+    // TODO: Add static fields for Genre and Duration
 
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
@@ -56,7 +61,9 @@ public class PodcastHboxLongController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        titleHboxLongStatic = titleHboxLong;
+        podcasterHboxLongStatic = podcasterHboxLong;
+        // TODO: Initialize static fields for Genre and Duration
     }
 
     void setData(Podcast podcast) {
