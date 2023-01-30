@@ -27,7 +27,7 @@ public class Podcast {
     private String description;
     private String genre;
     private String podcaster;
-    private int duration;
+    private String duration;
     private String podcastUrl;
     private String createdAt;
     private String updatedAt;
@@ -78,11 +78,11 @@ public class Podcast {
         this.podcaster = podcaster;
     }
 
-    public int getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 

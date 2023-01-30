@@ -127,6 +127,8 @@
          <right>
             <HBox alignment="CENTER_RIGHT" prefWidth="326.0" BorderPane.alignment="CENTER_LEFT">
                <children>
+                  <Label fx:id="genreMediaPlayer" text="Label" />
+                  <Label fx:id="durationMediaPlayer" text="Label" />
                   <Button fx:id="addPlaylistMediaPlayer" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">

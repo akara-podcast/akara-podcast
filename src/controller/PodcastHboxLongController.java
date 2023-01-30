@@ -53,7 +53,8 @@ public class PodcastHboxLongController implements Initializable {
 
     public static Label titleHboxLongStatic;
     public static Label podcasterHboxLongStatic;
-    // TODO: Add static fields for Genre and Duration
+    public static Label genreHboxLongStatic;
+    public static Label durationHboxLongStatic;
 
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
@@ -63,7 +64,8 @@ public class PodcastHboxLongController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         titleHboxLongStatic = titleHboxLong;
         podcasterHboxLongStatic = podcasterHboxLong;
-        // TODO: Initialize static fields for Genre and Duration
+        genreHboxLongStatic = genreHboxLong;
+        durationHboxLongStatic = durationHboxLong;
     }
 
     void setData(Podcast podcast) {
