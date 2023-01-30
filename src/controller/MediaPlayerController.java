@@ -35,6 +35,7 @@ import podcastData.DataInitializer;
 
 import java.io.File;
 import java.net.URL;
+import java.text.BreakIterator;
 import java.util.*;
 
 public class MediaPlayerController implements Initializable {
@@ -65,6 +66,12 @@ public class MediaPlayerController implements Initializable {
     private Label podcasterMediaPlayer;
 
     @FXML
+    private Label durationMediaPlayer;
+
+    @FXML
+    private Label genreMediaPlayer;
+
+    @FXML
     private Button previousButtonMediaPlayer;
 
     @FXML
@@ -85,6 +92,8 @@ public class MediaPlayerController implements Initializable {
     public static Label titleMediaPlayerStatic;
     public static Label podcasterMediaPlayerStatic;
     private static ImageView imgMediaPlayerStatic;
+    public static Label durationMediaPlayerStatic;
+    public static Label genreMediaPlayerStatic;
     public static Media mediaStatic;
     public MediaPlayer mediaPlayerStatic;
 
@@ -120,12 +129,22 @@ public class MediaPlayerController implements Initializable {
         MediaPlayerController.mediaStatic = mediaStatic;
     }
 
+    public static void setDurationMediaPlayerStatic(String duration) {
+        MediaPlayerController.durationMediaPlayerStatic.setText(duration);
+    }
+
+    public static void setGenreMediaPlayerStatic(String genre) {
+        MediaPlayerController.genreMediaPlayerStatic.setText(genre);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         titleMediaPlayerStatic = titleMediaPlayer;
         podcasterMediaPlayerStatic = podcasterMediaPlayer;
         imgMediaPlayerStatic = imgMediaPlayer;
+        durationMediaPlayerStatic = durationMediaPlayer;
+        genreMediaPlayerStatic = genreMediaPlayer;
 
         // check if media is null
         if (mediaStatic == null) {

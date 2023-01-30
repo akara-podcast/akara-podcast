@@ -39,7 +39,7 @@ public class DataInitializer {
             podcast.setCover(randomImage());
             podcast.setGenre(randomGenre());
             podcast.setPodcaster(faker.artist().name());
-            podcast.setDuration(faker.random().nextInt(30, 60));
+            podcast.setDuration(String.valueOf(faker.random().nextInt(30, 60)));
             podcast.setPodcastUrl(randomSoundPodcast());
             podcast.setCreatedAt(faker.business().creditCardExpiry());
             podcast.setUpdatedAt(faker.business().creditCardExpiry());

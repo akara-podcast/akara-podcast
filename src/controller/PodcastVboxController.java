@@ -49,6 +49,12 @@ public class PodcastVboxController implements Initializable {
     @FXML
     private Label podcasterVbox;
 
+    @FXML
+    private Label durationVbox;
+
+    @FXML
+    private Label genreVbox;
+
     private Media media;
 
     //------------------------------------------------------------------------------------
@@ -61,6 +67,8 @@ public class PodcastVboxController implements Initializable {
         imgVbox.setImage(image);
         titleVbox.setText(podcast.getTitle());
         podcasterVbox.setText(podcast.getPodcaster());
+        durationVbox.setText(podcast.getDuration());
+        genreVbox.setText(podcast.getGenre());
 
         File file = new File(podcast.getPodcastUrl());
         media = new Media(file.toURI().toString());
@@ -77,17 +85,23 @@ public class PodcastVboxController implements Initializable {
 
         String title = titleVbox.getText();
         String podcaster = podcasterVbox.getText();
+        String duration = durationVbox.getText();
+        String genre = genreVbox.getText();
         String source = media.getSource();
         Image image = imgVbox.getImage();
 
         System.out.println("title: " + title);
         System.out.println("podcaster: " + podcaster);
         System.out.println("source podcast: " + source);
+        System.out.println("duration: " + duration);
+        System.out.println("genre: " + genre);
         System.out.println("---");
 
         MediaPlayerController.setTitleMediaPlayerStatic(title);
         MediaPlayerController.setPodcasterMediaPlayerStatic(podcaster);
         MediaPlayerController.setImgMediaPlayerStatic(image);
+        MediaPlayerController.setDurationMediaPlayerStatic(duration);
+        MediaPlayerController.setGenreMediaPlayerStatic(genre);
         MediaPlayerController.setMediaStatic(media);
     }
 

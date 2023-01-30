@@ -42,5 +42,7 @@
          </cursor>
       </Button>
       <Label fx:id="podcasterVbox" text="Label" />
+      <Label fx:id="genreVbox" layoutY="40.0" text="Label" />
+      <Label fx:id="durationVbox" layoutY="20.0" text="Label" />
    </children>
 </AnchorPane>

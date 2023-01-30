@@ -26,7 +26,8 @@ public class FavoriteController implements Initializable {
     public static VBox favoriteContainerStatic;
     public static String titleMediaPlayerTextStatic;
     public static String podcasterMediaPlayerTextStatic;
-    // TODO: Add static field of Gnere, Duration
+    public static String genreMediaPlayerTextStatic;
+    public static String durationMediaPlayerTextStatic;
 
     public static FavoriteController getInstance() {
         return instance;
@@ -40,9 +41,13 @@ public class FavoriteController implements Initializable {
         favoriteContainerStatic = favoriteContainer;
         titleMediaPlayerTextStatic = MediaPlayerController.titleMediaPlayerStatic.getText();
         podcasterMediaPlayerTextStatic = MediaPlayerController.podcasterMediaPlayerStatic.getText();
-        // TODO: Initialize static field of Gnere, Duration from MediaPlayerController
+        genreMediaPlayerTextStatic = MediaPlayerController.genreMediaPlayerStatic.getText();
+        durationMediaPlayerTextStatic = MediaPlayerController.durationMediaPlayerStatic.getText();
+
         System.out.println(titleMediaPlayerTextStatic);
         System.out.println(podcasterMediaPlayerTextStatic);
+        System.out.println(genreMediaPlayerTextStatic);
+        System.out.println(durationMediaPlayerTextStatic);
 
     }
 
@@ -67,6 +72,7 @@ public class FavoriteController implements Initializable {
         //set hello to the text of the label in the podcastHboxLong.fxml
         PodcastHboxLongController.titleHboxLongStatic.setText(titleMediaPlayerTextStatic);
         PodcastHboxLongController.podcasterHboxLongStatic.setText(podcasterMediaPlayerTextStatic);
-        // TODO: Set text of Genre, Duration to PodcastHboxLongController
+        PodcastHboxLongController.genreHboxLongStatic.setText(genreMediaPlayerTextStatic);
+        PodcastHboxLongController.durationHboxLongStatic.setText(durationMediaPlayerTextStatic);
     }
 }
