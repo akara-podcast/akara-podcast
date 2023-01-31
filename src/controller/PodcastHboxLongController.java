@@ -55,6 +55,7 @@ public class PodcastHboxLongController implements Initializable {
     public static Label podcasterHboxLongStatic;
     public static Label genreHboxLongStatic;
     public static Label durationHboxLongStatic;
+    public static ImageView imgHboxLongStatic;
 
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
@@ -66,6 +67,7 @@ public class PodcastHboxLongController implements Initializable {
         podcasterHboxLongStatic = podcasterHboxLong;
         genreHboxLongStatic = genreHboxLong;
         durationHboxLongStatic = durationHboxLong;
+        imgHboxLongStatic = imgHboxLong;
     }
 
     void setData(Podcast podcast) {

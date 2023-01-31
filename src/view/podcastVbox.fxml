@@ -21,7 +21,7 @@
             </ImageView>
             <Label fx:id="titleVbox" ellipsisString="" lineSpacing="0.5" maxHeight="41.0" maxWidth="155.0" prefWidth="173.0" text="កម្មវិធីតោះនិយាយប្រវត្តិជាមួយនឹងហេ្គម" textFill="#323232" wrapText="true">
                <font>
-                  <Font name="Inter Medium" size="13.0" />
+                  <Font name="Rockwell" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets left="9.0" right="9.0" />
@@ -41,8 +41,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="podcasterVbox" text="Label" />
-      <Label fx:id="genreVbox" layoutY="40.0" text="Label" />
-      <Label fx:id="durationVbox" layoutY="20.0" text="Label" />
+      <Label fx:id="podcasterVbox" text="Label" visible="false" />
+      <Label fx:id="genreVbox" layoutY="40.0" text="Label" visible="false" />
+      <Label fx:id="durationVbox" layoutY="20.0" text="Label" visible="false" />
    </children>
 </AnchorPane>

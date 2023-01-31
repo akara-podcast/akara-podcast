@@ -19,12 +19,12 @@
          <children>
             <Label fx:id="title" text="Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?" textFill="#323232">
                <font>
-                  <Font name="Inter Medium" size="13.0" />
+                  <Font name="Rockwell" size="14.0" />
                </font>
             </Label>
             <Label fx:id="description" text="តេស្តលេងៗហ្នឹងហារ អ្នកទាំងអស់គ្នាគិតយ៉ាងម៊ិចចំពោះ Podcast សាកល្បងមួយនេះ?" textAlignment="JUSTIFY" textFill="#9e9ba1" wrapText="true">
                <font>
-                  <Font name="Inter Light" size="12.0" />
+                  <Font name="Rockwell" size="12.0" />
                </font>
             </Label>
          </children>
