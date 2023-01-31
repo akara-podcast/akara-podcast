@@ -10,12 +10,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.StageStyle;
+import model.Playlist;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class PlaylistController implements Initializable {
 
@@ -30,9 +29,14 @@ public class PlaylistController implements Initializable {
     @FXML
     FlowPane playlistContainer;
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         staticPlaylistPane = playlistPane;
+
+        // add playlist to container
+        addPlaylistToContainer();
 
         addButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -57,10 +61,13 @@ public class PlaylistController implements Initializable {
 
                             PlaylistVBoxController playlistVBoxController = fxmlLoader.getController();
                             // set data to playlist VBox
-                            playlistVBoxController.setData(CreatePlaylistDialogController.imgURL, CreatePlaylistDialogController.staticLabel.getText());
+                            playlistVBoxController.setData(CreatePlaylistDialogController.imgURL, CreatePlaylistDialogController.staticLabel.getText().trim());
 
                             // add playlist to container
                             playlistContainer.getChildren().add(playlist);
+
+                            // add playlist to list
+                            Playlist.setPlaylistToArr(playlist);
                         }
                     }
                 } catch (IOException e) {
@@ -70,6 +77,14 @@ public class PlaylistController implements Initializable {
             }
         });
     }
+
+    private void addPlaylistToContainer(){
+        for (VBox playlist : Playlist.getPlaylistArr()){
+            // add playlist to container
+            playlistContainer.getChildren().add(playlist);
+        }
+    }
+
 
     public static BorderPane getPlaylistPane() {
         return staticPlaylistPane;
