@@ -111,6 +111,7 @@ public class MainFormController implements Initializable {
 
         BorderPane playlist = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Playlist.fxml")));
         borderPane.setCenter(playlist);
+
     }
 
     @FXML

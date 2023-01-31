@@ -27,6 +27,10 @@ public class PlaylistVBoxController implements Initializable {
     @FXML
     private Label playlistName;
 
+    // static
+    public static ImageView playlistImgStatic;
+    public static Label playlistNameStatic;
+
     public void setData(String URL, String name) {
         Image image = new Image(Objects.requireNonNull(getClass().getResource(URL)).toString());
 
@@ -37,6 +41,8 @@ public class PlaylistVBoxController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        playlistImgStatic = playlistIMG;
+        playlistNameStatic = playlistName;
 
         playlistButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
