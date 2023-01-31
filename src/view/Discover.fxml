@@ -24,9 +24,9 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
                            <children>
-                              <Label prefHeight="23.0" prefWidth="246.0" text="Recently played" textFill="#323232">
+                              <Label prefHeight="23.0" prefWidth="246.0" text="Recently Played" textFill="#323232">
                                  <font>
-                                    <Font name="Inter SemiBold" size="18.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets top="23.0" />
@@ -80,16 +80,16 @@
                            <children>
                               <Label prefHeight="23.0" prefWidth="210.0" text="Popular Podcast" textFill="#323232">
                                  <font>
-                                    <Font name="Inter SemiBold" size="18.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets top="6.0" />
                                  </HBox.margin>
                               </Label>
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label fx:id="seeAllPopularPodcast" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                              <Label fx:id="seeAllPopularPodcast" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="75.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
                                  <font>
-                                    <Font name="Chantrea SR UI" size="14.0" />
+                                    <Font name="Rockwell" size="14.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -119,16 +119,16 @@
                            <children>
                               <Label prefHeight="23.0" prefWidth="236.0" text="Top Podcast in Gaming">
                                  <font>
-                                    <Font name="Inter SemiBold" size="18.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets top="6.0" />
                                  </HBox.margin>
                               </Label>
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label fx:id="seeAllTopPodcastInGaming" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                              <Label fx:id="seeAllTopPodcastInGaming" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="82.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
                                  <font>
-                                    <Font name="Chantrea SR UI" size="14.0" />
+                                    <Font name="Rockwell" size="14.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -158,16 +158,16 @@
                            <children>
                               <Label prefHeight="23.0" prefWidth="374.0" text="Top Podcast in Technology">
                                  <font>
-                                    <Font name="Inter SemiBold" size="18.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets top="6.0" />
                                  </HBox.margin>
                               </Label>
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label fx:id="seeAllTopPodcastInTechnology" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                              <Label fx:id="seeAllTopPodcastInTechnology" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="78.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
                                  <font>
-                                    <Font name="Chantrea SR UI" size="14.0" />
+                                    <Font name="Rockwell" size="14.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -197,16 +197,16 @@
                            <children>
                               <Label prefHeight="23.0" prefWidth="236.0" text="Top Podcast in History">
                                  <font>
-                                    <Font name="Inter SemiBold" size="18.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets top="6.0" />
                                  </HBox.margin>
                               </Label>
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label fx:id="seeAllTopPodcastInHistory" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                              <Label fx:id="seeAllTopPodcastInHistory" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="90.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
                                  <font>
-                                    <Font name="Chantrea SR UI" size="14.0" />
+                                    <Font name="Rockwell" size="14.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -236,16 +236,16 @@
                            <children>
                               <Label prefHeight="23.0" prefWidth="236.0" text="Top Podcast in Comedy">
                                  <font>
-                                    <Font name="Inter SemiBold" size="18.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets top="6.0" />
                                  </HBox.margin>
                               </Label>
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label fx:id="seeAllTopPodcastInComedy" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                              <Label fx:id="seeAllTopPodcastInComedy" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="107.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
                                  <font>
-                                    <Font name="Chantrea SR UI" size="14.0" />
+                                    <Font name="Rockwell" size="14.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -275,16 +275,16 @@
                            <children>
                               <Label prefHeight="23.0" prefWidth="370.0" text="Top Podcast in Programming language">
                                  <font>
-                                    <Font name="Inter SemiBold" size="18.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets top="6.0" />
                                  </HBox.margin>
                               </Label>
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <Label fx:id="seeAllTopPodcastInProgrammingLanguage" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                              <Label fx:id="seeAllTopPodcastInProgrammingLanguage" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="104.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
                                  <font>
-                                    <Font name="Chantrea SR UI" size="14.0" />
+                                    <Font name="Rockwell" size="14.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />

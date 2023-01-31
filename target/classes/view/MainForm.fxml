@@ -42,7 +42,7 @@
                            <children>
                               <TextField fx:id="searchTF" focusTraversable="false" onMouseClicked="#searchClicked" prefHeight="28.0" prefWidth="209.0" promptText="Artist, podcasts..." style="-fx-background-color: transparent;">
                                  <font>
-                                    <Font name="Inter Light" size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </TextField>
                               <Separator maxHeight="24.0" orientation="VERTICAL" prefHeight="24.0" />
@@ -81,7 +81,7 @@
                               </Button>
                               <Label text="Discover" textFill="#323232">
                                  <font>
-                                    <Font name="Inter SemiBold" size="16.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />
@@ -108,7 +108,7 @@
                               </Button>
                               <Label text="Trending" textFill="#323232">
                                  <font>
-                                    <Font name="Inter SemiBold" size="16.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />
@@ -135,7 +135,7 @@
                               </Button>
                               <Label text="Favorite" textFill="#323232">
                                  <font>
-                                    <Font name="Inter SemiBold" size="16.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />
@@ -162,7 +162,7 @@
                               </Button>
                               <Label text="Playlist" textFill="#323232">
                                  <font>
-                                    <Font name="Inter SemiBold" size="16.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />
@@ -189,7 +189,7 @@
                               </Button>
                               <Label text="Community" textFill="#323232">
                                  <font>
-                                    <Font name="Inter SemiBold" size="16.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />
@@ -221,7 +221,7 @@
                               </Button>
                               <Label fx:id="modeLabel" text="Light Mode" textFill="#323232">
                                  <font>
-                                    <Font name="Inter SemiBold" size="16.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />
@@ -248,7 +248,7 @@
                               </Button>
                               <Label text="Feedback" textFill="#323232">
                                  <font>
-                                    <Font name="Inter SemiBold" size="16.0" />
+                                    <Font name="Rockwell" size="17.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="12.0" />

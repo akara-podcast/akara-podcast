@@ -30,6 +30,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
+import model.Favorite;
 import model.Podcast;
 import podcastData.DataInitializer;
 
@@ -91,7 +92,7 @@ public class MediaPlayerController implements Initializable {
 
     public static Label titleMediaPlayerStatic;
     public static Label podcasterMediaPlayerStatic;
-    private static ImageView imgMediaPlayerStatic;
+    public static ImageView imgMediaPlayerStatic;
     public static Label durationMediaPlayerStatic;
     public static Label genreMediaPlayerStatic;
     public static Media mediaStatic;

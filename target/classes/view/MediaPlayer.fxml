@@ -27,16 +27,16 @@
                         <Image url="@../image/Podcast_EP-10-web_1.png" />
                      </image>
                   </ImageView>
-                  <VBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="350.0" spacing="4.0">
+                  <VBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="333.0" spacing="4.0">
                      <children>
-                        <Label fx:id="titleMediaPlayer" prefHeight="20.0" prefWidth="291.0" style="-fx-background-color: transparent;" styleClass="primary-color" text="Title">
+                        <Label fx:id="titleMediaPlayer" prefHeight="20.0" prefWidth="370.0" style="-fx-background-color: transparent;" styleClass="primary-color" text="Title">
                            <font>
-                              <Font name="Chantrea SR UI" size="14.0" />
+                              <Font name="Rockwell" size="13.0" />
                            </font>
                         </Label>
                         <Label fx:id="podcasterMediaPlayer" text="Podcaster" textFill="#5c5c5c">
                            <font>
-                              <Font size="13.0" />
+                              <Font name="Rockwell" size="12.0" />
                            </font>
                         </Label>
                      </children>
@@ -127,8 +127,8 @@
          <right>
             <HBox alignment="CENTER_RIGHT" prefWidth="326.0" BorderPane.alignment="CENTER_LEFT">
                <children>
-                  <Label fx:id="genreMediaPlayer" text="Label" />
-                  <Label fx:id="durationMediaPlayer" text="Label" />
+                  <Label fx:id="genreMediaPlayer" text="Label" visible="false" />
+                  <Label fx:id="durationMediaPlayer" text="Label" visible="false" />
                   <Button fx:id="addPlaylistMediaPlayer" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
