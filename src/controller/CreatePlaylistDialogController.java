@@ -11,7 +11,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class AddPlaylistDialogController implements Initializable {
+public class CreatePlaylistDialogController implements Initializable {
 
     @FXML
     ImageView playlistImg;

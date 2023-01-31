@@ -39,7 +39,7 @@ public class PlaylistController implements Initializable {
             public void handle(ActionEvent event) {
                 DialogPane addPlaylist;
                 try {
-                    addPlaylist = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/AddPlaylistDialog.fxml")));
+                    addPlaylist = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/CreatePlaylistDialog.fxml")));
                     Dialog<ButtonType> dialog = new Dialog<>();
                     dialog.setDialogPane(addPlaylist);
                     dialog.setTitle("Add Playlist");
@@ -50,14 +50,14 @@ public class PlaylistController implements Initializable {
                     // apply button in dialog clicked
                     if (clickedButton.get() == ButtonType.APPLY) {
                         // check text field is empty
-                        if (!AddPlaylistDialogController.staticLabel.getText().trim().equals("")) {
+                        if (!CreatePlaylistDialogController.staticLabel.getText().trim().equals("")) {
                             FXMLLoader fxmlLoader = new FXMLLoader();
                             fxmlLoader.setLocation(getClass().getResource("/view/PlaylistVBox.fxml"));
                             VBox playlist = fxmlLoader.load();
 
-                            playlistVBoxController playlistVBoxController = fxmlLoader.getController();
+                            PlaylistVBoxController playlistVBoxController = fxmlLoader.getController();
                             // set data to playlist VBox
-                            playlistVBoxController.setData(AddPlaylistDialogController.imgURL, AddPlaylistDialogController.staticLabel.getText());
+                            playlistVBoxController.setData(CreatePlaylistDialogController.imgURL, CreatePlaylistDialogController.staticLabel.getText());
 
                             // add playlist to container
                             playlistContainer.getChildren().add(playlist);

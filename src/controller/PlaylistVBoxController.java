@@ -10,14 +10,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import model.Podcast;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class playlistVBoxController implements Initializable {
+public class PlaylistVBoxController implements Initializable {
 
     @FXML
     private Button playlistButton;

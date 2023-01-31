@@ -38,7 +38,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Label text="Add Playlist">
+                        <Label text="Create Playlist">
                            <font>
                               <Font size="14.0" />
                            </font>
