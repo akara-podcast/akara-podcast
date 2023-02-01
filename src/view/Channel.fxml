@@ -43,7 +43,7 @@
                               </AnchorPane>
                               <Label fx:id="podcasterChannel" alignment="CENTER" prefHeight="23.0" prefWidth="246.0" text="Akara Podcast" textFill="#323232">
                                  <font>
-                                    <Font name="Inter SemiBold" size="18.0" />
+                                    <Font name="Rockwell" size="18.0" />
                                  </font>
                                  <VBox.margin>
                                     <Insets top="10.0" />
@@ -60,19 +60,19 @@
                                  <children>
                                     <Label prefHeight="23.0" prefWidth="59.0" text="About" textFill="#323232">
                                        <font>
-                                          <Font name="Inter SemiBold" size="18.0" />
+                                          <Font name="Rockwell" size="18.0" />
                                        </font>
                                     </Label>
                                     <Label fx:id="podcasterAboutChannel" prefHeight="23.0" prefWidth="246.0" text="Akara Podcast" textFill="#323232">
                                        <font>
-                                          <Font name="Inter SemiBold" size="18.0" />
+                                          <Font name="Rockwell" size="18.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </HBox>
-                              <Label alignment="TOP_LEFT" lineSpacing="5.0" prefHeight="132.0" prefWidth="759.0" text="FKA twigs knows the importance of discipline. It’s what has made her such a formidable dancer and martial artist. But she also knows that creativity requires freedom as well as focus. “I daydream all the time,” she told Apple Music. “I’ll call up the people I work with and be like, ‘I’ve got an idea. All I need is three elephants, a shoelace, a penguin and a large umbrella.’” She’s joking, but if anyone could pull off a scenario like that, it’s twigs. Born Tahliah Barnett in Cheltenham, England, in 1988, twigs studied dance and opera as a child and began writing her own songs at 13. (She earned her nickname for a habit of loudly" textFill="#9e9ba1" wrapText="true" VBox.vgrow="ALWAYS">
+                              <Label alignment="TOP_LEFT" lineSpacing="5.0" prefHeight="132.0" prefWidth="759.0" text="FKA twigs knows the importance of discipline. It’s what has made her such a formidable dancer and martial artist. But she also knows that creativity requires freedom as well as focus. “I daydream all the time,” she told Apple Music. “I’ll call up the people I work with and be like, ‘I’ve got an idea. All I need is three elephants, a shoelace, a penguin and a large umbrella.’” She’s joking, but if anyone could pull off a scenario like that, it’s twigs. Born Tahliah Barnett in Cheltenham, England, in 1988, twigs studied dance and opera as a child and began writing her own songs at 13. (She earned her nickname for a habit of loudly" textAlignment="JUSTIFY" textFill="#9e9ba1" wrapText="true" VBox.vgrow="ALWAYS">
                                  <font>
-                                    <Font name="Inter Light" size="13.0" />
+                                    <Font name="Rockwell" size="14.0" />
                                  </font>
                               </Label>
                            </children>
@@ -89,7 +89,7 @@
                      <children>
                         <Label prefHeight="23.0" prefWidth="210.0" text="Popular Release" textFill="#323232">
                            <font>
-                              <Font name="Inter SemiBold" size="18.0" />
+                              <Font name="Rockwell" size="17.0" />
                            </font>
                            <HBox.margin>
                               <Insets top="6.0" />
@@ -143,7 +143,7 @@
                      <children>
                         <Label prefHeight="23.0" prefWidth="210.0" text="More To Listen" textFill="#323232">
                            <font>
-                              <Font name="Inter SemiBold" size="18.0" />
+                              <Font name="Rockwell" size="17.0" />
                            </font>
                            <HBox.margin>
                               <Insets top="6.0" />

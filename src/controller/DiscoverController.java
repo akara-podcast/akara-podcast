@@ -191,7 +191,7 @@ public class DiscoverController implements Initializable {
         List<Podcast> topPodcastInGaming = new ArrayList<>();
 
         for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("GAMING")) {
+            if (podcast.getGenre().equals("Gaming")) {
                 if (topPodcastInGaming.size() < 10) {
                     topPodcastInGaming.add(podcast);
                 }}}
@@ -204,7 +204,7 @@ public class DiscoverController implements Initializable {
         List<Podcast> topPodcastInTechnology = new ArrayList<>();
 
         for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("TECHNOLOGY")) {
+            if (podcast.getGenre().equals("Technology")) {
                 if (topPodcastInTechnology.size() < 10) {
                     topPodcastInTechnology.add(podcast);
                 }}}
@@ -217,7 +217,7 @@ public class DiscoverController implements Initializable {
         List<Podcast> topPodcastInHistory = new ArrayList<>();
 
         for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("HISTORY")) {
+            if (podcast.getGenre().equals("History")) {
                 if (topPodcastInHistory.size() < 10) {
                     topPodcastInHistory.add(podcast);
                 }}}
@@ -230,7 +230,7 @@ public class DiscoverController implements Initializable {
         List<Podcast> topPodcastInComedy = new ArrayList<>();
 
         for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("COMEDY")) {
+            if (podcast.getGenre().equals("Comedy")) {
                 if (topPodcastInComedy.size() < 10) {
                     topPodcastInComedy.add(podcast);
                 }}}
@@ -243,7 +243,7 @@ public class DiscoverController implements Initializable {
         List<Podcast> topPodcastInProgrammingLanguage = new ArrayList<>();
 
         for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("PROGRAMMING")) {
+            if (podcast.getGenre().equals("Programming")) {
                 if (topPodcastInProgrammingLanguage.size() < 10) {
                     topPodcastInProgrammingLanguage.add(podcast);
                 }}}
