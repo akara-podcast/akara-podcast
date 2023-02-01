@@ -23,6 +23,7 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="javafx-swt" level="application" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:19" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:win:19" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:19" level="project" />
@@ -46,6 +47,5 @@
     <orderEntry type="library" name="Maven: org.yaml:snakeyaml:android:1.23" level="project" />
     <orderEntry type="library" name="Maven: com.github.mifmif:generex:1.0.2" level="project" />
     <orderEntry type="library" name="Maven: dk.brics.automaton:automaton:1.11-8" level="project" />
-    <orderEntry type="library" name="javafx-swt" level="application" />
   </component>
 </module>
