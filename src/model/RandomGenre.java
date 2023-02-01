@@ -18,9 +18,9 @@ package model;
 
 public enum RandomGenre {
 
-    GAMING,
-    TECHNOLOGY,
-    HISTORY,
-    COMEDY,
-    PROGRAMMING,
+    Gaming,
+    Technology,
+    History,
+    Comedy,
+    Programming,
 }

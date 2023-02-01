@@ -20,16 +20,16 @@
                   <Image url="@../image/Podcast_EP-10-web_1.png" />
                </image>
             </ImageView>
-            <VBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="334.0" spacing="1.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="334.0" spacing="7.0">
                <children>
                   <Label fx:id="titleHboxLong" styleClass="primary-color" text="Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?">
                      <font>
-                        <Font name="Chantrea SR UI" size="14.0" />
+                        <Font name="Rockwell" size="14.0" />
                      </font>
                   </Label>
                   <Label fx:id="podcasterHboxLong" onMouseClicked="#podcasterClicked" styleClass="podcaster_label" text="Tok Toch" textAlignment="JUSTIFY" textFill="#9e9ba1" wrapText="true">
                      <font>
-                        <Font name="Chantrea SR UI" size="13.0" />
+                        <Font name="Rockwell" size="13.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -45,13 +45,13 @@
       <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
       <Label fx:id="genreHboxLong" prefHeight="20.0" prefWidth="150.0" styleClass="primary-color" text="Education">
          <font>
-            <Font name="Chantrea SR UI" size="14.0" />
+            <Font name="Rockwell" size="14.0" />
          </font>
       </Label>
       <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
       <Label fx:id="durationHboxLong" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" styleClass="primary-color" text="1h 45 min">
          <font>
-            <Font name="Chantrea SR UI" size="14.0" />
+            <Font name="Rockwell" size="14.0" />
          </font>
       </Label>
       <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />

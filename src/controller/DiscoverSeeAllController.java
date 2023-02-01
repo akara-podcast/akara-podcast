@@ -116,7 +116,7 @@ public class DiscoverSeeAllController implements Initializable {
         List<Podcast> topPodcastInGaming = new ArrayList<>();
 
         for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("GAMING")) {
+            if (podcast.getGenre().equals("Gaming")) {
                 topPodcastInGaming.add(podcast);
             }}
         return topPodcastInGaming;
@@ -128,7 +128,7 @@ public class DiscoverSeeAllController implements Initializable {
         List<Podcast> topPodcastInTechnology = new ArrayList<>();
 
         for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("TECHNOLOGY")) {
+            if (podcast.getGenre().equals("Technology")) {
                     topPodcastInTechnology.add(podcast);
             }}
         return topPodcastInTechnology;
@@ -140,7 +140,7 @@ public class DiscoverSeeAllController implements Initializable {
         List<Podcast> topPodcastInHistory = new ArrayList<>();
 
         for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("HISTORY")) {
+            if (podcast.getGenre().equals("History")) {
                     topPodcastInHistory.add(podcast);
             }}
         return topPodcastInHistory;
@@ -152,7 +152,7 @@ public class DiscoverSeeAllController implements Initializable {
         List<Podcast> topPodcastInComedy = new ArrayList<>();
 
         for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("COMEDY")) {
+            if (podcast.getGenre().equals("Comedy")) {
                     topPodcastInComedy.add(podcast);
             }}
         return topPodcastInComedy;
@@ -164,7 +164,7 @@ public class DiscoverSeeAllController implements Initializable {
         List<Podcast> topPodcastInProgrammingLanguage = new ArrayList<>();
 
         for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("PROGRAMMING")) {
+            if (podcast.getGenre().equals("Programming")) {
                     topPodcastInProgrammingLanguage.add(podcast);
             }}
         return topPodcastInProgrammingLanguage;
