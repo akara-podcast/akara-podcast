@@ -15,7 +15,7 @@
 
 <BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FavoriteController">
    <center>
-      <ScrollPane BorderPane.alignment="CENTER">
+      <ScrollPane fitToWidth="true" BorderPane.alignment="CENTER">
          <content>
             <VBox alignment="TOP_CENTER">
                <children>
@@ -47,7 +47,7 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="991.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0">
                      <children>
                         <Label prefHeight="23.0" prefWidth="210.0" text="Your Favorite Podcast" textFill="#323232">
                            <font>
@@ -60,13 +60,13 @@
                         <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
-                  <Separator prefWidth="200.0" />
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="941.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
+                  <Separator />
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
                      <padding>
                         <Insets top="12.0" />
                      </padding>
                      <content>
-                        <VBox fx:id="favoriteContainer" prefWidth="100.0" />
+                        <VBox fx:id="favoriteContainer" maxWidth="1.7976931348623157E308" />
                      </content>
                   </ScrollPane>
                </children>
