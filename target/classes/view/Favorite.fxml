@@ -33,13 +33,13 @@
                            <children>
                               <Label prefHeight="46.0" prefWidth="799.0" styleClass="primary-color" text="Favorites">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="36.0" />
+                                    <Font name="Rockwell" size="36.0" />
                                  </font>
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Button mnemonicParsing="false" onMouseClicked="#addToFavorite" text="Add to favorite" />
+                              <Button mnemonicParsing="false" onMouseClicked="#addToFavorite" text="Tmp Add test" />
                            </children>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -51,7 +51,7 @@
                      <children>
                         <Label prefHeight="23.0" prefWidth="210.0" text="Your Favorite Podcast" textFill="#323232">
                            <font>
-                              <Font name="Inter SemiBold" size="18.0" />
+                              <Font name="Rockwell" size="17.0" />
                            </font>
                            <HBox.margin>
                               <Insets top="6.0" />

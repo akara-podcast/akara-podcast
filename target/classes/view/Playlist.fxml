@@ -24,7 +24,7 @@
          <content>
             <FlowPane fx:id="playlistContainer" hgap="70.0" vgap="50.0">
                <children>
-                  <VBox alignment="CENTER">
+                  <VBox alignment="CENTER" spacing="10.0">
                      <children>
                         <Button fx:id="addButton" alignment="CENTER" cache="true" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: transparent;">
                            <graphic>
@@ -40,7 +40,7 @@
                         </Button>
                         <Label text="Create Playlist">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Rockwell" size="14.0" />
                            </font>
                         </Label>
                      </children>
@@ -63,35 +63,13 @@
                <children>
                   <Label prefHeight="7.0" prefWidth="133.0" styleClass="primary-color" text="Playlist">
                      <font>
-                        <Font name="CircularStd-Medium" size="18.0" />
+                        <Font name="Rockwell" size="17.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="5.0" top="6.0" />
                      </HBox.margin>
                   </Label>
                   <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="83.0">
-                     <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
-                           <graphic>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/Chevron_Left.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
-                           <graphic>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/Chevron_Right.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </HBox>
                </children>
             </HBox>
             <Separator prefWidth="200.0" />

@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ButtonType?>
-<?import javafx.scene.control.DialogPane?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<DialogPane style="-fx-border-color: #5D5FEF; -fx-border-size: 5; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreatePlaylistDialogController">
+<DialogPane style="-fx-border-color: #5D5FEF; -fx-border-size: 5; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreatePlaylistDialogController">
    <content>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="583.0">
         <columnConstraints>
@@ -29,15 +19,15 @@
             <RowConstraints minHeight="10.0" />
         </rowConstraints>
          <children>
-            <Label prefHeight="19.0" prefWidth="149.0" text="Add Playlist">
+            <Label prefHeight="20.0" prefWidth="157.0" text="Add Playlist">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="Rockwell" size="17.0" />
                </font>
                <padding>
                   <Insets right="48.0" />
                </padding>
                <GridPane.margin>
-                  <Insets top="24.0" />
+                  <Insets bottom="6.0" top="24.0" />
                </GridPane.margin>
             </Label>
             <VBox alignment="CENTER" GridPane.rowIndex="2">
