@@ -31,7 +31,7 @@
                            <children>
                               <Label prefHeight="46.0" prefWidth="799.0" styleClass="primary-color" text="Trending This Week">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="36.0" />
+                                    <Font name="Rockwell" size="36.0" />
                                  </font>
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
@@ -48,7 +48,7 @@
                      <children>
                         <Label prefHeight="7.0" prefWidth="133.0" styleClass="primary-color" text="Podcasts">
                            <font>
-                              <Font name="CircularStd-Medium" size="18.0" />
+                              <Font name="Rockwell" size="17.0" />
                            </font>
                            <HBox.margin>
                               <Insets top="6.0" />
@@ -56,7 +56,10 @@
                         </Label>
                      </children>
                   </HBox>
-                  <Separator VBox.vgrow="ALWAYS" />
+                  <Separator VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Separator>
                   <VBox fx:id="podcastContainer" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets top="10.0" />

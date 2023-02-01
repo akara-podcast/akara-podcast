@@ -34,7 +34,7 @@
                            <children>
                               <Label prefHeight="46.0" prefWidth="799.0" styleClass="primary-color" text="Trending">
                                  <font>
-                                    <Font name="CircularStd-Medium" size="36.0" />
+                                    <Font name="Rockwell" size="36.0" />
                                  </font>
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
@@ -51,7 +51,7 @@
                      <children>
                         <Label prefHeight="23.0" prefWidth="210.0" text="Recent Trending" textFill="#323232">
                            <font>
-                              <Font name="Inter SemiBold" size="18.0" />
+                              <Font name="Rockwell" size="17.0" />
                            </font>
                            <HBox.margin>
                               <Insets top="6.0" />
@@ -95,16 +95,16 @@
                      <children>
                         <Label prefHeight="23.0" prefWidth="210.0" text="Trending This Week" textFill="#323232">
                            <font>
-                              <Font name="Inter SemiBold" size="18.0" />
+                              <Font name="Rockwell" size="17.0" />
                            </font>
                            <HBox.margin>
                               <Insets top="6.0" />
                            </HBox.margin>
                         </Label>
                         <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Label fx:id="seeAllTrendingPodcast" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="51.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
+                        <Label fx:id="seeAllTrendingPodcast" alignment="CENTER_RIGHT" lineSpacing="1.0" onMouseClicked="#seeAllClick" prefHeight="23.0" prefWidth="83.0" text="SEE ALL" textAlignment="RIGHT" textFill="#5d5fef" underline="true">
                            <font>
-                              <Font name="Chantrea SR UI" size="14.0" />
+                              <Font name="Rockwell" size="14.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
