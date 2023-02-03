@@ -5,42 +5,38 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.StageStyle;
 import model.Playlist;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.*;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class PlaylistController implements Initializable {
+public class AddPlaylistDialogController implements Initializable {
+    @FXML
+    private Button addButton;
 
     @FXML
-    private BorderPane playlistPane;
+    private VBox playlistContainer;
 
-    private static BorderPane staticPlaylistPane;
-
-    @FXML
-    Button addButton;
-
-    @FXML
-    FlowPane playlistContainer;
-
-
+    public static VBox staticPlaylistContainer;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        staticPlaylistPane = playlistPane;
 
-        // add playlist to container
-        addPlaylistToContainer();
+        staticPlaylistContainer = playlistContainer;
 
         addButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public void handle(ActionEvent event) {
+            public void handle(ActionEvent actionEvent) {
                 DialogPane addPlaylist;
                 try {
                     addPlaylist = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/CreatePlaylistDialog.fxml")));
@@ -56,37 +52,34 @@ public class PlaylistController implements Initializable {
                         // check text field is empty
                         if (!CreatePlaylistDialogController.staticLabel.getText().trim().equals("")) {
                             FXMLLoader fxmlLoader = new FXMLLoader();
-                            fxmlLoader.setLocation(getClass().getResource("/view/PlaylistVBox.fxml"));
-                            VBox playlist = fxmlLoader.load();
+                            fxmlLoader.setLocation(getClass().getResource("/view/PlaylistHBox.fxml"));
+                            HBox playlist = fxmlLoader.load();
 
-                            PlaylistVBoxController playlistVBoxController = fxmlLoader.getController();
+                            PlaylistHboxController playlistHBoxController = fxmlLoader.getController();
                             // set data to playlist VBox
-                            playlistVBoxController.setData(CreatePlaylistDialogController.imgURL, CreatePlaylistDialogController.staticLabel.getText().trim());
+                            playlistHBoxController.setData(CreatePlaylistDialogController.imgURL, CreatePlaylistDialogController.staticLabel.getText().trim());
+
+                            Playlist.setPlaylistHBoxArr(playlist);
 
                             // add playlist to container
                             playlistContainer.getChildren().add(playlist);
 
+                            FXMLLoader fxmlLoader1 = new FXMLLoader();
+                            fxmlLoader1.setLocation(getClass().getResource("/view/PlaylistVBox.fxml"));
+                            VBox playlistV = fxmlLoader1.load();
+
+                            PlaylistVBoxController playlistVBoxController = fxmlLoader1.getController();
+                            // set data to playlist VBox
+                            playlistVBoxController.setData(CreatePlaylistDialogController.imgURL, CreatePlaylistDialogController.staticLabel.getText().trim());
+
                             // add playlist to list
-                            Playlist.setPlaylistToArr(playlist);
+                            Playlist.setPlaylistToArr(playlistV);
                         }
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
             }
         });
-    }
-
-    private void addPlaylistToContainer(){
-        for (VBox playlist : Playlist.getPlaylistVBoxArr()){
-            // add playlist to container
-            playlistContainer.getChildren().add(playlist);
-        }
-    }
-
-
-    public static BorderPane getPlaylistPane() {
-        return staticPlaylistPane;
     }
 }

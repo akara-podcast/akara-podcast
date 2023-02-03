@@ -16,25 +16,28 @@
 package controller;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import model.Favorite;
+import model.Playlist;
 import model.Podcast;
 import podcastData.DataInitializer;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.text.BreakIterator;
 import java.util.*;
@@ -45,6 +48,7 @@ public class MediaPlayerController implements Initializable {
     // fields declaration                                                               |
     //------------------------------------------------------------------------------------
 
+    //region FXML_FIELDS
     @FXML
     private Button addFavoriteMediaPlayer;
 
@@ -84,6 +88,9 @@ public class MediaPlayerController implements Initializable {
     @FXML
     public Label titleMediaPlayer;
 
+    //endregion
+
+    //region CLASS_FIELDS
     private Timer timer;
     private TimerTask task;
 
@@ -110,10 +117,13 @@ public class MediaPlayerController implements Initializable {
     private boolean running;
     private boolean isShuffled; // not fixed yet
 
+    //endregion
+
     //------------------------------------------------------------------------------------
     //  Methods declarations                                                             |
     //------------------------------------------------------------------------------------
 
+    //region SETTER_PODCAST
     public static void setTitleMediaPlayerStatic(String titleMediaPlayerStatic) {
         MediaPlayerController.titleMediaPlayerStatic.setText(titleMediaPlayerStatic);
     }
@@ -137,10 +147,48 @@ public class MediaPlayerController implements Initializable {
     public static void setGenreMediaPlayerStatic(String genre) {
         MediaPlayerController.genreMediaPlayerStatic.setText(genre);
     }
+    //endregion
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        //region EVENT_ADD_PLAYLIST_BTN
+
+        addPlaylistMediaPlayer.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                DialogPane addPlaylist;
+                try {
+                    addPlaylist = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/AddPlaylistDialog.fxml")));
+                    Dialog<ButtonType> dialog = new Dialog<>();
+                    dialog.setDialogPane(addPlaylist);
+                    dialog.setTitle("Add to...");
+                    dialog.initStyle(StageStyle.TRANSPARENT);
+
+                    for (HBox playlist : Playlist.getPlaylistHBoxArr()){
+                        // add playlist to container
+                        AddPlaylistDialogController.staticPlaylistContainer.getChildren().add(playlist);
+                    }
+
+                    Optional<ButtonType> clickedButton = dialog.showAndWait();
+
+                    // apply button in dialog clicked
+                    if (clickedButton.get() == ButtonType.APPLY) {
+                        // check text field is empty
+                        if (!CreatePlaylistDialogController.staticLabel.getText().trim().equals("")) {
+
+                        }
+                    }
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+        //endregion
+
+
+        //region MEDIA_PLAYER_INIT
         titleMediaPlayerStatic = titleMediaPlayer;
         podcasterMediaPlayerStatic = podcasterMediaPlayer;
         imgMediaPlayerStatic = imgMediaPlayer;
@@ -166,8 +214,11 @@ public class MediaPlayerController implements Initializable {
 
         media = new Media(songs.get(songNumber).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
+
+        //endregion
     }
 
+    //region MEDIA_PLAYER_BUTTON_ACTION
     @FXML
     void addToFavorite(MouseEvent event) throws Exception {
 
@@ -177,9 +228,6 @@ public class MediaPlayerController implements Initializable {
         favoriteController.addPodcastToFavorite();
 
     }
-
-
-
 
 
     @FXML
@@ -305,6 +353,9 @@ public class MediaPlayerController implements Initializable {
         // not fixed yet
     }
 
+    //endregion
+
+    //region MEDIA_PLAYER_TIMER
     public void beginTimer() {
 
         timer = new Timer();
@@ -366,5 +417,7 @@ public class MediaPlayerController implements Initializable {
 
         timer.scheduleAtFixedRate(task, 0, 1000);
     }
+
+    //endregion
 
 }
