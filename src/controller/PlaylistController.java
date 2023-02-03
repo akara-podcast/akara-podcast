@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.StageStyle;
 import model.Playlist;
@@ -68,6 +69,18 @@ public class PlaylistController implements Initializable {
 
                             // add playlist to list
                             Playlist.setPlaylistToArr(playlist);
+
+
+                            FXMLLoader fxmlLoader1 = new FXMLLoader();
+                            fxmlLoader1.setLocation(getClass().getResource("/view/PlaylistHBox.fxml"));
+                            HBox playlistH = fxmlLoader1.load();
+
+                            PlaylistHboxController playlistHBoxController = fxmlLoader1.getController();
+                            // set data to playlist VBox
+                            playlistHBoxController.setData(CreatePlaylistDialogController.imgURL, CreatePlaylistDialogController.staticLabel.getText().trim());
+
+                            // add playlist to list
+                            Playlist.setPlaylistHBoxArr(playlistH);
                         }
                     }
                 } catch (IOException e) {
