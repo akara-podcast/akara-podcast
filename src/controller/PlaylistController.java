@@ -79,7 +79,7 @@ public class PlaylistController implements Initializable {
     }
 
     private void addPlaylistToContainer(){
-        for (VBox playlist : Playlist.getPlaylistArr()){
+        for (VBox playlist : Playlist.getPlaylistVBoxArr()){
             // add playlist to container
             playlistContainer.getChildren().add(playlist);
         }

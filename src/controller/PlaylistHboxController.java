@@ -2,7 +2,10 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+import java.util.Objects;
 
 public class PlaylistHboxController {
     @FXML
@@ -11,4 +14,11 @@ public class PlaylistHboxController {
     @FXML
     private Label playlistName;
 
+
+    public void setData(String URL, String name) {
+        Image image = new Image(Objects.requireNonNull(getClass().getResource(URL)).toString());
+
+        playlistIMG.setImage(image);
+        playlistName.setText(name);
+    }
 }

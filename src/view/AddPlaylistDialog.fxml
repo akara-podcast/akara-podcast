@@ -7,6 +7,7 @@
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -17,16 +18,26 @@
 
 <DialogPane prefHeight="378.0" prefWidth="644.0" style="-fx-border-color: #5D5FEF; -fx-border-size: 5; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPlaylistDialogController">
    <content>
-      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="642.0">
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="331.0" prefWidth="642.0">
         <columnConstraints>
-          <ColumnConstraints halignment="LEFT" maxWidth="372.5713588169643" minWidth="200.0" prefWidth="372.5713588169643" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="357.42858886718744" minWidth="10.0" prefWidth="247.8572126116071" />
+          <ColumnConstraints halignment="LEFT" maxWidth="391.42857142857144" minWidth="200.0" prefWidth="391.42857142857144" />
+            <ColumnConstraints halignment="LEFT" maxWidth="372.5713588169643" minWidth="0.0" prefWidth="0.0" />
+          <ColumnConstraints halignment="LEFT" maxWidth="372.5713588169643" minWidth="0.0" prefWidth="4.5714111328125" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="357.42858886718744" minWidth="10.0" prefWidth="227.28573172433033" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="75.42856325422014" minHeight="10.0" prefHeight="60.57145472935269" valignment="TOP" />
             <RowConstraints maxHeight="250.57142039707725" minHeight="10.0" prefHeight="220.28568812779014" valignment="CENTER" />
         </rowConstraints>
          <children>
+            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="245.0" style="-fx-background-color: transparent;" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="24.0" />
+               </GridPane.margin>
+               <content>
+                  <VBox fx:id="playlistContainer" prefHeight="215.0" prefWidth="342.0" />
+               </content>
+            </ScrollPane>
             <Label prefHeight="20.0" prefWidth="157.0" text="Add to...">
                <font>
                   <Font name="Rockwell" size="17.0" />
@@ -35,15 +46,7 @@
                   <Insets bottom="6.0" left="24.0" top="24.0" />
                </GridPane.margin>
             </Label>
-            <ScrollPane prefHeight="200.0" prefWidth="245.0" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="24.0" />
-               </GridPane.margin>
-               <content>
-                  <VBox prefHeight="215.0" prefWidth="342.0" />
-               </content>
-            </ScrollPane>
-            <VBox alignment="TOP_CENTER" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <VBox alignment="TOP_CENTER" spacing="5.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
                   <Button fx:id="addButton" alignment="CENTER" cache="true" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: transparent;">
                      <graphic>
@@ -64,6 +67,7 @@
                   </Label>
                </children>
             </VBox>
+            <Separator orientation="VERTICAL" prefHeight="221.0" prefWidth="30.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </content>
