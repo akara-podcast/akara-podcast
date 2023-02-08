@@ -73,7 +73,7 @@ public class PlaylistController implements Initializable {
 
                             FXMLLoader fxmlLoader1 = new FXMLLoader();
                             fxmlLoader1.setLocation(getClass().getResource("/view/PlaylistHBox.fxml"));
-                            HBox playlistH = fxmlLoader1.load();
+                            CheckBox playlistH = fxmlLoader1.load();
 
                             PlaylistHboxController playlistHBoxController = fxmlLoader1.getController();
                             // set data to playlist VBox

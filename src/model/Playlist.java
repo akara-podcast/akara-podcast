@@ -1,5 +1,6 @@
 package model;
 
+import javafx.scene.control.CheckBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -9,7 +10,7 @@ import java.util.List;
 public class Playlist {
     private static List<VBox> playlistVBoxArr = new ArrayList<>();
 
-    private static List<HBox> playlistHBoxArr = new ArrayList<>();
+    private static List<CheckBox> playlistHBoxArr = new ArrayList<>();
 
 
     public static List<VBox> getPlaylistVBoxArr() {
@@ -20,15 +21,12 @@ public class Playlist {
         playlistVBoxArr.add(playlist);
     }
 
-    public static List<HBox> getPlaylistHBoxArr() {
+    public static List<CheckBox> getPlaylistHBoxArr() {
         return playlistHBoxArr;
     }
 
-    public static void setPlaylistHBoxArr(HBox playlist) {
+    public static void setPlaylistHBoxArr(CheckBox playlist) {
        playlistHBoxArr.add(playlist);
     }
 
-    public static void updatePlaylistHBoxArr(HBox playlist){
-
-    }
 }

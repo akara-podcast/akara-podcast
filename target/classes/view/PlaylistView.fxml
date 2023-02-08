@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DiscoverSeeAllController">
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlaylistView">
    <center>
       <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="ALWAYS">
          <content>
@@ -24,7 +24,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" style="-fx-background-color: #CDCDFA;">
                      <children>
-                        <ImageView fitHeight="225.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playlistIMG" fitHeight="225.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../image/pinkPlaylist.png" />
                            </image>
@@ -34,7 +34,7 @@
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">
                            <children>
-                              <Label fx:id="titleDiscoverSeeAll" prefHeight="46.0" prefWidth="799.0" style="-fx-background-color: null;" styleClass="primary-color" text="Title">
+                              <Label fx:id="playlistTitle" prefHeight="46.0" prefWidth="799.0" style="-fx-background-color: null;" styleClass="primary-color" text="Title">
                                  <font>
                                     <Font name="CircularStd-Medium" size="36.0" />
                                  </font>

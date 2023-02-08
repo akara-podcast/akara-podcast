@@ -165,7 +165,7 @@ public class MediaPlayerController implements Initializable {
                     dialog.setTitle("Add to...");
                     dialog.initStyle(StageStyle.TRANSPARENT);
 
-                    for (HBox playlist : Playlist.getPlaylistHBoxArr()){
+                    for (CheckBox playlist : Playlist.getPlaylistHBoxArr()){
                         // add playlist to container
                         AddPlaylistDialogController.staticPlaylistContainer.getChildren().add(playlist);
                     }
@@ -174,9 +174,15 @@ public class MediaPlayerController implements Initializable {
 
                     // apply button in dialog clicked
                     if (clickedButton.get() == ButtonType.APPLY) {
-                        for (HBox playlist : Playlist.getPlaylistHBoxArr()){
+                        for (CheckBox playlist : Playlist.getPlaylistHBoxArr()){
                             // add playlist to container
-
+                            playlist.setSelected(false);
+                        }
+                    }
+                    else if (clickedButton.get() == ButtonType.CLOSE){
+                        for (CheckBox playlist : Playlist.getPlaylistHBoxArr()){
+                            // add playlist to container
+                            playlist.setSelected(false);
                         }
                     }
                 } catch (IOException e) {
