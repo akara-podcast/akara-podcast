@@ -27,4 +27,8 @@ public class Playlist {
     public static void setPlaylistHBoxArr(HBox playlist) {
        playlistHBoxArr.add(playlist);
     }
+
+    public static void updatePlaylistHBoxArr(HBox playlist){
+
+    }
 }

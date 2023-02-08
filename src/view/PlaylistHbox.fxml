@@ -11,7 +11,7 @@
 
 <HBox accessibleRole="CHECK_BOX" alignment="CENTER_LEFT" focusTraversable="true" maxHeight="55.0" maxWidth="400.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlaylistHboxController">
    <children>
-      <CheckBox mnemonicParsing="false" prefHeight="50.0" prefWidth="335.0">
+      <CheckBox fx:id="playlistCheckBox" mnemonicParsing="false" prefHeight="50.0" prefWidth="335.0">
          <padding>
             <Insets left="3.0" right="3.0" />
          </padding>

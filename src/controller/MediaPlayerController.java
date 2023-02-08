@@ -174,8 +174,8 @@ public class MediaPlayerController implements Initializable {
 
                     // apply button in dialog clicked
                     if (clickedButton.get() == ButtonType.APPLY) {
-                        // check text field is empty
-                        if (!CreatePlaylistDialogController.staticLabel.getText().trim().equals("")) {
+                        for (HBox playlist : Playlist.getPlaylistHBoxArr()){
+                            // add playlist to container
 
                         }
                     }
