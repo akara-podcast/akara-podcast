@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,19 +11,25 @@
 
 <HBox accessibleRole="CHECK_BOX" alignment="CENTER_LEFT" focusTraversable="true" maxHeight="55.0" maxWidth="400.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlaylistHboxController">
    <children>
-      <ImageView fx:id="playlistIMG" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/pinkPlaylist.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="playlistName" text="Chilling">
-         <HBox.margin>
-            <Insets left="10.0" />
-         </HBox.margin>
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+      <CheckBox fx:id="playlistCheckBox" mnemonicParsing="false" prefHeight="50.0" prefWidth="335.0">
+         <padding>
+            <Insets left="3.0" right="3.0" />
+         </padding>
+         <graphic>
+            <Label fx:id="playlistName" text="Chilling">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="playlistIMG" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/pinkPlaylist.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </graphic>
+      </CheckBox>
    </children>
    <cursor>
       <Cursor fx:constant="HAND" />

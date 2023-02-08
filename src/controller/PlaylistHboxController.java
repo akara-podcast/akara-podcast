@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,6 +14,10 @@ public class PlaylistHboxController {
 
     @FXML
     private Label playlistName;
+
+    @FXML
+    private CheckBox playlistCheckBox;
+
 
 
     public void setData(String URL, String name) {

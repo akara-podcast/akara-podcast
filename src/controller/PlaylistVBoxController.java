@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -47,14 +48,21 @@ public class PlaylistVBoxController implements Initializable {
         playlistButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                BorderPane trendingSeeAll = null;
+                BorderPane playlistView;
                 try {
-                    trendingSeeAll = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/PlaylistView.fxml")));
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/view/PlaylistView.fxml"));
+                    playlistView = fxmlLoader.load();
+
+                    PlaylistView playlistViewController = fxmlLoader.getController();
+                    // set data to playlist VBox
+                    playlistViewController.setData(playlistIMG.getImage(), playlistName.getText());
+
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
                 PlaylistController.getPlaylistPane().setTop(null);
-                PlaylistController.getPlaylistPane().setCenter(trendingSeeAll);
+                PlaylistController.getPlaylistPane().setCenter(playlistView);
             }
         });
 

@@ -99,7 +99,5 @@ public class CreatePlaylistDialogController implements Initializable {
         }
         // end method
     }
-
-
     // end class
 }

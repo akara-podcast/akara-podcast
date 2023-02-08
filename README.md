@@ -1,5 +1,5 @@
 # អក្ខរា ផតខាស់ - Akara Podcast Project
-![](/src/image/Logo.png)
+![](/src/image/Akara-logo.png)
 
 ## Build Instructions
 
