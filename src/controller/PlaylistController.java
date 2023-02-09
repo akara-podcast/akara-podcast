@@ -67,6 +67,8 @@ public class PlaylistController implements Initializable {
                             // add playlist to container
                             playlistContainer.getChildren().add(playlist);
 
+                            //assign iD
+                            playlist.setId(Playlist.getID());
                             // add playlist to list
                             Playlist.setPlaylistToArr(playlist);
 
@@ -79,6 +81,11 @@ public class PlaylistController implements Initializable {
                             // set data to playlist VBox
                             playlistHBoxController.setData(CreatePlaylistDialogController.imgURL, CreatePlaylistDialogController.staticLabel.getText().trim());
 
+                            //assign iD
+                            playlistH.setId(Playlist.getID());
+                            Playlist.increaseID();
+                            // add new list to the list of the list
+                            Playlist.addPlayListPodcastArr(new LinkedList<HBox>());
                             // add playlist to list
                             Playlist.setPlaylistHBoxArr(playlistH);
                         }

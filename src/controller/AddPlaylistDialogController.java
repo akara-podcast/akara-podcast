@@ -13,6 +13,7 @@ import model.Playlist;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -56,6 +57,9 @@ public class AddPlaylistDialogController implements Initializable {
                             // set data to playlist VBox
                             playlistHBoxController.setData(CreatePlaylistDialogController.imgURL, CreatePlaylistDialogController.staticLabel.getText().trim());
 
+                            // assignID
+                            playlist.setId(Playlist.getID());
+
                             Playlist.setPlaylistHBoxArr(playlist);
 
                             // add playlist to container
@@ -69,6 +73,11 @@ public class AddPlaylistDialogController implements Initializable {
                             // set data to playlist VBox
                             playlistVBoxController.setData(CreatePlaylistDialogController.imgURL, CreatePlaylistDialogController.staticLabel.getText().trim());
 
+                            // assignID
+                            playlistV.setId(Playlist.getID());
+                            Playlist.increaseID();
+                            // add new list to the list of the list
+                            Playlist.addPlayListPodcastArr(new LinkedList<HBox>());
                             // add playlist to list
                             Playlist.setPlaylistToArr(playlistV);
                         }

@@ -8,9 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Playlist {
+    private static int playlistID;
+
     private static List<VBox> playlistVBoxArr = new ArrayList<>();
 
     private static List<CheckBox> playlistHBoxArr = new ArrayList<>();
+
+    private static List<List<HBox>> playListPodcastArr = new ArrayList<>();
 
 
     public static List<VBox> getPlaylistVBoxArr() {
@@ -29,4 +33,31 @@ public class Playlist {
        playlistHBoxArr.add(playlist);
     }
 
+    public static void increaseID(){
+        playlistID++;
+    }
+
+    public static String getID(){
+        return String.valueOf(playlistID);
+    }
+
+    //get list of the list
+    public static List<List<HBox>> getPlayListPodcastArr() {
+        return playListPodcastArr;
+    }
+
+    // add list to the list
+    public static void addPlayListPodcastArr(List<HBox> playListPodcast) {
+        playListPodcastArr.add(playListPodcast);
+    }
+
+    // override list of the list
+    public static void setPlayListPodcastArr(int index, List<HBox> playListPodcast){
+        playListPodcastArr.set(index, playListPodcast);
+    }
+
+    public static void printLength(){
+        for(List list : playListPodcastArr)
+            System.out.print(list.toArray().length + " ");
+    }
 }
