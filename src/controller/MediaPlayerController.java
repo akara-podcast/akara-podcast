@@ -165,7 +165,8 @@ public class MediaPlayerController implements Initializable {
                     dialog.setTitle("Add to...");
                     dialog.initStyle(StageStyle.TRANSPARENT);
 
-                    for (HBox playlist : Playlist.getPlaylistHBoxArr()){
+                    for (CheckBox playlist : Playlist.getPlaylistHBoxArr()){
+                        playlist.setSelected(false);
                         // add playlist to container
                         AddPlaylistDialogController.staticPlaylistContainer.getChildren().add(playlist);
                     }
@@ -174,11 +175,37 @@ public class MediaPlayerController implements Initializable {
 
                     // apply button in dialog clicked
                     if (clickedButton.get() == ButtonType.APPLY) {
-                        for (HBox playlist : Playlist.getPlaylistHBoxArr()){
+                        for (CheckBox playlist : Playlist.getPlaylistHBoxArr()){
                             // add playlist to container
+                            if (playlist.isSelected()){
+                                int id = Integer.parseInt(playlist.getId());
+                                List<HBox> playlistArr = Playlist.getPlayListPodcastArr().get(id);
+
+                                FXMLLoader fxmlLoader = new FXMLLoader();
+                                fxmlLoader.setLocation(FavoriteController.class.getResource("/view/podcastHboxLong.fxml"));
+                                HBox hBox = fxmlLoader.load();
+
+
+                                //set hello to the text of the label in the podcastHboxLong.fxml
+                                PodcastHboxLongController.titleHboxLongStatic.setText(MediaPlayerController.titleMediaPlayerStatic.getText());
+                                PodcastHboxLongController.podcasterHboxLongStatic.setText(MediaPlayerController.podcasterMediaPlayerStatic.getText());
+                                PodcastHboxLongController.genreHboxLongStatic.setText(MediaPlayerController.genreMediaPlayerStatic.getText());
+                                PodcastHboxLongController.durationHboxLongStatic.setText(MediaPlayerController.durationMediaPlayerStatic.getText() + " min");
+                                PodcastHboxLongController.imgHboxLongStatic.setImage(MediaPlayerController.imgMediaPlayerStatic.getImage());
+
+                                // Add add song to list
+                                playlistArr.add(hBox);
+
+                                // add list to the list of the list
+                                Playlist.setPlayListPodcastArr(id, playlistArr);
+
+                                Playlist.printLength();
+                                System.out.println();
+                            }
 
                         }
                     }
+
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

@@ -5,10 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.DialogPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.StageStyle;
@@ -16,6 +13,7 @@ import model.Playlist;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -53,11 +51,14 @@ public class AddPlaylistDialogController implements Initializable {
                         if (!CreatePlaylistDialogController.staticLabel.getText().trim().equals("")) {
                             FXMLLoader fxmlLoader = new FXMLLoader();
                             fxmlLoader.setLocation(getClass().getResource("/view/PlaylistHBox.fxml"));
-                            HBox playlist = fxmlLoader.load();
+                            CheckBox playlist = fxmlLoader.load();
 
                             PlaylistHboxController playlistHBoxController = fxmlLoader.getController();
                             // set data to playlist VBox
                             playlistHBoxController.setData(CreatePlaylistDialogController.imgURL, CreatePlaylistDialogController.staticLabel.getText().trim());
+
+                            // assignID
+                            playlist.setId(Playlist.getID());
 
                             Playlist.setPlaylistHBoxArr(playlist);
 
@@ -72,6 +73,11 @@ public class AddPlaylistDialogController implements Initializable {
                             // set data to playlist VBox
                             playlistVBoxController.setData(CreatePlaylistDialogController.imgURL, CreatePlaylistDialogController.staticLabel.getText().trim());
 
+                            // assignID
+                            playlistV.setId(Playlist.getID());
+                            Playlist.increaseID();
+                            // add new list to the list of the list
+                            Playlist.addPlayListPodcastArr(new LinkedList<HBox>());
                             // add playlist to list
                             Playlist.setPlaylistToArr(playlistV);
                         }

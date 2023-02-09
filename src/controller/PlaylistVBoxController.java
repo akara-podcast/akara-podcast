@@ -20,6 +20,9 @@ import java.util.ResourceBundle;
 public class PlaylistVBoxController implements Initializable {
 
     @FXML
+    private VBox playlistVBox;
+
+    @FXML
     private Button playlistButton;
 
     @FXML
@@ -48,6 +51,7 @@ public class PlaylistVBoxController implements Initializable {
         playlistButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                int id = Integer.parseInt(playlistVBox.getId());
                 BorderPane playlistView;
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader();
@@ -58,11 +62,16 @@ public class PlaylistVBoxController implements Initializable {
                     // set data to playlist VBox
                     playlistViewController.setData(playlistIMG.getImage(), playlistName.getText());
 
+
+                    playlistViewController.addPodcastToContainer(id);
+
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
                 PlaylistController.getPlaylistPane().setTop(null);
                 PlaylistController.getPlaylistPane().setCenter(playlistView);
+
+
             }
         });
 

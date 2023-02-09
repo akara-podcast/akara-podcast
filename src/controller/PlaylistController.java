@@ -67,18 +67,25 @@ public class PlaylistController implements Initializable {
                             // add playlist to container
                             playlistContainer.getChildren().add(playlist);
 
+                            //assign iD
+                            playlist.setId(Playlist.getID());
                             // add playlist to list
                             Playlist.setPlaylistToArr(playlist);
 
 
                             FXMLLoader fxmlLoader1 = new FXMLLoader();
                             fxmlLoader1.setLocation(getClass().getResource("/view/PlaylistHBox.fxml"));
-                            HBox playlistH = fxmlLoader1.load();
+                            CheckBox playlistH = fxmlLoader1.load();
 
                             PlaylistHboxController playlistHBoxController = fxmlLoader1.getController();
                             // set data to playlist VBox
                             playlistHBoxController.setData(CreatePlaylistDialogController.imgURL, CreatePlaylistDialogController.staticLabel.getText().trim());
 
+                            //assign iD
+                            playlistH.setId(Playlist.getID());
+                            Playlist.increaseID();
+                            // add new list to the list of the list
+                            Playlist.addPlayListPodcastArr(new LinkedList<HBox>());
                             // add playlist to list
                             Playlist.setPlaylistHBoxArr(playlistH);
                         }
