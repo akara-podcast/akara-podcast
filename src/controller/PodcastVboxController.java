@@ -57,6 +57,8 @@ public class PodcastVboxController implements Initializable {
 
     private Media media;
 
+    private File file;
+
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
@@ -70,7 +72,7 @@ public class PodcastVboxController implements Initializable {
         durationVbox.setText(podcast.getDuration());
         genreVbox.setText(podcast.getGenre());
 
-        File file = new File(podcast.getPodcastUrl());
+        file = new File(podcast.getPodcastUrl());
         media = new Media(file.toURI().toString());
 
     }
@@ -102,7 +104,7 @@ public class PodcastVboxController implements Initializable {
         MediaPlayerController.setImgMediaPlayerStatic(image);
         MediaPlayerController.setDurationMediaPlayerStatic(duration);
         MediaPlayerController.setGenreMediaPlayerStatic(genre);
-        MediaPlayerController.setMediaStatic(media);
+        MediaPlayerController.setMediaStatic(media, file);
     }
 
 } // end of class PodcastVboxController
