@@ -154,13 +154,24 @@ public class MediaPlayerController implements Initializable {
         songs.add(songNumber + 1, file);
         songNumber++;
 
-        // play new one
+//        // play new one
+//        if (!count) {
+//            System.out.println(mediaStatic.getSource());
+//            mediaPlayerStatic = new MediaPlayer(mediaStatic);
+//            beginTimer();
+//            mediaPlayerStatic.play();
+//            count = true;
+//        }
+
         if (!count) {
             System.out.println(mediaStatic.getSource());
             mediaPlayerStatic = new MediaPlayer(mediaStatic);
-            beginTimer();
             mediaPlayerStatic.play();
+            beginTimer();
             count = true;
+        } else {
+            mediaPlayerStatic.pause();
+            count = false;
         }
     }
 
@@ -171,6 +182,11 @@ public class MediaPlayerController implements Initializable {
     public static void setGenreMediaPlayerStatic(String genre) {
         MediaPlayerController.genreMediaPlayerStatic.setText(genre);
     }
+
+    public static MediaPlayer getMediaPlayer() {
+        return mediaPlayerStatic;
+    }
+
     //endregion
 
     @Override
@@ -292,24 +308,37 @@ public class MediaPlayerController implements Initializable {
 
     }
 
-
     @FXML
     void playMedia() {
 
-
-        // play media player if count is 0, else pause media player
         if (!count) {
-            System.out.println(mediaStatic.getSource());
-            mediaPlayerStatic = new MediaPlayer(mediaStatic);
-            beginTimer();
             mediaPlayerStatic.play();
+            beginTimer();
             count = true;
+            playButtonMediaPlayer.setStyle("-fx-background-color: #00FF00;");
         } else {
             mediaPlayerStatic.pause();
-            cancelTimer();
             count = false;
+            playButtonMediaPlayer.setStyle("-fx-background-color: #FF0000;");
         }
     }
+
+//    @FXML
+//    void playMedia() {
+//
+//        // play media player if count is 0, else pause media player
+//        if (!count) {
+//            System.out.println(mediaStatic.getSource());
+//            mediaPlayerStatic = new MediaPlayer(mediaStatic);
+//            beginTimer();
+//            mediaPlayerStatic.play();
+//            count = true;
+//        } else {
+//            mediaPlayerStatic.pause();
+//            //cancelTimer();
+//            count = false;
+//        }
+//    }
 
     @FXML
     void prevoiusMedia(ActionEvent event) {

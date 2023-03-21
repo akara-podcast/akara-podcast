@@ -79,7 +79,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Label text="Discover" textFill="#323232">
+                              <Label stylesheets="@../resources/styles/main.css" text="Discover" textFill="#323232">
                                  <font>
                                     <Font name="Rockwell" size="17.0" />
                                  </font>
