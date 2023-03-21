@@ -20,16 +20,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 
+import javafx.scene.media.MediaPlayer;
 import model.Podcast;
 
 import java.io.File;
 import java.net.URL;
 import java.util.*;
-
 
 public class PodcastVboxController implements Initializable {
 
@@ -57,6 +58,8 @@ public class PodcastVboxController implements Initializable {
 
     private Media media;
 
+    private MediaPlayer mediaPlayer;
+
     private File file;
 
     //------------------------------------------------------------------------------------
@@ -79,7 +82,6 @@ public class PodcastVboxController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
     @FXML
@@ -105,6 +107,8 @@ public class PodcastVboxController implements Initializable {
         MediaPlayerController.setDurationMediaPlayerStatic(duration);
         MediaPlayerController.setGenreMediaPlayerStatic(genre);
         MediaPlayerController.setMediaStatic(media, file);
+
     }
+
 
 } // end of class PodcastVboxController

@@ -100,5 +100,7 @@ public class PodcastHboxLongController implements Initializable {
         ChannelController.setPodcasterAboutChannelStatic(podcaster);
         ChannelController.setPopularPodcastReleaseToView();
         ChannelController.setMorePodcasterPodcastToView();
+
+
     }
 }
