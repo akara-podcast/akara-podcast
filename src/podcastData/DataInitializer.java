@@ -19,6 +19,9 @@ import model.Podcast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import com.github.javafaker.Faker;
 import model.RandomGenre;
 import model.RandomImage;
@@ -28,13 +31,19 @@ public class DataInitializer {
 
     Faker faker = new Faker();
 
+    List<String> titleList = Stream.generate(() -> faker.name().title()).distinct().limit(1000).collect(Collectors.toList());
+
     public List<Podcast> podcastList() {
 
         List<Podcast> podcastList = new ArrayList<>();
-
-        for (int i = 0; i < 70; i++) {
+        for (int i = 0; i < 1000; i++) {
             Podcast podcast = new Podcast();
-            podcast.setTitle(faker.friends().quote());
+            podcast.setId(i);
+
+
+            podcast.setTitle(titleList.get(i));
+
+
             podcast.setDescription(faker.lorem().paragraph());
             podcast.setCover(randomImage());
             podcast.setGenre(randomGenre());

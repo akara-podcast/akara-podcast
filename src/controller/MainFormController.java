@@ -22,13 +22,18 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import model.Podcast;
+import model.SimilarityPodcast;
+import podcastData.DataInitializer;
 import staticUtility.DbUtils;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -56,12 +61,22 @@ public class MainFormController implements Initializable {
     public static BorderPane staticMainPane;
     public static Label staticModelLabel;
 
+    public static List<Podcast> podcastList;
+
+    private boolean init = false;
+
     //------------------------------------------------------------------------------------
     //  Methods declarations                                                             |
     //------------------------------------------------------------------------------------
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        if (!init){
+            DataInitializer dataInitializer = new DataInitializer();
+            podcastList = dataInitializer.podcastList();
+            init = true;
+        }
 
         staticMainPane = mainPane;
         staticModelLabel = modeLabel;
@@ -154,6 +169,21 @@ public class MainFormController implements Initializable {
     }
 
     @FXML
+    void searchChange(KeyEvent event) throws IOException{
+        if (!searchTF.getText().trim().equals("")){
+            ScrollPane search = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/SearchResult.fxml")));
+            borderPane.setCenter(search);
+
+            // string search begin
+            SearchResultController.stringSearch(searchTF.getText().trim());
+        }
+        else{
+            ScrollPane search = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Search.fxml")));
+            borderPane.setCenter(search);
+        }
+    }
+
+    @FXML
     public void modeClicked(MouseEvent event) {
 
         // user can't change anything unless they log in
@@ -166,6 +196,9 @@ public class MainFormController implements Initializable {
             setLightMode();
         }
     }
+
+
+    // get podcast by ID from list
 
 
     public static void setLightMode() {
