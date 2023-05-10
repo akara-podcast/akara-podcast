@@ -101,70 +101,73 @@ public class DiscoverController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (!MainFormController.init){
+            System.out.println("Do it!");
+            // Initialize the lists of podcasts to be displayed in the Discover page
+            recentlyPlayed = new ArrayList<>(getRecentlyPlayed());
+            popularPodcast = new ArrayList<>(getPopularPodcast());
+            topPodcastInGaming = new ArrayList<>(getTopPodcastInGaming());
+            topPodcastInTechnology = new ArrayList<>(getTopPodcastInTechnology());
+            topPodcastInHistory = new ArrayList<>(getTopPodcastInHistory());
+            topPodcastInComedy = new ArrayList<>(getTopPodcastInComedy());
+            topPodcastInProgrammingLanguage = new ArrayList<>(getTopPodcastInProgrammingLanguage());
 
-        // Initialize the lists of podcasts to be displayed in the Discover page
-        recentlyPlayed = new ArrayList<>(getRecentlyPlayed());
-        popularPodcast = new ArrayList<>(getPopularPodcast());
-        topPodcastInGaming = new ArrayList<>(getTopPodcastInGaming());
-        topPodcastInTechnology = new ArrayList<>(getTopPodcastInTechnology());
-        topPodcastInHistory = new ArrayList<>(getTopPodcastInHistory());
-        topPodcastInComedy = new ArrayList<>(getTopPodcastInComedy());
-        topPodcastInProgrammingLanguage = new ArrayList<>(getTopPodcastInProgrammingLanguage());
+            // Add the podcasts to the containers in the Discover page (recently played, popular, top in gaming, etc.)
+            try {
+                for (Podcast podcast : recentlyPlayed) {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/view/podcastHbox.fxml"));
 
-        // Add the podcasts to the containers in the Discover page (recently played, popular, top in gaming, etc.)
-        try {
-            for (Podcast podcast : recentlyPlayed) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/view/podcastHbox.fxml"));
+                    HBox hBox = fxmlLoader.load();
+                    PodcastHboxController podcastHboxController = fxmlLoader.getController();
+                    podcastHboxController.setData(podcast);
 
-                HBox hBox = fxmlLoader.load();
-                PodcastHboxController podcastHboxController = fxmlLoader.getController();
-                podcastHboxController.setData(podcast);
+                    recentlyPlayedContainer.getChildren().add(hBox);
+                }
 
-                recentlyPlayedContainer.getChildren().add(hBox);
+                for (Podcast podcast : popularPodcast) {
+                    AnchorPane anchorPane = getAnchorPane(podcast);
+                    popularPodcastContainer.getChildren().add(anchorPane);
+                }
+
+                for (Podcast podcast : topPodcastInGaming) {
+                    AnchorPane anchorPane = getAnchorPane(podcast);
+                    topPodcastInGamingContainer.getChildren().add(anchorPane);
+                }
+
+                for (Podcast podcast : topPodcastInTechnology) {
+                    AnchorPane anchorPane = getAnchorPane(podcast);
+                    topPodcastInTechnologyContainer.getChildren().add(anchorPane);
+                }
+
+                for (Podcast podcast : topPodcastInHistory) {
+                    AnchorPane anchorPane = getAnchorPane(podcast);
+                    topPodcastInHistoryContainer.getChildren().add(anchorPane);
+                }
+
+                for (Podcast podcast : topPodcastInComedy) {
+                    AnchorPane anchorPane = getAnchorPane(podcast);
+                    topPodcastInComedyContainer.getChildren().add(anchorPane);
+                }
+
+                for (Podcast podcast : topPodcastInProgrammingLanguage) {
+                    AnchorPane anchorPane = getAnchorPane(podcast);
+                    topPodcastInProgrammingLanguageContainer.getChildren().add(anchorPane);
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
-            for (Podcast podcast : popularPodcast) {
-                AnchorPane anchorPane = getAnchorPane(podcast);
-                popularPodcastContainer.getChildren().add(anchorPane);
-            }
-
-            for (Podcast podcast : topPodcastInGaming) {
-                AnchorPane anchorPane = getAnchorPane(podcast);
-                topPodcastInGamingContainer.getChildren().add(anchorPane);
-            }
-
-            for (Podcast podcast : topPodcastInTechnology) {
-                AnchorPane anchorPane = getAnchorPane(podcast);
-                topPodcastInTechnologyContainer.getChildren().add(anchorPane);
-            }
-
-            for (Podcast podcast : topPodcastInHistory) {
-                AnchorPane anchorPane = getAnchorPane(podcast);
-                topPodcastInHistoryContainer.getChildren().add(anchorPane);
-            }
-
-            for (Podcast podcast : topPodcastInComedy) {
-                AnchorPane anchorPane = getAnchorPane(podcast);
-                topPodcastInComedyContainer.getChildren().add(anchorPane);
-            }
-
-            for (Podcast podcast : topPodcastInProgrammingLanguage) {
-                AnchorPane anchorPane = getAnchorPane(podcast);
-                topPodcastInProgrammingLanguageContainer.getChildren().add(anchorPane);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            MainFormController.init = true;
         }
     }
 
     private List<Podcast> getRecentlyPlayed() {
 
-        DataInitializer dataInitializer = new DataInitializer();
         List<Podcast> recentlyPlayed = new ArrayList<>();
 
-        for (Podcast podcast : dataInitializer.podcastList()) {
+        for (Podcast podcast : MainFormController.podcastList) {
             if (podcast.getWasPlayed()) {
                 if (recentlyPlayed.size() < 10) {
                     recentlyPlayed.add(podcast);
@@ -174,10 +177,9 @@ public class DiscoverController implements Initializable {
 
     private static List<Podcast> getPopularPodcast() {
 
-        DataInitializer dataInitializer = new DataInitializer();
         List<Podcast> popularPodcast = new ArrayList<>();
 
-        for (Podcast podcast : dataInitializer.podcastList()) {
+        for (Podcast podcast : MainFormController.podcastList) {
             if (podcast.getViewCount() > 5000) {
                 if (popularPodcast.size() < 10) {
                     popularPodcast.add(podcast);
@@ -187,10 +189,9 @@ public class DiscoverController implements Initializable {
 
     private List<Podcast> getTopPodcastInGaming() {
 
-        DataInitializer dataInitializer = new DataInitializer();
         List<Podcast> topPodcastInGaming = new ArrayList<>();
 
-        for (Podcast podcast : dataInitializer.podcastList()) {
+        for (Podcast podcast : MainFormController.podcastList) {
             if (podcast.getGenre().equals("Gaming")) {
                 if (topPodcastInGaming.size() < 10) {
                     topPodcastInGaming.add(podcast);
@@ -200,10 +201,9 @@ public class DiscoverController implements Initializable {
 
     private List<Podcast> getTopPodcastInTechnology() {
 
-        DataInitializer dataInitializer = new DataInitializer();
         List<Podcast> topPodcastInTechnology = new ArrayList<>();
 
-        for (Podcast podcast : dataInitializer.podcastList()) {
+        for (Podcast podcast : MainFormController.podcastList) {
             if (podcast.getGenre().equals("Technology")) {
                 if (topPodcastInTechnology.size() < 10) {
                     topPodcastInTechnology.add(podcast);
@@ -213,10 +213,9 @@ public class DiscoverController implements Initializable {
 
     private List<Podcast> getTopPodcastInHistory() {
 
-        DataInitializer dataInitializer = new DataInitializer();
         List<Podcast> topPodcastInHistory = new ArrayList<>();
 
-        for (Podcast podcast : dataInitializer.podcastList()) {
+        for (Podcast podcast : MainFormController.podcastList) {
             if (podcast.getGenre().equals("History")) {
                 if (topPodcastInHistory.size() < 10) {
                     topPodcastInHistory.add(podcast);
@@ -226,10 +225,9 @@ public class DiscoverController implements Initializable {
 
     private List<Podcast> getTopPodcastInComedy() {
 
-        DataInitializer dataInitializer = new DataInitializer();
         List<Podcast> topPodcastInComedy = new ArrayList<>();
 
-        for (Podcast podcast : dataInitializer.podcastList()) {
+        for (Podcast podcast : MainFormController.podcastList) {
             if (podcast.getGenre().equals("Comedy")) {
                 if (topPodcastInComedy.size() < 10) {
                     topPodcastInComedy.add(podcast);
@@ -239,10 +237,9 @@ public class DiscoverController implements Initializable {
 
     private List<Podcast> getTopPodcastInProgrammingLanguage() {
 
-        DataInitializer dataInitializer = new DataInitializer();
         List<Podcast> topPodcastInProgrammingLanguage = new ArrayList<>();
 
-        for (Podcast podcast : dataInitializer.podcastList()) {
+        for (Podcast podcast : MainFormController.podcastList) {
             if (podcast.getGenre().equals("Programming")) {
                 if (topPodcastInProgrammingLanguage.size() < 10) {
                     topPodcastInProgrammingLanguage.add(podcast);

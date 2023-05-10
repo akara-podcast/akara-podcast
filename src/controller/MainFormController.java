@@ -63,7 +63,10 @@ public class MainFormController implements Initializable {
 
     public static List<Podcast> podcastList;
 
-    private boolean init = false;
+    public static boolean init = false;
+
+    private BorderPane discover;
+    private BorderPane trending;
 
     //------------------------------------------------------------------------------------
     //  Methods declarations                                                             |
@@ -72,20 +75,26 @@ public class MainFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        // one init per start
         if (!init){
+            System.out.println("do it!");
             DataInitializer dataInitializer = new DataInitializer();
             podcastList = dataInitializer.podcastList();
-            init = true;
+
+            try {
+                discover = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Discover.fxml")));
+                trending = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Trending.fxml")));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         staticMainPane = mainPane;
         staticModelLabel = modeLabel;
 
-        BorderPane discover;
         VBox mediaPlayer;
 
         try {
-            discover = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Discover.fxml")));
             mediaPlayer = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/MediaPlayer.fxml")));
 
         } catch (IOException e) {
@@ -109,8 +118,6 @@ public class MainFormController implements Initializable {
 
     @FXML
     private void discoverClick(MouseEvent event) throws IOException {
-
-        BorderPane discover = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Discover.fxml")));
         borderPane.setCenter(discover);
     }
 
@@ -131,8 +138,6 @@ public class MainFormController implements Initializable {
 
     @FXML
     private void trendingClicked(MouseEvent event) throws IOException {
-
-        BorderPane trending = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Trending.fxml")));
         borderPane.setCenter(trending);
     }
 
