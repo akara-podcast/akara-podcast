@@ -4,6 +4,7 @@ module src.akara {
     requires java.sql;
     requires javafx.media;
     requires javafaker;
+    requires string.similarity;
 
     opens controller to javafx.fxml;
     exports controller;

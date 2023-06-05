@@ -46,8 +46,6 @@ public class TrendingSeeAllController implements Initializable {
 
     private static BorderPane borderPaneStatic;
 
-    static List<Podcast> popularPodcast;
-
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
@@ -66,24 +64,12 @@ public class TrendingSeeAllController implements Initializable {
         podcastContainerStatic = podcastContainer;
         borderPaneStatic = borderPane;
 
-        popularPodcast = new ArrayList<>(getPopularPodcast());
     }
 
-    private static List<Podcast> getPopularPodcast() {
-
-        DataInitializer dataInitializer = new DataInitializer();
-        List<Podcast> popularPodcast = new ArrayList<>();
-
-        for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getViewCount() > 5000) {
-                popularPodcast.add(podcast);
-            }}
-        return popularPodcast;
-    }
 
     public static void setPopularPodcastToView() throws IOException {
 
-        for (Podcast podcast : popularPodcast) {
+        for (Podcast podcast : DiscoverController.popularPodcast) {
             HBox hBox = getHBox(podcast);
             podcastContainerStatic.getChildren().add(hBox);
         }

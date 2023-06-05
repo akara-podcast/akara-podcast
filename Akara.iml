@@ -1,51 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17">
-    <output url="file://$MODULE_DIR$/target/classes" />
-    <output-test url="file://$MODULE_DIR$/target/test-classes" />
-    <content url="file://$MODULE_DIR$">
+<module version="4">
+  <component name="AdditionalModuleElements">
+    <content url="file://$MODULE_DIR$" dumb="true">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
-      <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/mysql-connector-java-8.0.29.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/lib/mysql-connector-java-8.0.29.jar!/" />
-          <root url="jar://$USER_HOME$/.ideaLibSources/mysql-connector-java-8.0.29-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="javafx-swt" level="application" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:19" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:win:19" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:19" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:19" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:19" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:19" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:19" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:win:19" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-api:5.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-commons:1.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.apiguardian:apiguardian-api:1.1.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.8.2" level="project" />
-    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.29" level="project" />
-    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.19.4" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:19" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:win:19" level="project" />
-    <orderEntry type="library" name="Maven: com.github.javafaker:javafaker:1.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.5" level="project" />
-    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:android:1.23" level="project" />
-    <orderEntry type="library" name="Maven: com.github.mifmif:generex:1.0.2" level="project" />
-    <orderEntry type="library" name="Maven: dk.brics.automaton:automaton:1.11-8" level="project" />
   </component>
 </module>

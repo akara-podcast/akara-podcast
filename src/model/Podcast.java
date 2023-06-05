@@ -22,6 +22,7 @@ public class Podcast {
     // fields declaration                                                               |
     //------------------------------------------------------------------------------------
 
+    private int id;
     private String cover;
     private String title;
     private String description;
@@ -126,4 +127,11 @@ public class Podcast {
         this.viewCount = viewCount;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

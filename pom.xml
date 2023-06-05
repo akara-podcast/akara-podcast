@@ -53,6 +53,14 @@
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
+
+        <!--    String similarity Library    -->
+        <!--    https://github.com/rrice/java-string-similarity    -->
+        <dependency>
+            <groupId>net.ricecode</groupId>
+            <artifactId>string-similarity</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

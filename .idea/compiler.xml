@@ -9,8 +9,5 @@
         <module name="Akara" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Akara" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>

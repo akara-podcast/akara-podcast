@@ -51,8 +51,6 @@ public class TrendingController implements Initializable {
     @FXML
     private HBox trendingThisWeekContainer;
 
-    List<Podcast> recentTrendingPodcast;
-    List<Podcast> trendingThisWeekPodcast;
 
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
@@ -61,16 +59,14 @@ public class TrendingController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        recentTrendingPodcast = new ArrayList<>(getPopularPodcast());
-        trendingThisWeekPodcast = new ArrayList<>(getPopularPodcast());
 
         try {
-            for (Podcast podcast : recentTrendingPodcast) {
+            for (Podcast podcast : DiscoverController.popularPodcast) {
                 AnchorPane anchorPane = getAnchorPane(podcast);
                 recentTrendingContainer.getChildren().add(anchorPane);
             }
 
-            for (Podcast podcast : trendingThisWeekPodcast) {
+            for (Podcast podcast : DiscoverController.popularPodcast) {
                 AnchorPane anchorPane = getAnchorPane(podcast);
                 trendingThisWeekContainer.getChildren().add(anchorPane);
             }
@@ -80,24 +76,11 @@ public class TrendingController implements Initializable {
         }
     }
 
-    private static List<Podcast> getPopularPodcast() {
-
-        DataInitializer dataInitializer = new DataInitializer();
-        List<Podcast> popularPodcast = new ArrayList<>();
-
-        for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getViewCount() > 5000) {
-                if (popularPodcast.size() < 10) {
-                    popularPodcast.add(podcast);
-                }}}
-        return popularPodcast;
-    }
-
     @FXML
     void seeAllClick(MouseEvent event) throws IOException {
 
         BorderPane trendingSeeAll = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/TrendingSeeAll.fxml")));
-        borderPane.setCenter(trendingSeeAll);
+        MainFormController.staticBorderpane.setCenter(trendingSeeAll);
 
         TrendingSeeAllController.setPopularPodcastToView();
     }
