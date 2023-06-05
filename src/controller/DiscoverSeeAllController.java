@@ -55,13 +55,6 @@ public class DiscoverSeeAllController implements Initializable {
     private static VBox podcastContainerStatic;
     private static BorderPane borderPaneStatic;
 
-    static List<Podcast> popularPodcast;
-    static List<Podcast> topPodcastInGaming;
-    static List<Podcast> topPodcastInTechnology;
-    static List<Podcast> topPodcastInHistory;
-    static List<Podcast> topPodcastInComedy;
-    static List<Podcast> topPodcastInProgrammingLanguage;
-
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
@@ -90,89 +83,12 @@ public class DiscoverSeeAllController implements Initializable {
         podcastContainerStatic = podcastContainer;
         borderPaneStatic = borderPane;
 
-        popularPodcast = new ArrayList<>(getPopularPodcast());
-        topPodcastInGaming = new ArrayList<>(getTopPodcastInGaming());
-        topPodcastInTechnology = new ArrayList<>(getTopPodcastInTechnology());
-        topPodcastInHistory = new ArrayList<>(getTopPodcastInHistory());
-        topPodcastInComedy = new ArrayList<>(getTopPodcastInComedy());
-        topPodcastInProgrammingLanguage = new ArrayList<>(getTopPodcastInProgrammingLanguage());
     }
 
-    private static List<Podcast> getPopularPodcast() {
-
-        DataInitializer dataInitializer = new DataInitializer();
-        List<Podcast> popularPodcast = new ArrayList<>();
-
-        for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getViewCount() > 5000) {
-                    popularPodcast.add(podcast);
-            }}
-        return popularPodcast;
-    }
-
-    private List<Podcast> getTopPodcastInGaming() {
-
-        DataInitializer dataInitializer = new DataInitializer();
-        List<Podcast> topPodcastInGaming = new ArrayList<>();
-
-        for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("Gaming")) {
-                topPodcastInGaming.add(podcast);
-            }}
-        return topPodcastInGaming;
-    }
-
-    private List<Podcast> getTopPodcastInTechnology() {
-
-        DataInitializer dataInitializer = new DataInitializer();
-        List<Podcast> topPodcastInTechnology = new ArrayList<>();
-
-        for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("Technology")) {
-                    topPodcastInTechnology.add(podcast);
-            }}
-        return topPodcastInTechnology;
-    }
-
-    private List<Podcast> getTopPodcastInHistory() {
-
-        DataInitializer dataInitializer = new DataInitializer();
-        List<Podcast> topPodcastInHistory = new ArrayList<>();
-
-        for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("History")) {
-                    topPodcastInHistory.add(podcast);
-            }}
-        return topPodcastInHistory;
-    }
-
-    private List<Podcast> getTopPodcastInComedy() {
-
-        DataInitializer dataInitializer = new DataInitializer();
-        List<Podcast> topPodcastInComedy = new ArrayList<>();
-
-        for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("Comedy")) {
-                    topPodcastInComedy.add(podcast);
-            }}
-        return topPodcastInComedy;
-    }
-
-    private List<Podcast> getTopPodcastInProgrammingLanguage() {
-
-        DataInitializer dataInitializer = new DataInitializer();
-        List<Podcast> topPodcastInProgrammingLanguage = new ArrayList<>();
-
-        for (Podcast podcast : dataInitializer.podcastList()) {
-            if (podcast.getGenre().equals("Programming")) {
-                    topPodcastInProgrammingLanguage.add(podcast);
-            }}
-        return topPodcastInProgrammingLanguage;
-    }
 
     public static void setPopularPodcastToView() throws IOException {
 
-        for (Podcast podcast : popularPodcast) {
+        for (Podcast podcast : DiscoverController.popularPodcast) {
             HBox hBox = getHBox(podcast);
             podcastContainerStatic.getChildren().add(hBox);
         }
@@ -180,7 +96,7 @@ public class DiscoverSeeAllController implements Initializable {
 
     public static void setTopPodcastInGamingToView() throws IOException {
 
-        for (Podcast podcast : topPodcastInGaming) {
+        for (Podcast podcast : DiscoverController.topPodcastInGaming) {
             HBox hBox = getHBox(podcast);
             podcastContainerStatic.getChildren().add(hBox);
         }
@@ -188,7 +104,7 @@ public class DiscoverSeeAllController implements Initializable {
 
     public static void setTopPodcastInTechnologyToView() throws IOException {
 
-        for (Podcast podcast : topPodcastInTechnology) {
+        for (Podcast podcast : DiscoverController.topPodcastInTechnology) {
             HBox hBox = getHBox(podcast);
             podcastContainerStatic.getChildren().add(hBox);
         }
@@ -196,7 +112,7 @@ public class DiscoverSeeAllController implements Initializable {
 
     public static void setTopPodcastInHistoryToView() throws IOException {
 
-        for (Podcast podcast : topPodcastInHistory) {
+        for (Podcast podcast : DiscoverController.topPodcastInHistory) {
             HBox hBox = getHBox(podcast);
             podcastContainerStatic.getChildren().add(hBox);
         }
@@ -204,7 +120,7 @@ public class DiscoverSeeAllController implements Initializable {
 
     public static void setTopPodcastInComedyToView() throws IOException {
 
-        for (Podcast podcast : topPodcastInComedy) {
+        for (Podcast podcast : DiscoverController.topPodcastInComedy) {
             HBox hBox = getHBox(podcast);
             podcastContainerStatic.getChildren().add(hBox);
         }
@@ -212,7 +128,7 @@ public class DiscoverSeeAllController implements Initializable {
 
     public static void setTopPodcastInProgrammingLanguageToView() throws IOException {
 
-        for (Podcast podcast : topPodcastInProgrammingLanguage) {
+        for (Podcast podcast : DiscoverController.topPodcastInProgrammingLanguage) {
             HBox hBox = getHBox(podcast);
             podcastContainerStatic.getChildren().add(hBox);
         }

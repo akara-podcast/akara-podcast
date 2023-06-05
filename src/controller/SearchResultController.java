@@ -1,10 +1,13 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import model.Podcast;
 import model.SimilarityPodcast;
 import net.ricecode.similarity.JaroWinklerStrategy;
@@ -12,6 +15,7 @@ import net.ricecode.similarity.SimilarityStrategy;
 import net.ricecode.similarity.StringSimilarityService;
 import net.ricecode.similarity.StringSimilarityServiceImpl;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -26,20 +30,24 @@ public class SearchResultController implements Initializable {
     @FXML
     Label artist;
 
+    @FXML
+    VBox podcastContainer;
+
     private static ImageView staticImg;
     private static Label staticTitle;
     private static Label staticArtist;
 
     private static List<SimilarityPodcast> simPodcasts;
-
+    private static VBox podcastContainerStatic;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         staticImg = img;
         staticTitle = title;
         staticArtist = artist;
+        podcastContainerStatic = podcastContainer;
     }
 
-    public static void stringSearch(String text){
+    public static void stringSearch(String text) throws IOException{
         simPodcasts = new ArrayList<>();
         SimilarityStrategy strategy = new JaroWinklerStrategy();
         StringSimilarityService service = new StringSimilarityServiceImpl(strategy);
@@ -74,9 +82,32 @@ public class SearchResultController implements Initializable {
         staticTitle.setText(title);
         staticArtist.setText(artist);
 
+        // add top 5 similarity podcasts to view
+        top5Similarity();
+
         System.out.println("sorted!!!!!!!");
         for (SimilarityPodcast sim : simPodcasts){
             System.out.println("ID: "+ sim.getId() + "|" + sim.getTitle() + "|" + sim.getSimilarity());
         }
     }
+
+    public static void top5Similarity() throws IOException{
+        int n = simPodcasts.size() - 2;
+        for (int i = n; i > n - 5; i--){
+            HBox hBox = getHBox(MainFormController.podcastList.get(simPodcasts.get(i).getId()));
+            podcastContainerStatic.getChildren().add(hBox);
+        }
+    }
+
+    private static HBox getHBox(Podcast podcast) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(DiscoverSeeAllController.class.getResource("/view/podcastHboxLong.fxml"));
+
+        HBox hBox = fxmlLoader.load();
+        PodcastHboxLongController podcastHboxLongController = fxmlLoader.getController();
+        podcastHboxLongController.setData(podcast);
+        return hBox;
+    }
+
 }

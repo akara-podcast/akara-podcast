@@ -87,13 +87,13 @@ public class DiscoverController implements Initializable {
     private Label seeAllTopPodcastInProgrammingLanguage;
 
 
-    List<Podcast> recentlyPlayed;
-    List<Podcast> popularPodcast;
-    List<Podcast> topPodcastInGaming;
-    List<Podcast> topPodcastInTechnology;
-    List<Podcast> topPodcastInHistory;
-    List<Podcast> topPodcastInComedy;
-    List<Podcast> topPodcastInProgrammingLanguage;
+    public static List<Podcast> recentlyPlayed;
+    public static List<Podcast> popularPodcast;
+    public static List<Podcast> topPodcastInGaming;
+    public static List<Podcast> topPodcastInTechnology;
+    public static List<Podcast> topPodcastInHistory;
+    public static List<Podcast> topPodcastInComedy;
+    public static List<Podcast> topPodcastInProgrammingLanguage;
 
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
@@ -253,7 +253,7 @@ public class DiscoverController implements Initializable {
         Faker faker = new Faker();
 
         BorderPane discoverSeeAll = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/DiscoverSeeAll.fxml")));
-        borderPane.setCenter(discoverSeeAll);
+        MainFormController.staticBorderpane.setCenter(discoverSeeAll);
 
         if (event.getSource() == seeAllPopularPodcast) {
 

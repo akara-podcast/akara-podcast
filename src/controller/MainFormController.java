@@ -68,6 +68,8 @@ public class MainFormController implements Initializable {
     private BorderPane discover;
     private BorderPane trending;
 
+    public static BorderPane staticBorderpane;
+
     //------------------------------------------------------------------------------------
     //  Methods declarations                                                             |
     //------------------------------------------------------------------------------------
@@ -91,6 +93,7 @@ public class MainFormController implements Initializable {
 
         staticMainPane = mainPane;
         staticModelLabel = modeLabel;
+        staticBorderpane = borderPane;
 
         VBox mediaPlayer;
 
