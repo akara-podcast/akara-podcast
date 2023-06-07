@@ -65,6 +65,9 @@ public class MediaPlayerController implements Initializable {
     private Button playButtonMediaPlayer;
 
     @FXML
+    private ImageView playImg;
+
+    @FXML
     private ProgressBar podcastProgressBar;
 
     @FXML
@@ -299,12 +302,14 @@ public class MediaPlayerController implements Initializable {
 
         // play media player if count is 0, else pause media player
         if (!count) {
+            playImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
             System.out.println(mediaStatic.getSource());
             mediaPlayerStatic = new MediaPlayer(mediaStatic);
             beginTimer();
             mediaPlayerStatic.play();
             count = true;
         } else {
+            playImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/play.png")).toString()));
             mediaPlayerStatic.pause();
             cancelTimer();
             count = false;

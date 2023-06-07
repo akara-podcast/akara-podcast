@@ -83,7 +83,7 @@
                   </HBox>
                   <Button fx:id="playButtonMediaPlayer" mnemonicParsing="false" onAction="#playMedia" style="-fx-background-color: transparent;">
                      <graphic>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playImg" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../image/play.png" />
                            </image>
