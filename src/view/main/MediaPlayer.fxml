@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" styleClass="secondary-color" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.main.MediaPlayerController">
+   <children>
+      <ProgressBar fx:id="podcastProgressBar" maxWidth="1.7976931348623157E308" prefHeight="8.0" prefWidth="430.0" progress="0.0" />
+      <BorderPane maxWidth="1.7976931348623157E308" prefHeight="70.0" prefWidth="1286.0">
+         <left>
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="326.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="imgMediaPlayer" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="6.0" right="10.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../../image/Podcast_EP-10-web_1.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="333.0" spacing="4.0">
+                     <children>
+                        <Label fx:id="titleMediaPlayer" prefHeight="20.0" prefWidth="370.0" style="-fx-background-color: transparent;" styleClass="primary-color" text="Title">
+                           <font>
+                              <Font name="Rockwell" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="podcasterMediaPlayer" text="Podcaster" textFill="#5c5c5c">
+                           <font>
+                              <Font name="Rockwell" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </left>
+         <center>
+            <HBox alignment="CENTER" prefHeight="100.0" spacing="15.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Button fx:id="replayButtonMediaPlayer" mnemonicParsing="false" onAction="#replayMedia" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../image/Arrows_Reload_01.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="previousButtonMediaPlayer" mnemonicParsing="false" onAction="#prevoiusMedia" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../image/previous.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Button fx:id="playButtonMediaPlayer" mnemonicParsing="false" onAction="#playMedia" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fx:id="playImg" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/play.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Button fx:id="nextButtonMediaPlayer" mnemonicParsing="false" onAction="#nextMedia" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../image/next.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="suffleButtonMediaPlayer" disable="true" mnemonicParsing="false" onAction="#suffleMedia" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../image/Shuffle.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </center>
+         <right>
+            <HBox alignment="CENTER_RIGHT" prefWidth="326.0" BorderPane.alignment="CENTER_LEFT">
+               <children>
+                  <Label fx:id="genreMediaPlayer" text="Label" visible="false" />
+                  <Label fx:id="durationMediaPlayer" text="Label" visible="false" />
+                  <Button fx:id="addPlaylistMediaPlayer" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/List_Add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="addFavoriteMediaPlayer" mnemonicParsing="false" onMouseClicked="#addToFavorite" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/Heart_01.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+         </right>
+         <padding>
+            <Insets left="8.0" right="8.0" />
+         </padding>
+      </BorderPane>
+   </children>
+</VBox>

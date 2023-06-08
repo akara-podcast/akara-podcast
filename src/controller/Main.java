@@ -25,7 +25,7 @@ import java.util.Objects;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/view/MainForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/view/main/MainForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 840);
         stage.setMaximized(true);
         stage.setTitle("Akara Podcast");
