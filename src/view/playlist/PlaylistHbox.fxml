@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Font?>
+
+
+<CheckBox fx:id="playlistCheckBox" mnemonicParsing="false" prefHeight="50.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.playlist.PlaylistHboxController">
+   <padding>
+      <Insets left="3.0" right="3.0" />
+   </padding>
+   <graphic>
+      <Label fx:id="playlistName" text="Chilling">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="playlistIMG" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/pinkPlaylist.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+   </graphic>
+</CheckBox>
