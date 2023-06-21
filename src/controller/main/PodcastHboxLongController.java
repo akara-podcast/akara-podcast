@@ -86,7 +86,7 @@ public class PodcastHboxLongController implements Initializable {
     void podcasterClicked(MouseEvent event) throws Exception {
 
         BorderPane channel = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/channel/Channel.fxml")));
-        //DiscoverSeeAllController.setBorderPaneStatic(channel);
+        //DiscoverSeeAllController.setBorderPaneS   tatic(channel);
 
         // BUG
         // check if the DiscoverSeeAllController is clicked or not and set the border pane accordingly

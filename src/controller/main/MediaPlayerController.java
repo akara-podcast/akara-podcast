@@ -31,7 +31,6 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
 import model.Playlist;
 import podcastData.DataInitializer;
 

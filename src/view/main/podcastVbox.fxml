@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefWidth="140.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.main.PodcastVboxController">
+<AnchorPane onMouseClicked="#setDataToMediaPlayer" onMouseEntered="#showPlayButton" onMouseExited="#hidePlayButton" prefWidth="140.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.main.PodcastVboxController">
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="173.0" spacing="2.0" stylesheets="@../../css/style.css">
+      <VBox fx:id="vBoxPodcast" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="173.0" spacing="2.0" style="-fx-background-color: #EDEDED; -fx-background-radius: 8px;" stylesheets="@../../css/style.css">
          <children>
             <ImageView fx:id="imgVbox" fitHeight="176.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -29,7 +29,7 @@
             </Label>
          </children>
       </VBox>
-      <Button fx:id="playButtonVBox" layoutX="51.0" layoutY="56.0" mnemonicParsing="false" onAction="#setDataToMediaPlayer" style="-fx-background-color: transparent;">
+      <Button fx:id="playButtonVBox" disable="true" layoutX="51.0" layoutY="56.0" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -45,4 +45,7 @@
       <Label fx:id="genreVbox" layoutY="40.0" text="Label" visible="false" />
       <Label fx:id="durationVbox" layoutY="20.0" text="Label" visible="false" />
    </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
 </AnchorPane>

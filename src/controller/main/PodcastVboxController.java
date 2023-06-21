@@ -19,12 +19,19 @@ import controller.main.MediaPlayerController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 
+import javafx.scene.paint.Color;
 import model.Podcast;
 
 import java.io.File;
@@ -56,6 +63,9 @@ public class PodcastVboxController implements Initializable {
     @FXML
     private Label genreVbox;
 
+    @FXML
+    private VBox vBoxPodcast;
+
     private Media media;
 
     private File file;
@@ -84,7 +94,7 @@ public class PodcastVboxController implements Initializable {
     }
 
     @FXML
-    public void setDataToMediaPlayer(ActionEvent actionEvent) {
+    public void setDataToMediaPlayer(MouseEvent mouseEvent) {
 
         String title = titleVbox.getText();
         String podcaster = podcasterVbox.getText();
@@ -106,6 +116,22 @@ public class PodcastVboxController implements Initializable {
         MediaPlayerController.setDurationMediaPlayerStatic(duration);
         MediaPlayerController.setGenreMediaPlayerStatic(genre);
         MediaPlayerController.setMediaStatic(media, file);
+    }
+
+    // On mouse entered the podcast VBox
+    @FXML
+    public void showPlayButton(MouseEvent mouseEvent){
+        playButtonVBox.setVisible(true);
+        playButtonVBox.setDisable(false);
+        vBoxPodcast.setBackground(new Background(new BackgroundFill(Color.web("#EDEDED"), new CornerRadii(4), Insets.EMPTY)));
+    }
+
+    // On mouse exited the podcast VBox
+    @FXML
+    public void hidePlayButton(MouseEvent mouseEvent){
+        playButtonVBox.setDisable(true);
+        playButtonVBox.setVisible(false);
+        vBoxPodcast.setBackground(new Background(new BackgroundFill(Color.web("#F8F8F8FF"), new CornerRadii(4), Insets.EMPTY)));
     }
 
 } // end of class PodcastVboxController
