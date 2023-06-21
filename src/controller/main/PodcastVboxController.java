@@ -25,10 +25,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 
 import javafx.scene.paint.Color;
@@ -46,10 +43,16 @@ public class PodcastVboxController implements Initializable {
     //------------------------------------------------------------------------------------
 
     @FXML
+    private AnchorPane parentPodCast;
+
+    @FXML
     private ImageView imgVbox;
 
     @FXML
     private Button playButtonVBox;
+
+    @FXML
+    private ImageView PlayImg;
 
     @FXML
     private Label titleVbox;
@@ -70,13 +73,17 @@ public class PodcastVboxController implements Initializable {
 
     private File file;
 
+    private boolean isPlaying = false;
+    public static boolean isPlayingStatic;
+
+    public static ImageView staticPlayImg;
+
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
 
     public void setData(Podcast podcast) {
         Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
-
         imgVbox.setImage(image);
         titleVbox.setText(podcast.getTitle());
         podcasterVbox.setText(podcast.getPodcaster());
@@ -90,32 +97,42 @@ public class PodcastVboxController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        staticPlayImg = PlayImg;
+        isPlayingStatic = isPlaying;
     }
 
     @FXML
     public void setDataToMediaPlayer(MouseEvent mouseEvent) {
 
-        String title = titleVbox.getText();
-        String podcaster = podcasterVbox.getText();
-        String duration = durationVbox.getText();
-        String genre = genreVbox.getText();
-        String source = media.getSource();
-        Image image = imgVbox.getImage();
+        if (!isPlaying){
+            String title = titleVbox.getText();
+            String podcaster = podcasterVbox.getText();
+            String duration = durationVbox.getText();
+            String genre = genreVbox.getText();
+            String source = media.getSource();
+            Image image = imgVbox.getImage();
 
-        System.out.println("title: " + title);
-        System.out.println("podcaster: " + podcaster);
-        System.out.println("source podcast: " + source);
-        System.out.println("duration: " + duration);
-        System.out.println("genre: " + genre);
-        System.out.println("---");
+            System.out.println("title: " + title);
+            System.out.println("podcaster: " + podcaster);
+            System.out.println("source podcast: " + source);
+            System.out.println("duration: " + duration);
+            System.out.println("genre: " + genre);
+            System.out.println("---");
 
-        MediaPlayerController.setTitleMediaPlayerStatic(title);
-        MediaPlayerController.setPodcasterMediaPlayerStatic(podcaster);
-        MediaPlayerController.setImgMediaPlayerStatic(image);
-        MediaPlayerController.setDurationMediaPlayerStatic(duration);
-        MediaPlayerController.setGenreMediaPlayerStatic(genre);
-        MediaPlayerController.setMediaStatic(media, file);
+            MediaPlayerController.setTitleMediaPlayerStatic(title);
+            MediaPlayerController.setPodcasterMediaPlayerStatic(podcaster);
+            MediaPlayerController.setImgMediaPlayerStatic(image);
+            MediaPlayerController.setDurationMediaPlayerStatic(duration);
+            MediaPlayerController.setGenreMediaPlayerStatic(genre);
+            MediaPlayerController.setMediaStatic(media, file);
+            PlayImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
+            isPlaying = true;
+        }
+        else {
+            PlayImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/play.png")).toString()));
+            MediaPlayerController.pauseMedia();
+            isPlaying = false;
+        }
     }
 
     // On mouse entered the podcast VBox

@@ -105,9 +105,13 @@ public class MediaPlayerController implements Initializable {
     public static Media mediaStatic;
     public static MediaPlayer mediaPlayerStatic;
 
+    public static ImageView staticPlayImg;
+
     public static ProgressBar podcastProgressBarStatic;
 
-    public static boolean count = false;
+    public static boolean isPlaying = false;
+
+    private static ImageView oldPlay;
 
 
     private File directory;
@@ -140,10 +144,11 @@ public class MediaPlayerController implements Initializable {
 
     public static void setMediaStatic(Media media, File file) {
         // pause current media play
-        if (count){
+        if (isPlaying){
+            staticPlayImg.setImage(new Image(Objects.requireNonNull(MediaPlayerController.class.getResource("/image/play.png")).toString()));
             mediaPlayerStatic.pause();
             timer.cancel();
-            count = false;
+            isPlaying = false;
         }
 
         // replace new media
@@ -155,12 +160,23 @@ public class MediaPlayerController implements Initializable {
         songNumber++;
 
         // play new one
-        if (!count) {
+        if (!isPlaying) {
+            staticPlayImg.setImage(new Image(Objects.requireNonNull(MediaPlayerController.class.getResource("/image/pause.png")).toString()));
             System.out.println(mediaStatic.getSource());
             mediaPlayerStatic = new MediaPlayer(mediaStatic);
             beginTimer();
             mediaPlayerStatic.play();
-            count = true;
+            isPlaying = true;
+        }
+    }
+
+    public static void pauseMedia(){
+        // pause current media play
+        if (isPlaying){
+            staticPlayImg.setImage(new Image(Objects.requireNonNull(MediaPlayerController.class.getResource("/image/play.png")).toString()));
+            mediaPlayerStatic.pause();
+            timer.cancel();
+            isPlaying = false;
         }
     }
 
@@ -246,6 +262,7 @@ public class MediaPlayerController implements Initializable {
         durationMediaPlayerStatic = durationMediaPlayer;
         genreMediaPlayerStatic = genreMediaPlayer;
         podcastProgressBarStatic = podcastProgressBar;
+        staticPlayImg = playImg;
 
         // check if media is null
         if (mediaStatic == null) {
@@ -298,18 +315,18 @@ public class MediaPlayerController implements Initializable {
 
 
         // play media player if count is 0, else pause media player
-        if (!count) {
-            playImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
+        if (!isPlaying) {
+            staticPlayImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
             System.out.println(mediaStatic.getSource());
             mediaPlayerStatic = new MediaPlayer(mediaStatic);
             beginTimer();
             mediaPlayerStatic.play();
-            count = true;
+            isPlaying = true;
         } else {
-            playImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/play.png")).toString()));
+            staticPlayImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/play.png")).toString()));
             mediaPlayerStatic.pause();
             cancelTimer();
-            count = false;
+            isPlaying = false;
         }
     }
 
