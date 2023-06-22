@@ -15,8 +15,6 @@
 
 package controller.main;
 
-import controller.main.MediaPlayerController;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -52,7 +50,7 @@ public class PodcastVboxController implements Initializable {
     private Button playButtonVBox;
 
     @FXML
-    private ImageView PlayImg;
+    private ImageView playImg;
 
     @FXML
     private Label titleVbox;
@@ -97,7 +95,7 @@ public class PodcastVboxController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        staticPlayImg = PlayImg;
+        staticPlayImg = playImg;
         isPlayingStatic = isPlaying;
     }
 
@@ -125,11 +123,11 @@ public class PodcastVboxController implements Initializable {
             MediaPlayerController.setDurationMediaPlayerStatic(duration);
             MediaPlayerController.setGenreMediaPlayerStatic(genre);
             MediaPlayerController.setMediaStatic(media, file);
-            PlayImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
+            playImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
             isPlaying = true;
         }
         else {
-            PlayImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/play.png")).toString()));
+            playImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/play.png")).toString()));
             MediaPlayerController.pauseMedia();
             isPlaying = false;
         }

@@ -31,7 +31,7 @@
       </VBox>
       <Button fx:id="playButtonVBox" disable="true" layoutX="51.0" layoutY="56.0" mnemonicParsing="false" onMouseClicked="#setDataToMediaPlayer" style="-fx-background-color: transparent;" visible="false">
          <graphic>
-            <ImageView fx:id="PlayImg" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playImg" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/play.png" />
                </image>
