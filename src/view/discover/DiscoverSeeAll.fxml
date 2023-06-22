@@ -73,7 +73,7 @@
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin></Separator>
-                  <VBox fx:id="podcastContainer" VBox.vgrow="ALWAYS">
+                  <VBox fx:id="podcastContainer" spacing="10.0" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin></VBox>
