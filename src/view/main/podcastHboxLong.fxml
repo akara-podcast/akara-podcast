@@ -6,28 +6,45 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="60.0" prefWidth="1700.0" styleClass="primary-color" stylesheets="@../../css/podcastHboxLong.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.main.PodcastHboxLongController">
+<HBox fx:id="hBoxPodcast" alignment="CENTER_LEFT" fillHeight="false" onMouseEntered="#showPlayButton" onMouseExited="#hidePlayButton" prefHeight="60.0" prefWidth="1700.0" style="-fx-background-radius: 8px; -fx-background-color: #F8F8F8FF;" stylesheets="@../../css/podcastHboxLong.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.main.PodcastHboxLongController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="359.0" spacing="12.0">
          <children>
-            <ImageView fx:id="imgHboxLong" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/Podcast_EP-10-web_1.png" />
-               </image>
-            </ImageView>
+            <AnchorPane maxHeight="66.0" maxWidth="45.0" prefHeight="66.0" prefWidth="45.0">
+               <children>
+                  <ImageView fx:id="imgHboxLong" fitHeight="50.0" fitWidth="50.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../image/Podcast_EP-10-web_1.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="playButtonVBox" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#setDataToMediaPlayer" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent;" visible="false">
+                     <graphic>
+                        <ImageView fx:id="playImg" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" scaleX="0.5" scaleY="0.5">
+                           <image>
+                              <Image url="@../../image/play.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
             <VBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="334.0" spacing="7.0">
                <children>
-                  <Label fx:id="titleHboxLong" styleClass="primary-color" text="Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?">
+                  <Label fx:id="titleHboxLong" text="Tok Touch Episode 0 - ទំលាប់កែមិនឡើង?">
                      <font>
                         <Font name="Rockwell" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="podcasterHboxLong" onMouseClicked="#podcasterClicked" styleClass="podcaster_label" text="Tok Toch" textAlignment="JUSTIFY" textFill="#9e9ba1" wrapText="true">
+                  <Label fx:id="podcasterHboxLong" onMouseClicked="#podcasterClicked" onMouseEntered="#showUnderline" onMouseExited="#hideUnderline" text="Tok Toch" textAlignment="JUSTIFY" textFill="#9e9ba1" wrapText="true">
                      <font>
                         <Font name="Rockwell" size="13.0" />
                      </font>
@@ -43,13 +60,13 @@
          </children>
       </HBox>
       <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-      <Label fx:id="genreHboxLong" prefHeight="20.0" prefWidth="150.0" styleClass="primary-color" text="Education">
+      <Label fx:id="genreHboxLong" prefHeight="20.0" prefWidth="150.0" text="Education">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font>
       </Label>
       <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-      <Label fx:id="durationHboxLong" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" styleClass="primary-color" text="1h 45 min">
+      <Label fx:id="durationHboxLong" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" text="1h 45 min">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font>
@@ -65,6 +82,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
                <graphic>
@@ -79,6 +99,6 @@
       </HBox>
    </children>
    <padding>
-      <Insets right="33.0" />
+      <Insets left="8.0" right="33.0" />
    </padding>
 </HBox>
