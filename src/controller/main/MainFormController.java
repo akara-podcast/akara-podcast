@@ -183,7 +183,10 @@ public class MainFormController implements Initializable {
             borderPane.setCenter(search);
 
             // string search begin
-            SearchResultController.stringSearch(searchTF.getText().trim());
+            // SearchResultController.stringSearch(searchTF.getText().trim());
+
+            // test string split search
+            SearchResultController.stringSplitSearch(searchTF.getText().trim());
         }
         else{
             ScrollPane search = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/search/Search.fxml")));

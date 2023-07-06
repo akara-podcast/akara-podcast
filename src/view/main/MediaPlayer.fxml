@@ -107,7 +107,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="suffleButtonMediaPlayer" disable="true" mnemonicParsing="false" onAction="#suffleMedia" style="-fx-background-color: transparent;">
+                        <Button fx:id="shuffleButtonMediaPlayer" disable="true" mnemonicParsing="false" onAction="#suffleMedia" style="-fx-background-color: transparent;">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
