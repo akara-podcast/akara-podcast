@@ -59,8 +59,6 @@ public class SearchResultController implements Initializable {
 
     public static void stringSearch(String text) throws IOException{
         simPodcasts = new ArrayList<>();
-        SimilarityStrategy strategy = new JaroWinklerStrategy();
-        StringSimilarityService service = new StringSimilarityServiceImpl(strategy);
         for (Podcast podcast : MainFormController.podcastList) {
             SimilarityPodcast simPodcast = new SimilarityPodcast();
             simPodcast.setId(podcast.getId());
@@ -98,13 +96,12 @@ public class SearchResultController implements Initializable {
     }
 
     public static void stringSplitSearch(String text) throws IOException{
-        simPodcasts = new ArrayList<>();
-
 
         // get words from search panel
         int words = text.split(" ").length;
 
         if (words == 1){
+            simPodcasts = new ArrayList<>();
             for (Podcast podcast : MainFormController.podcastList) {
                 SimilarityPodcast simPodcast = new SimilarityPodcast();
                 simPodcast.setId(podcast.getId());
@@ -117,19 +114,46 @@ public class SearchResultController implements Initializable {
                 simPodcasts.add(simPodcast);
             }
             // sort by similarity
-            simPodcasts.sort(new Comparator<SimilarityPodcast>() {
-                @Override
-                public int compare(SimilarityPodcast c1, SimilarityPodcast c2) {
-                    return Double.compare(c1.getSimilarity(), c2.getSimilarity());
-                }
-            });
 
         }
+        else {
+            simPodcasts = new ArrayList<>();
+            for (Podcast podcast : MainFormController.podcastList) {
+                SimilarityPodcast simPodcast = new SimilarityPodcast();
+                simPodcast.setId(podcast.getId());
+                simPodcast.setTitle(podcast.getTitle());
+                simPodcast.setSimilarity(service.score(text, podcast.getTitle()));
 
-        System.out.println("sorted!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        for (SimilarityPodcast sim : simPodcasts){
-            System.out.println("ID: "+ sim.getId() + "|" + sim.getTitle() + "|"+ sim.getWordIndex() + "|" + sim.getSimilarity());
+                // add similar podcast to list
+                simPodcasts.add(simPodcast);
+            }
         }
+
+
+        simPodcasts.sort(new Comparator<SimilarityPodcast>() {
+            @Override
+            public int compare(SimilarityPodcast c1, SimilarityPodcast c2) {
+                return Double.compare(c1.getSimilarity(), c2.getSimilarity());
+            }
+        });
+
+        String imageURL = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getCover();
+        String title  = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getTitle();
+        String artist  = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getPodcaster();
+
+        Image image = new Image(Objects.requireNonNull(SearchController.class.getResourceAsStream(imageURL)));
+        // put data to view
+        staticImg.setImage(image);
+        staticTitle.setText(title);
+        staticArtist.setText(artist);
+
+        // add top 5 similarity podcasts to view
+        top5Similarity();
+
+//        System.out.println("sorted!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//        for (SimilarityPodcast sim : simPodcasts){
+//            System.out.println("ID: "+ sim.getId() + "|" + sim.getTitle() + "|"+ sim.getWordIndex() + "|" + sim.getSimilarity());
+//        }
     }
 
 
