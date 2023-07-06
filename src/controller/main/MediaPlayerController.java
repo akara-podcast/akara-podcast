@@ -83,7 +83,7 @@ public class MediaPlayerController implements Initializable {
     private Button replayButtonMediaPlayer;
 
     @FXML
-    private Button suffleButtonMediaPlayer;
+    private Button shuffleButtonMediaPlayer;
 
     @FXML
     public Label titleMediaPlayer;

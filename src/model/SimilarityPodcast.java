@@ -5,6 +5,8 @@ public class SimilarityPodcast{
     private String title;
     private double similarity;
 
+    private int wordIndex;
+
 
     public int getId() {
         return id;
@@ -30,4 +32,11 @@ public class SimilarityPodcast{
         this.similarity = similarity;
     }
 
+    public int getWordIndex() {
+        return wordIndex;
+    }
+
+    public void setWordIndex(int wordIndex) {
+        this.wordIndex = wordIndex;
+    }
 }
