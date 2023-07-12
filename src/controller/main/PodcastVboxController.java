@@ -28,6 +28,7 @@ import javafx.scene.media.Media;
 
 import javafx.scene.paint.Color;
 import model.Podcast;
+import model.RecentlyPlayed;
 
 import java.io.File;
 import java.net.URL;
@@ -76,6 +77,8 @@ public class PodcastVboxController implements Initializable {
 
     public static ImageView staticPlayImg;
 
+    private RecentlyPlayed recently;
+
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
@@ -87,6 +90,10 @@ public class PodcastVboxController implements Initializable {
         podcasterVbox.setText(podcast.getPodcaster());
         durationVbox.setText(podcast.getDuration());
         genreVbox.setText(podcast.getGenre());
+
+        recently = new RecentlyPlayed(podcast.getId(), podcast.getCover(), podcast.getTitle(),
+                podcast.getDescription(), podcast.getDescription(), podcast.getDuration(), podcast.getPodcastUrl(),
+                podcast.getGenre());
 
         file = new File(podcast.getPodcastUrl());
         media = new Media(file.toURI().toString());
@@ -123,6 +130,7 @@ public class PodcastVboxController implements Initializable {
             MediaPlayerController.setDurationMediaPlayerStatic(duration);
             MediaPlayerController.setGenreMediaPlayerStatic(genre);
             MediaPlayerController.setMediaStatic(media, file);
+            MediaPlayerController.writeToFile(recently);
             playImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
             isPlaying = true;
         }

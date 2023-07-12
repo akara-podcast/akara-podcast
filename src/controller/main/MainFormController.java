@@ -83,14 +83,7 @@ public class MainFormController implements Initializable {
             DataInitializer dataInitializer = new DataInitializer();
             podcastList = dataInitializer.podcastList();
 
-            try {
-                discover = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/discover/Discover.fxml")));
-                trending = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/trending/Trending.fxml")));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
         }
-
         staticMainPane = mainPane;
         staticModelLabel = modeLabel;
         staticBorderpane = borderPane;
@@ -99,7 +92,8 @@ public class MainFormController implements Initializable {
 
         try {
             mediaPlayer = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/main/MediaPlayer.fxml")));
-
+            discover = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/discover/Discover.fxml")));
+            trending = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/trending/Trending.fxml")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -121,6 +115,7 @@ public class MainFormController implements Initializable {
 
     @FXML
     private void discoverClick(MouseEvent event) throws IOException {
+        FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/discover/Discover.fxml")));
         borderPane.setCenter(discover);
     }
 

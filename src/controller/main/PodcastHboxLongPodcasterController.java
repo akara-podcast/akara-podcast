@@ -30,6 +30,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
 import javafx.scene.paint.Color;
 import model.Podcast;
+import model.RecentlyPlayed;
 
 import java.io.File;
 import java.net.URL;
@@ -73,6 +74,8 @@ public class PodcastHboxLongPodcasterController implements Initializable {
 
     private File file;
 
+    private RecentlyPlayed recently;
+
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
@@ -81,6 +84,9 @@ public class PodcastHboxLongPodcasterController implements Initializable {
         Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
 
         this.podcast = podcast;
+        recently = new RecentlyPlayed(podcast.getId(), podcast.getCover(), podcast.getTitle(),
+                podcast.getDescription(), podcast.getDescription(), podcast.getDuration(), podcast.getPodcastUrl(),
+                podcast.getGenre());
 
         imgHboxLongPodcaster.setImage(image);
         titleHboxLongPodcaster.setText(podcast.getTitle());
@@ -121,6 +127,7 @@ public class PodcastHboxLongPodcasterController implements Initializable {
             MediaPlayerController.setDurationMediaPlayerStatic(duration);
             MediaPlayerController.setGenreMediaPlayerStatic(genre);
             MediaPlayerController.setMediaStatic(media, file);
+            MediaPlayerController.writeToFile(recently);
             playImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
             isPlaying = true;
         }

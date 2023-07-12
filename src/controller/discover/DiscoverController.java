@@ -29,8 +29,14 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
 import model.Podcast;
+import model.RecentlyPlayed;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +95,8 @@ public class DiscoverController implements Initializable {
     private Label seeAllTopPodcastInProgrammingLanguage;
 
 
-    public static List<Podcast> recentlyPlayed;
+
+    public static List<RecentlyPlayed> recentlyPlayed;
     public static List<Podcast> popularPodcast;
     public static List<Podcast> topPodcastInGaming;
     public static List<Podcast> topPodcastInTechnology;
@@ -97,16 +104,47 @@ public class DiscoverController implements Initializable {
     public static List<Podcast> topPodcastInComedy;
     public static List<Podcast> topPodcastInProgrammingLanguage;
 
+
+    // anchor pane
+    private AnchorPane popularPane;
+    private AnchorPane topGamingPane;
+    private AnchorPane topTechPane;
+    private AnchorPane topHistoryPane;
+    private AnchorPane topComedyPane;
+    private AnchorPane topProgrammingPane;
+
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        // always update recentlyPlayed panel
+        recentlyPlayed = new ArrayList<>(getRecentlyPlayed());
+        recentlyPlayedContainer.getChildren().clear();
+        try{
+            for (RecentlyPlayed podcast : recentlyPlayed) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/view/main/podcastHbox.fxml"));
+
+                HBox hBox = fxmlLoader.load();
+
+                PodcastHboxController podcastHboxController = fxmlLoader.getController();
+                podcastHboxController.setData(podcast);
+
+                recentlyPlayedContainer.getChildren().add(hBox);
+            }
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+        // one init is enough
         if (!MainFormController.init){
             System.out.println("Do it!");
             // Initialize the lists of podcasts to be displayed in the Discover page
-            recentlyPlayed = new ArrayList<>(getRecentlyPlayed());
+
             popularPodcast = new ArrayList<>(getPopularPodcast());
             topPodcastInGaming = new ArrayList<>(getTopPodcastInGaming());
             topPodcastInTechnology = new ArrayList<>(getTopPodcastInTechnology());
@@ -114,67 +152,97 @@ public class DiscoverController implements Initializable {
             topPodcastInComedy = new ArrayList<>(getTopPodcastInComedy());
             topPodcastInProgrammingLanguage = new ArrayList<>(getTopPodcastInProgrammingLanguage());
 
-            // Add the podcasts to the containers in the Discover page (recently played, popular, top in gaming, etc.)
             try {
-                for (Podcast podcast : recentlyPlayed) {
-                    FXMLLoader fxmlLoader = new FXMLLoader();
-                    fxmlLoader.setLocation(getClass().getResource("/view/main/podcastHbox.fxml"));
-
-                    HBox hBox = fxmlLoader.load();
-                    PodcastHboxController podcastHboxController = fxmlLoader.getController();
-                    podcastHboxController.setData(podcast);
-
-                    recentlyPlayedContainer.getChildren().add(hBox);
-                }
 
                 for (Podcast podcast : popularPodcast) {
-                    AnchorPane anchorPane = getAnchorPane(podcast);
-                    popularPodcastContainer.getChildren().add(anchorPane);
+                    popularPane = getAnchorPane(podcast);
+                    popularPodcastContainer.getChildren().add(popularPane);
                 }
 
                 for (Podcast podcast : topPodcastInGaming) {
-                    AnchorPane anchorPane = getAnchorPane(podcast);
-                    topPodcastInGamingContainer.getChildren().add(anchorPane);
+                    topGamingPane = getAnchorPane(podcast);
+                    topPodcastInGamingContainer.getChildren().add(topGamingPane);
                 }
 
                 for (Podcast podcast : topPodcastInTechnology) {
-                    AnchorPane anchorPane = getAnchorPane(podcast);
-                    topPodcastInTechnologyContainer.getChildren().add(anchorPane);
+                    topTechPane = getAnchorPane(podcast);
+                    topPodcastInTechnologyContainer.getChildren().add(topTechPane);
                 }
 
                 for (Podcast podcast : topPodcastInHistory) {
-                    AnchorPane anchorPane = getAnchorPane(podcast);
-                    topPodcastInHistoryContainer.getChildren().add(anchorPane);
+                    topHistoryPane = getAnchorPane(podcast);
+                    topPodcastInHistoryContainer.getChildren().add(topHistoryPane);
                 }
 
                 for (Podcast podcast : topPodcastInComedy) {
-                    AnchorPane anchorPane = getAnchorPane(podcast);
-                    topPodcastInComedyContainer.getChildren().add(anchorPane);
+                    topComedyPane = getAnchorPane(podcast);
+                    topPodcastInComedyContainer.getChildren().add(topComedyPane);
                 }
 
                 for (Podcast podcast : topPodcastInProgrammingLanguage) {
-                    AnchorPane anchorPane = getAnchorPane(podcast);
-                    topPodcastInProgrammingLanguageContainer.getChildren().add(anchorPane);
+                    topProgrammingPane = getAnchorPane(podcast);
+                    topPodcastInProgrammingLanguageContainer.getChildren().add(topProgrammingPane);
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
+
+
             MainFormController.init = true;
         }
+
+
+
+
     }
 
-    private List<Podcast> getRecentlyPlayed() {
+    private List<RecentlyPlayed> getRecentlyPlayed() {
+        File recentFile = new File("src/podcastData/recentPlayed.txt");
 
-        List<Podcast> recentlyPlayed = new ArrayList<>();
+        List<RecentlyPlayed> recentlyPlayedList = new ArrayList<>();
 
-        for (Podcast podcast : MainFormController.podcastList) {
-            if (podcast.getWasPlayed()) {
-                if (recentlyPlayed.size() < 10) {
-                    recentlyPlayed.add(podcast);
-                }}}
-        return recentlyPlayed;
+        if (recentFile.isFile()){
+            try {
+                if (new BufferedReader(new FileReader(recentFile)).readLine() == null){
+                    System.out.println("No recently played found!");
+                }
+                else {
+                    System.out.println("Found!");
+                    // check to make sure it's not duplicate
+                    FileInputStream fi = new FileInputStream(recentFile);
+                    ObjectInputStream oi = new ObjectInputStream(fi);
+
+                    List<RecentlyPlayed> recentlyPlayed = (List<RecentlyPlayed>) oi.readObject();
+                    recentlyPlayedList.addAll(recentlyPlayed);
+
+                    for (RecentlyPlayed recentlyPlayed1: recentlyPlayedList){
+                        System.out.println(recentlyPlayed1.toString());
+                    }
+                    oi.close();
+                    fi.close();
+                }
+
+            } catch (IOException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        else { // create a file if it's not exist
+
+            try {
+                if (recentFile.createNewFile()) {
+                    System.out.println("File created: " + recentFile.getName());
+                } else {
+                    System.out.println("File already exists.");
+                }
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
+
+        return recentlyPlayedList;
     }
 
     private static List<Podcast> getPopularPodcast() {
