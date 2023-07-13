@@ -50,7 +50,7 @@ public class AddPlaylistDialogController implements Initializable {
                         // check text field is empty
                         if (!CreatePlaylistDialogController.staticLabel.getText().trim().equals("")) {
                             FXMLLoader fxmlLoader = new FXMLLoader();
-                            fxmlLoader.setLocation(getClass().getResource("/view/PlaylistHBox.fxml"));
+                            fxmlLoader.setLocation(getClass().getResource("/view/playlist/PlaylistHBox.fxml"));
                             CheckBox playlist = fxmlLoader.load();
 
                             PlaylistHboxController playlistHBoxController = fxmlLoader.getController();
