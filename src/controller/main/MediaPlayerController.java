@@ -39,6 +39,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.*;
 
+
 public class MediaPlayerController implements Initializable {
 
     //------------------------------------------------------------------------------------
@@ -174,7 +175,7 @@ public class MediaPlayerController implements Initializable {
         // pause current media play
         if (isPlaying) {
             staticPlayImg.setImage(new Image(Objects.requireNonNull(MediaPlayerController.class.getResource("/image/play.png")).toString()));
-            mediaPlayerStatic.pause();
+            mediaPlayerStatic.stop();
             timer.cancel();
             isPlaying = false;
         }
@@ -318,7 +319,6 @@ public class MediaPlayerController implements Initializable {
         if (!isPlaying) {
             staticPlayImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
             System.out.println(mediaStatic.getSource());
-            mediaPlayerStatic = new MediaPlayer(mediaStatic);
             beginTimer();
             mediaPlayerStatic.play();
             isPlaying = true;
