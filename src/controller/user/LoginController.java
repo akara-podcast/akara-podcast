@@ -39,7 +39,8 @@ public class LoginController implements Initializable {
     @FXML
     private Label alertLabel;
 
-
+    @FXML
+    private Button button_forget_password;
 
     @FXML
     public void loginClicked(MouseEvent event) throws IOException {
@@ -85,4 +86,25 @@ public class LoginController implements Initializable {
             }
         });
     }
+
+
+    //#region FORGOT_BTN
+    @FXML
+    public void forgotClicked(MouseEvent mouseEvent) throws IOException {
+        loginPane.setTop(null);
+        BorderPane forget = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/user/Forget.fxml")));
+        loginPane.setCenter(forget);
+    }
+
+    @FXML
+    public void underLine(MouseEvent mouseEvent){
+        button_forget_password.setUnderline(true);
+    }
+
+    @FXML
+    public void removeUnderLine(MouseEvent mouseEvent){
+        button_forget_password.setUnderline(false);
+    }
+
+    //#endregion
 }
