@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="forgotPane" prefHeight="684.0" prefWidth="991.0" styleClass="primary-color" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.ForgotController">
+   <top>
+      <VBox minHeight="-Infinity" minWidth="-Infinity" styleClass="primary-color" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="24.0" right="24.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="197.0" styleClass="primary-color" text="Verification required">
+                     <font>
+                        <Font name="CircularStd-Medium" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" top="6.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="83.0">
+                     <children>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../image/Chevron_Left.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../image/Chevron_Right.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="845.0" style="-fx-border-color: #5d5fef; -fx-border-width: 1; -fx-border-radius: 25;">
+               <children>
+                  <AnchorPane maxWidth="-Infinity" prefHeight="531.0" prefWidth="334.0" style="-fx-background-color: transparent;">
+                     <children>
+                        <ImageView fitHeight="67.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/logo_text.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="39.0" fitWidth="22.0" layoutX="25.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/gg_music-note.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="67.0" fitWidth="57.0" layoutX="102.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/fluent_headphones-sound-wave-28-regular.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="39.0" fitWidth="22.0" layoutX="207.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/la_podcast.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="75.0" fitWidth="22.0" layoutX="25.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/simple-icons_googlepodcasts.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="27.0" fitWidth="22.0" layoutX="207.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/gg_music.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Separator maxWidth="1.0" minWidth="1.0" orientation="VERTICAL" prefWidth="1.0" style="-fx-background-color: #5d5fef;" />
+                  <VBox prefHeight="531.0" prefWidth="580.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="37.0" prefWidth="582.0" text="Verification required" textFill="#5d5fef">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets right="30.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="TOP_LEFT" opacity="0.55" prefHeight="17.0" prefWidth="407.0" styleClass="primary-color" text="Enter the code that we’ve emailed to example@***.com">
+                           <VBox.margin>
+                              <Insets bottom="16.0" left="48.0" top="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <GridPane hgap="16.0" vgap="16.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TextField alignment="CENTER" prefHeight="68.0" prefWidth="98.0" promptText="." style="-fx-border-color: #5d5fef; -fx-border-radius: 5px; -fx-backgroud-radius: 5px; -fx-background-color: tranparent;">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <padding>
+                                    <Insets left="16.0" right="16.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="68.0" prefWidth="98.0" promptText="." style="-fx-border-color: #5d5fef; -fx-border-radius: 5px; -fx-backgroud-radius: 5px; -fx-background-color: tranparent;" GridPane.columnIndex="1">
+                                 <padding>
+                                    <Insets left="16.0" right="16.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="68.0" prefWidth="98.0" promptText="." style="-fx-border-color: #5d5fef; -fx-border-radius: 5px; -fx-backgroud-radius: 5px; -fx-background-color: tranparent;" GridPane.columnIndex="2">
+                                 <padding>
+                                    <Insets left="16.0" right="16.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="68.0" prefWidth="98.0" promptText="." style="-fx-border-color: #5d5fef; -fx-border-radius: 5px; -fx-backgroud-radius: 5px; -fx-background-color: tranparent;" GridPane.columnIndex="3">
+                                 <padding>
+                                    <Insets left="16.0" right="16.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="68.0" prefWidth="98.0" promptText="." style="-fx-border-color: #5d5fef; -fx-border-radius: 5px; -fx-backgroud-radius: 5px; -fx-background-color: tranparent;" GridPane.columnIndex="4">
+                                 <padding>
+                                    <Insets left="16.0" right="16.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="68.0" prefWidth="98.0" promptText="." style="-fx-border-color: #5d5fef; -fx-border-radius: 5px; -fx-backgroud-radius: 5px; -fx-background-color: tranparent;" GridPane.columnIndex="5">
+                                 <padding>
+                                    <Insets left="16.0" right="16.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="32.0" right="32.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="16.0" right="16.0" />
+                           </padding>
+                        </GridPane>
+                        <HBox>
+                           <VBox.margin>
+                              <Insets left="22.0" top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="450.0" style="-fx-border-color: #5d5fef; -fx-border-radius: 9px; -fx-border-width: 2px; -fx-background-color: transparent;" text="Confirm" textFill="#5d5fef">
+                           <VBox.margin>
+                              <Insets left="45.0" top="15.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="backLogin1" mnemonicParsing="false" onMouseClicked="#loginSwitchClicked" style="-fx-background-color: transparent;" text="RESEND CODE" textAlignment="CENTER" textFill="#5d5fef">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <VBox.margin>
+                              <Insets left="215.0" top="6.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Separator maxWidth="300.0" prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="120.0" top="32.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <Label opacity="0.55" text="I already have my account">
+                           <VBox.margin>
+                              <Insets left="200.0" top="25.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button fx:id="backLogin" mnemonicParsing="false" onMouseClicked="#loginSwitchClicked" style="-fx-background-color: transparent;" text="Back to Login" textAlignment="CENTER" textFill="#5d5fef">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="215.0" top="3.0" />
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="24.0" right="24.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>
