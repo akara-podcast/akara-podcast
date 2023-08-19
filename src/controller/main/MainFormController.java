@@ -27,7 +27,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
+import kong.unirest.Unirest;
+import kong.unirest.json.JSONObject;
 import model.Podcast;
+import model.api.desktop.model.Credential;
 import podcastData.DataInitializer;
 import staticUtility.DbUtils;
 
@@ -75,7 +80,9 @@ public class MainFormController implements Initializable {
     //------------------------------------------------------------------------------------
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle){
+
+
 
         // one init per start
         if (!init){

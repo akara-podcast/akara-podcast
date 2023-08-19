@@ -5,6 +5,8 @@ module src.akara {
     requires javafx.media;
     requires javafaker;
     requires string.similarity;
+    requires unirest.object.mappers.gson;
+    requires unirest.java;
 
     opens controller to javafx.fxml;
     exports controller;

@@ -28,15 +28,17 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
+import kong.unirest.Unirest;
+import kong.unirest.json.JSONObject;
 import model.Podcast;
 import model.RecentlyPlayed;
+import model.api.desktop.model.AccessToken;
+import model.api.desktop.model.Credential;
+import model.api.desktop.model.RefreshToken;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -95,7 +97,6 @@ public class DiscoverController implements Initializable {
     private Label seeAllTopPodcastInProgrammingLanguage;
 
 
-
     public static List<RecentlyPlayed> recentlyPlayed;
     public static List<Podcast> popularPodcast;
     public static List<Podcast> topPodcastInGaming;
@@ -120,10 +121,11 @@ public class DiscoverController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
         // always update recentlyPlayed panel
         recentlyPlayed = new ArrayList<>(getRecentlyPlayed());
         recentlyPlayedContainer.getChildren().clear();
-        try{
+        try {
             for (RecentlyPlayed podcast : recentlyPlayed) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/view/main/podcastHbox.fxml"));
@@ -135,13 +137,12 @@ public class DiscoverController implements Initializable {
 
                 recentlyPlayedContainer.getChildren().add(hBox);
             }
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
         // one init is enough
-        if (!MainFormController.init){
+        if (!MainFormController.init) {
             System.out.println("Do it!");
             // Initialize the lists of podcasts to be displayed in the Discover page
 
@@ -189,13 +190,309 @@ public class DiscoverController implements Initializable {
             }
 
 
-
             MainFormController.init = true;
+        }
+
+        getAllPodcast();
+
+    }
+
+    //#region CREDENTIAL
+    private AccessToken getAccessToken(RefreshToken refreshToken) {
+        File accessFile = new File("src/podcastData/accessToken.txt");
+        AccessToken accessToken = new AccessToken();
+
+        if (accessFile.isFile()) { // if file is existed
+            try {
+                if (new BufferedReader(new FileReader(accessFile)).readLine() == null) {
+                    // post access and get response
+                    // request access
+                    HttpResponse<JsonNode> response = Unirest.post("https://dev.akarahub.tech/server4/akara/desktop/access/token").header("Authorization", "bearer " + refreshToken.getRefreshToken()).asJson();
+
+                    JSONObject refreshJson = response.getBody().getObject();
+
+                    accessToken.setMessage(refreshJson.get("message").toString());
+                    accessToken.setAccessToken(refreshJson.get("accessToken").toString());
+
+                    // write to file
+                    try {
+                        FileOutputStream fileOutputStream = new FileOutputStream(accessFile);
+                        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
+                        // write chav
+                        objectOutputStream.writeObject(accessToken);
+
+                        objectOutputStream.close();
+                        fileOutputStream.close();
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else {
+                    System.out.println("Access Existed");
+                    // check to make sure it's not duplicate
+                    FileInputStream fi = new FileInputStream(accessFile);
+                    ObjectInputStream oi = new ObjectInputStream(fi);
+
+                    accessToken = (AccessToken) oi.readObject();
+                    oi.close();
+                    fi.close();
+                }
+            } catch (IOException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        } else { // create a file if it's not exist
+
+            try {
+                if (accessFile.createNewFile()) {
+                    System.out.println("File created: " + accessFile.getName());
+                } else {
+                    System.out.println("File already exists.");
+                }
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+
+            // post access and get response
+            // request access
+            HttpResponse<JsonNode> response = Unirest.post("https://dev.akarahub.tech/server4/akara/desktop/access/token").header("Authorization", "bearer " + refreshToken.getRefreshToken()).asJson();
+
+            JSONObject refreshJson = response.getBody().getObject();
+
+            System.out.println(refreshJson.toString());
+            accessToken.setMessage(refreshJson.get("message").toString());
+            accessToken.setAccessToken(refreshJson.get("accessToken").toString());
+
+            // write to file
+            try {
+                FileOutputStream fileOutputStream = new FileOutputStream(accessFile);
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
+                // write chav
+                objectOutputStream.writeObject(accessToken);
+
+                objectOutputStream.close();
+                fileOutputStream.close();
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return accessToken;
+    }
+
+    private RefreshToken getRefreshToken(Credential credential) {
+        File refreshFile = new File("src/podcastData/refreshToken.txt");
+        RefreshToken refreshToken = new RefreshToken();
+        String jsonInput = "{" + "    \"grantType\": \"credential\"," + "    \"clientId\": \"" + credential.getClientId() + "\"," + "    \"clientSecret\": \"" + credential.getClientSecret() + "\"," + "    \"scope\": \"desktop\"" + "}";
+
+        if (refreshFile.isFile()) { // if file is existed
+            try {
+                if (new BufferedReader(new FileReader(refreshFile)).readLine() == null) {
+                    // post refresh and get response
+                    // request refresh
+                    HttpResponse<JsonNode> response = Unirest.post("https://dev.akarahub.tech/server4/akara/token/refresh").body(jsonInput).contentType("application/json").asJson();
+
+                    JSONObject refreshJson = response.getBody().getObject();
+
+                    System.out.println(refreshJson.toString());
+                    refreshToken.setRefreshToken(refreshJson.get("refreshToken").toString());
+
+                    // write to file
+                    try {
+                        FileOutputStream fileOutputStream = new FileOutputStream(refreshFile);
+                        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
+                        // write chav
+                        objectOutputStream.writeObject(refreshToken);
+
+                        objectOutputStream.close();
+                        fileOutputStream.close();
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else {
+                    System.out.println("Refresh Existed");
+                    // check to make sure it's not duplicate
+                    FileInputStream fi = new FileInputStream(refreshFile);
+                    ObjectInputStream oi = new ObjectInputStream(fi);
+
+                    refreshToken = (RefreshToken) oi.readObject();
+                    oi.close();
+                    fi.close();
+                }
+            } catch (IOException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        } else { // create a file if it's not exist
+
+            try {
+                if (refreshFile.createNewFile()) {
+
+                    System.out.println("File created: " + refreshFile.getName());
+                } else {
+                    System.out.println("File already exists.");
+                }
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+
+            // post refresh and get response
+            // request refresh
+            HttpResponse<JsonNode> response = Unirest.post("https://dev.akarahub.tech/server4/akara/token/refresh").body(jsonInput).contentType("application/json").asJson();
+
+            JSONObject refreshJson = response.getBody().getObject();
+
+            refreshToken.setRefreshToken(refreshJson.get("refreshToken").toString());
+
+            // write to file
+            try {
+                FileOutputStream fileOutputStream = new FileOutputStream(refreshFile);
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
+                // write chav
+                objectOutputStream.writeObject(refreshToken);
+
+                objectOutputStream.close();
+                fileOutputStream.close();
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return refreshToken;
+    }
+
+    // getCredential
+    private Credential getCredential() {
+        File credentialFile = new File("src/podcastData/credential.txt");
+        Credential credential = new Credential();
+        if (credentialFile.isFile()) { // if file is existed
+            try {
+                if (new BufferedReader(new FileReader(credentialFile)).readLine() == null) {
+                    // post credential and get response
+                    // request credential
+                    HttpResponse<JsonNode> response = Unirest.post("https://dev.akarahub.tech/server4/akara/credential").asJson();
+
+                    JSONObject credentialJson = response.getBody().getObject();
+
+                    boolean error = (boolean) credentialJson.get("error");
+
+                    // get message
+                    String message = (String) credentialJson.get("message");
+
+                    // get data pocket ( client ID and Client Secret )
+                    JSONObject data = (JSONObject) credentialJson.get("data");
+
+                    credential.setClientId(data.get("clientId").toString());
+                    credential.setClientSecret(data.get("clientSecret").toString());
+
+                    // write to file
+                    try {
+                        FileOutputStream fileOutputStream = new FileOutputStream(credentialFile);
+                        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
+                        // write chav
+                        objectOutputStream.writeObject(credential);
+
+                        objectOutputStream.close();
+                        fileOutputStream.close();
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else {
+                    System.out.println("Credential Existed");
+                    // check to make sure it's not duplicate
+                    FileInputStream fi = new FileInputStream(credentialFile);
+                    ObjectInputStream oi = new ObjectInputStream(fi);
+
+                    credential = (Credential) oi.readObject();
+                    oi.close();
+                    fi.close();
+                }
+            } catch (IOException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        } else { // create a file if it's not exist
+
+            try {
+                if (credentialFile.createNewFile()) {
+                    System.out.println("File created: " + credentialFile.getName());
+                } else {
+                    System.out.println("File already exists.");
+                }
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+
+            // post credential and get response
+            // request credential
+            HttpResponse<JsonNode> response = Unirest.post("https://dev.akarahub.tech/server4/akara/credential").asJson();
+
+            JSONObject credentialJson = response.getBody().getObject();
+
+            // get error
+            boolean error = (boolean) credentialJson.get("error");
+
+            // get data pocket ( client ID and Client Secret )
+            JSONObject data = (JSONObject) credentialJson.get("data");
+
+            credential.setClientId(data.get("clientId").toString());
+            credential.setClientSecret(data.get("clientSecret").toString());
+            // write to file
+            try {
+                FileOutputStream fileOutputStream = new FileOutputStream(credentialFile);
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
+                // write chav
+                objectOutputStream.writeObject(credential);
+
+                objectOutputStream.close();
+                fileOutputStream.close();
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        return credential;
+    }
+
+    //#endregion
+
+    //#region PODCAST_ON_DISCOVER
+
+    private List<Podcast> getAllPodcast() {
+        HttpResponse<JsonNode> response =
+                Unirest.get("https://dev.akarahub.tech/discover/podcast/list/listallpodcast")
+                        .header("Authorization", "bearer " + getAccessToken(getRefreshToken(getCredential())).getAccessToken()).asJson();
+        JSONObject credentialJson = response.getBody().getObject();
+
+        List<Podcast> podcasts = new ArrayList<>();;
+
+        boolean error = (boolean) credentialJson.get("error");
+
+        if (error){
+            File accessFile = new File("src/podcastData/accessToken.txt");
+            if (accessFile.delete()) {
+                System.out.println("Deleted the file: " + accessFile.getName());
+                return getAllPodcast();
+            } else {
+                System.out.println("Failed to delete the file.");
+            }
+        }
+        else {
+            System.out.println(credentialJson.get("data"));
         }
 
 
 
-
+        return podcasts;
     }
 
     private List<RecentlyPlayed> getRecentlyPlayed() {
@@ -203,12 +500,11 @@ public class DiscoverController implements Initializable {
 
         List<RecentlyPlayed> recentlyPlayedList = new ArrayList<>();
 
-        if (recentFile.isFile()){
+        if (recentFile.isFile()) {
             try {
-                if (new BufferedReader(new FileReader(recentFile)).readLine() == null){
+                if (new BufferedReader(new FileReader(recentFile)).readLine() == null) {
                     System.out.println("No recently played found!");
-                }
-                else {
+                } else {
                     System.out.println("Found!");
                     // check to make sure it's not duplicate
                     FileInputStream fi = new FileInputStream(recentFile);
@@ -217,7 +513,7 @@ public class DiscoverController implements Initializable {
                     List<RecentlyPlayed> recentlyPlayed = (List<RecentlyPlayed>) oi.readObject();
                     recentlyPlayedList.addAll(recentlyPlayed);
 
-                    for (RecentlyPlayed recentlyPlayed1: recentlyPlayedList){
+                    for (RecentlyPlayed recentlyPlayed1 : recentlyPlayedList) {
                         System.out.println(recentlyPlayed1.toString());
                     }
                     oi.close();
@@ -227,8 +523,7 @@ public class DiscoverController implements Initializable {
             } catch (IOException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
-        }
-        else { // create a file if it's not exist
+        } else { // create a file if it's not exist
 
             try {
                 if (recentFile.createNewFile()) {
@@ -253,7 +548,9 @@ public class DiscoverController implements Initializable {
             if (podcast.getViewCount() > 5000) {
                 if (popularPodcast.size() < 10) {
                     popularPodcast.add(podcast);
-                }}}
+                }
+            }
+        }
         return popularPodcast;
     }
 
@@ -265,7 +562,9 @@ public class DiscoverController implements Initializable {
             if (podcast.getGenre().equals("Gaming")) {
                 if (topPodcastInGaming.size() < 10) {
                     topPodcastInGaming.add(podcast);
-                }}}
+                }
+            }
+        }
         return topPodcastInGaming;
     }
 
@@ -277,7 +576,9 @@ public class DiscoverController implements Initializable {
             if (podcast.getGenre().equals("Technology")) {
                 if (topPodcastInTechnology.size() < 10) {
                     topPodcastInTechnology.add(podcast);
-                }}}
+                }
+            }
+        }
         return topPodcastInTechnology;
     }
 
@@ -289,7 +590,9 @@ public class DiscoverController implements Initializable {
             if (podcast.getGenre().equals("History")) {
                 if (topPodcastInHistory.size() < 10) {
                     topPodcastInHistory.add(podcast);
-                }}}
+                }
+            }
+        }
         return topPodcastInHistory;
     }
 
@@ -301,7 +604,9 @@ public class DiscoverController implements Initializable {
             if (podcast.getGenre().equals("Comedy")) {
                 if (topPodcastInComedy.size() < 10) {
                     topPodcastInComedy.add(podcast);
-                }}}
+                }
+            }
+        }
         return topPodcastInComedy;
     }
 
@@ -313,7 +618,9 @@ public class DiscoverController implements Initializable {
             if (podcast.getGenre().equals("Programming")) {
                 if (topPodcastInProgrammingLanguage.size() < 10) {
                     topPodcastInProgrammingLanguage.add(podcast);
-                }}}
+                }
+            }
+        }
         return topPodcastInProgrammingLanguage;
     }
 
@@ -337,8 +644,7 @@ public class DiscoverController implements Initializable {
 
             DiscoverSeeAllController.setPopularPodcastToView();
 
-        }
-        else if (event.getSource() == seeAllTopPodcastInGaming) {
+        } else if (event.getSource() == seeAllTopPodcastInGaming) {
 
             System.out.println("See all Top podcast in gaming");
             String title = "Top Podcast in Gaming";
@@ -349,8 +655,7 @@ public class DiscoverController implements Initializable {
             setTitleAndDescriptionToDiscoverSeeAllStaticView(title, description);
 
             DiscoverSeeAllController.setTopPodcastInGamingToView();
-        }
-        else if (event.getSource() == seeAllTopPodcastInTechnology) {
+        } else if (event.getSource() == seeAllTopPodcastInTechnology) {
 
             System.out.println("See all Top podcast in Technology");
             String title = "Top Podcast in Technology";
@@ -361,8 +666,7 @@ public class DiscoverController implements Initializable {
             setTitleAndDescriptionToDiscoverSeeAllStaticView(title, description);
 
             DiscoverSeeAllController.setTopPodcastInTechnologyToView();
-        }
-        else if (event.getSource() == seeAllTopPodcastInHistory) {
+        } else if (event.getSource() == seeAllTopPodcastInHistory) {
 
             System.out.println("See all Top podcast in History");
             String title = "Top Podcast in History";
@@ -373,8 +677,7 @@ public class DiscoverController implements Initializable {
             setTitleAndDescriptionToDiscoverSeeAllStaticView(title, description);
 
             DiscoverSeeAllController.setTopPodcastInHistoryToView();
-        }
-        else if (event.getSource() == seeAllTopPodcastInComedy) {
+        } else if (event.getSource() == seeAllTopPodcastInComedy) {
 
             System.out.println("See all Top podcast in Comedy");
             String title = "Top Podcast in Comedy";
@@ -385,8 +688,7 @@ public class DiscoverController implements Initializable {
             setTitleAndDescriptionToDiscoverSeeAllStaticView(title, description);
 
             DiscoverSeeAllController.setTopPodcastInComedyToView();
-        }
-        else if (event.getSource() == seeAllTopPodcastInProgrammingLanguage) {
+        } else if (event.getSource() == seeAllTopPodcastInProgrammingLanguage) {
 
             System.out.println("See all Top podcast in Programming Language");
             String title = "Top Podcast in Programming Language";
@@ -399,6 +701,8 @@ public class DiscoverController implements Initializable {
             DiscoverSeeAllController.setTopPodcastInProgrammingLanguageToView();
         }
     }
+
+    //#endregion
 
     private void setTitleAndDescriptionToDiscoverSeeAllStaticView(String title, String description) {
 
