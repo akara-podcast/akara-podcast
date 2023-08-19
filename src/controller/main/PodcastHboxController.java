@@ -78,7 +78,7 @@ public class PodcastHboxController {
     //------------------------------------------------------------------------------------
 
     public void setData(RecentlyPlayed podcast) {
-        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
+        Image image = new Image(podcast.getCover());
 
         img.setImage(image);
         title.setText(podcast.getTitle());
@@ -90,8 +90,9 @@ public class PodcastHboxController {
 
         // media source
         source = podcast.getPodcastUrl();
-        file = new File(source);
-        media = new Media(file.toURI().toString());
+//        file = new File(source);
+//        media = new Media(file.toURI().toString());
+        media = new Media(source);
     }
 
     @FXML

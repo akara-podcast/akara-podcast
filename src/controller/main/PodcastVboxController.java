@@ -84,19 +84,20 @@ public class PodcastVboxController implements Initializable {
     //------------------------------------------------------------------------------------
 
     public void setData(Podcast podcast) {
-        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
+        Image image = new Image(podcast.getImageUrl());
         imgVbox.setImage(image);
         titleVbox.setText(podcast.getTitle());
-        podcasterVbox.setText(podcast.getPodcaster());
+        podcasterVbox.setText(podcast.getOwner());
         durationVbox.setText(podcast.getDuration());
-        genreVbox.setText(podcast.getGenre());
+        genreVbox.setText(podcast.getPodcastCategoryName());
 
-        recently = new RecentlyPlayed(podcast.getId(), podcast.getCover(), podcast.getTitle(),
-                podcast.getDescription(), podcast.getDescription(), podcast.getDuration(), podcast.getPodcastUrl(),
-                podcast.getGenre());
+        recently = new RecentlyPlayed(podcast.get_id(), podcast.getImageUrl(), podcast.getTitle(),
+                podcast.getPodcastDescription(), podcast.getPodcastDescription(), podcast.getDuration(), podcast.getPodcastUrl(),
+                podcast.getPodcastCategoryName());
 
-        file = new File(podcast.getPodcastUrl());
-        media = new Media(file.toURI().toString());
+//        file = new File(podcast.getPodcastUrl());
+//        media = new Media(file.toURI().toString());
+        media = new Media(podcast.getPodcastUrl());
 
     }
 

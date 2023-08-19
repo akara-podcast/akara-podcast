@@ -289,12 +289,12 @@ public class MediaPlayerController implements Initializable {
         mediaStatic = media;
         mediaPlayerStatic = mediaPlayer;
 
-        DataInitializer dataInitializer = new DataInitializer();
+//        DataInitializer dataInitializer = new DataInitializer();
 
-        titleMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getTitle());
-        podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getPodcaster());
+        titleMediaPlayer.setText(MainFormController.podcastList.get(songNumber).getTitle());
+        podcasterMediaPlayer.setText(MainFormController.podcastList.get(songNumber).getOwner());
 
-        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(dataInitializer.randomImage())));
+        Image image = new Image(MainFormController.podcastList.get(songNumber).getImageUrl());
         imgMediaPlayer.setImage(image);
         //endregion
     }
@@ -349,7 +349,7 @@ public class MediaPlayerController implements Initializable {
             DataInitializer dataInitializer = new DataInitializer();
 
             titleMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getTitle());
-            podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getPodcaster());
+            podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getOwner());
 
             Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(dataInitializer.randomImage())));
             imgMediaPlayer.setImage(image);
@@ -372,7 +372,7 @@ public class MediaPlayerController implements Initializable {
             DataInitializer dataInitializer = new DataInitializer();
 
             titleMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getTitle());
-            podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getPodcaster());
+            podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getOwner());
 
             Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(dataInitializer.randomImage())));
             imgMediaPlayer.setImage(image);
@@ -401,7 +401,7 @@ public class MediaPlayerController implements Initializable {
             DataInitializer dataInitializer = new DataInitializer();
 
             titleMediaPlayer.setText(songs.get(songNumber).getName());
-            podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getPodcaster());
+            podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getOwner());
 
             Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(dataInitializer.randomImage())));
             imgMediaPlayerStatic.setImage(image);

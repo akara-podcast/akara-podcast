@@ -8,7 +8,7 @@ public class RecentlyPlayed implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private int id;
+    private String id;
     private String cover;
     private String title;
     private String description;
@@ -21,7 +21,7 @@ public class RecentlyPlayed implements Serializable {
     public RecentlyPlayed(){}
 
     // non-default constructor
-    public RecentlyPlayed(int id, String cover, String title, String description, String podcaster, String duration, String podcastUrl, String genre) {
+    public RecentlyPlayed(String id, String cover, String title, String description, String podcaster, String duration, String podcastUrl, String genre) {
         this.id = id;
         this.cover = cover;
         this.title = title;
@@ -39,11 +39,11 @@ public class RecentlyPlayed implements Serializable {
 
 
     //#region GETTER AND SETTER
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
