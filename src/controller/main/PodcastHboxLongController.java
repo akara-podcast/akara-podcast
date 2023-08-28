@@ -16,8 +16,6 @@
 package controller.main;
 
 import controller.channel.ChannelController;
-import controller.discover.DiscoverSeeAllController;
-import controller.trending.TrendingSeeAllController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -31,6 +29,7 @@ import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.paint.Color;
 import model.Podcast;
+import model.RecentlyPlayed;
 
 import java.io.File;
 import java.net.URL;
@@ -81,6 +80,8 @@ public class PodcastHboxLongController implements Initializable {
     public static Label durationHboxLongStatic;
     public static ImageView imgHboxLongStatic;
 
+    private RecentlyPlayed recently;
+
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
@@ -95,14 +96,17 @@ public class PodcastHboxLongController implements Initializable {
     }
 
     public void setData(Podcast podcast) {
-        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
+        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getImageUrl())));
 
         this.podcast = podcast;
+        recently = new RecentlyPlayed(podcast.get_id(), podcast.getImageUrl(), podcast.getTitle(),
+                podcast.getPodcastDescription(), podcast.getPodcastDescription(), podcast.getDuration(), podcast.getPodcastUrl(),
+                podcast.getPodcastCategoryName());
 
         imgHboxLong.setImage(image);
         titleHboxLong.setText(podcast.getTitle());
-        podcasterHboxLong.setText(podcast.getPodcaster());
-        genreHboxLong.setText(podcast.getGenre());
+        podcasterHboxLong.setText(podcast.getOwner());
+        genreHboxLong.setText(podcast.getPodcastCategoryName());
         durationHboxLong.setText(podcast.getDuration() + " min");
 
         file = new File(podcast.getPodcastUrl());
@@ -113,11 +117,11 @@ public class PodcastHboxLongController implements Initializable {
     @FXML
     public void setDataToMediaPlayer(MouseEvent mouseEvent) {
 
-        if (!isPlaying){
+        if (!isPlaying) {
             String title = this.podcast.getTitle();
-            String podcaster = this.podcast.getPodcaster();
+            String podcaster = this.podcast.getOwner();
             String duration = this.podcast.getDuration();
-            String genre = this.podcast.getGenre();
+            String genre = this.podcast.getPodcastCategoryName();
             String source = media.getSource();
             Image image = imgHboxLong.getImage();
 
@@ -134,10 +138,10 @@ public class PodcastHboxLongController implements Initializable {
             MediaPlayerController.setDurationMediaPlayerStatic(duration);
             MediaPlayerController.setGenreMediaPlayerStatic(genre);
             MediaPlayerController.setMediaStatic(media, file);
+            MediaPlayerController.writeToFile(recently);
             playImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
             isPlaying = true;
-        }
-        else {
+        } else {
             playImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/play.png")).toString()));
             MediaPlayerController.pauseMedia();
             isPlaying = false;
@@ -146,7 +150,7 @@ public class PodcastHboxLongController implements Initializable {
 
     // On mouse entered the podcast VBox
     @FXML
-    public void showPlayButton(MouseEvent mouseEvent){
+    public void showPlayButton(MouseEvent mouseEvent) {
         playButtonVBox.setVisible(true);
         playButtonVBox.setDisable(false);
         hBoxPodcast.setBackground(new Background(new BackgroundFill(Color.web("#EDEDED"), new CornerRadii(4), Insets.EMPTY)));
@@ -154,7 +158,7 @@ public class PodcastHboxLongController implements Initializable {
 
     // On mouse exited the podcast VBox
     @FXML
-    public void hidePlayButton(MouseEvent mouseEvent){
+    public void hidePlayButton(MouseEvent mouseEvent) {
         playButtonVBox.setDisable(true);
         playButtonVBox.setVisible(false);
         hBoxPodcast.setBackground(new Background(new BackgroundFill(Color.web("#F8F8F8FF"), new CornerRadii(4), Insets.EMPTY)));
@@ -186,11 +190,12 @@ public class PodcastHboxLongController implements Initializable {
     }
 
     @FXML
-    void showUnderline(MouseEvent mouseEvent){
+    void showUnderline(MouseEvent mouseEvent) {
         podcasterHboxLong.setUnderline(true);
     }
+
     @FXML
-    void hideUnderline(MouseEvent mouseEvent){
+    void hideUnderline(MouseEvent mouseEvent) {
         podcasterHboxLong.setUnderline(false);
     }
 }

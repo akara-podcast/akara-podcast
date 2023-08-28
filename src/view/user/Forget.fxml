@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="forgotPane" prefHeight="684.0" prefWidth="991.0" styleClass="primary-color" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.ForgotController">
+   <top>
+      <VBox minHeight="-Infinity" minWidth="-Infinity" styleClass="primary-color" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="24.0" right="24.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0">
+               <children>
+                  <Label prefHeight="7.0" prefWidth="133.0" styleClass="primary-color" text="Forgot Password">
+                     <font>
+                        <Font name="CircularStd-Medium" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" top="6.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="83.0">
+                     <children>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../image/Chevron_Left.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../image/Chevron_Right.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="845.0" style="-fx-border-color: #5d5fef; -fx-border-width: 1; -fx-border-radius: 25;">
+               <children>
+                  <AnchorPane maxWidth="-Infinity" prefHeight="531.0" prefWidth="334.0" style="-fx-background-color: transparent;">
+                     <children>
+                        <ImageView fitHeight="67.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/logo_text.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="39.0" fitWidth="22.0" layoutX="25.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/gg_music-note.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="67.0" fitWidth="57.0" layoutX="102.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/fluent_headphones-sound-wave-28-regular.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="39.0" fitWidth="22.0" layoutX="207.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/la_podcast.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="75.0" fitWidth="22.0" layoutX="25.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/simple-icons_googlepodcasts.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="27.0" fitWidth="22.0" layoutX="207.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/gg_music.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Separator maxWidth="1.0" minWidth="1.0" orientation="VERTICAL" prefWidth="1.0" style="-fx-background-color: #5d5fef;" />
+                  <VBox prefHeight="531.0" prefWidth="580.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="37.0" prefWidth="582.0" text="Forgot Password" textFill="#5d5fef">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets right="30.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="13.0" prefWidth="145.0" styleClass="primary-color" text="Email">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets right="70.0" />
+                           </padding>
+                        </Label>
+                        <AnchorPane prefHeight="39.2">
+                           <VBox.margin>
+                              <Insets left="22.0" right="55.0" />
+                           </VBox.margin>
+                           <children>
+                              <TextField fx:id="tf_Email" prefHeight="39.0" prefWidth="500.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="39.2">
+                           <VBox.margin>
+                              <Insets left="22.0" right="55.0" />
+                           </VBox.margin>
+                        </AnchorPane>
+                        <HBox>
+                           <VBox.margin>
+                              <Insets left="22.0" top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="450.0" style="-fx-border-color: #5d5fef; -fx-border-radius: 9px; -fx-border-width: 2px; -fx-background-color: transparent;" text="Request Reset Link" textFill="#5d5fef">
+                           <VBox.margin>
+                              <Insets left="45.0" top="15.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Separator maxWidth="300.0" prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="120.0" top="32.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <Label opacity="0.55" text="I remember my password">
+                           <VBox.margin>
+                              <Insets left="200.0" top="25.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button fx:id="buttonSignUp" mnemonicParsing="false" onMouseClicked="#loginSwitchClicked" style="-fx-background-color: transparent;" text="Back to Login" textAlignment="CENTER" textFill="#5d5fef" underline="true">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="215.0" top="3.0" />
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="24.0" right="24.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

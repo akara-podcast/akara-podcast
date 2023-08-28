@@ -57,43 +57,43 @@ public class SearchResultController implements Initializable {
         podcastContainerStatic = podcastContainer;
     }
 
-    public static void stringSearch(String text) throws IOException{
-        simPodcasts = new ArrayList<>();
-        for (Podcast podcast : MainFormController.podcastList) {
-            SimilarityPodcast simPodcast = new SimilarityPodcast();
-            simPodcast.setId(podcast.getId());
-            simPodcast.setTitle(podcast.getTitle());
-            simPodcast.setSimilarity(service.score(text, podcast.getTitle()));
-
-            // add similar podcast to list
-            simPodcasts.add(simPodcast);
-        }
-
-        simPodcasts.sort(new Comparator<SimilarityPodcast>() {
-            @Override
-            public int compare(SimilarityPodcast c1, SimilarityPodcast c2) {
-                return Double.compare(c1.getSimilarity(), c2.getSimilarity());
-            }
-        });
-
-        String imageURL = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getCover();
-        String title  = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getTitle();
-        String artist  = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getPodcaster();
-
-        Image image = new Image(Objects.requireNonNull(SearchController.class.getResourceAsStream(imageURL)));
-        // put data to view
-        staticImg.setImage(image);
-        staticTitle.setText(title);
-        staticArtist.setText(artist);
-
-        // add top 5 similarity podcasts to view
-        top5Similarity();
-
-        System.out.println("sorted!!!!!!!");
-        for (SimilarityPodcast sim : simPodcasts){
-            System.out.println("ID: "+ sim.getId() + "|" + sim.getTitle() + "|" + sim.getSimilarity());
-        }
-    }
+//    public static void stringSearch(String text) throws IOException{
+//        simPodcasts = new ArrayList<>();
+//        for (Podcast podcast : MainFormController.podcastList) {
+//            SimilarityPodcast simPodcast = new SimilarityPodcast();
+//            simPodcast.setId(podcast.get_id());
+//            simPodcast.setTitle(podcast.getTitle());
+//            simPodcast.setSimilarity(service.score(text, podcast.getTitle()));
+//
+//            // add similar podcast to list
+//            simPodcasts.add(simPodcast);
+//        }
+//
+//        simPodcasts.sort(new Comparator<SimilarityPodcast>() {
+//            @Override
+//            public int compare(SimilarityPodcast c1, SimilarityPodcast c2) {
+//                return Double.compare(c1.getSimilarity(), c2.getSimilarity());
+//            }
+//        });
+//
+//        String imageURL = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getImageUrl();
+//        String title  = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getTitle();
+//        String artist  = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getOwner();
+//
+//        Image image = new Image(Objects.requireNonNull(SearchController.class.getResourceAsStream(imageURL)));
+//        // put data to view
+//        staticImg.setImage(image);
+//        staticTitle.setText(title);
+//        staticArtist.setText(artist);
+//
+//        // add top 5 similarity podcasts to view
+//        top5Similarity();
+//
+//        System.out.println("sorted!!!!!!!");
+//        for (SimilarityPodcast sim : simPodcasts){
+//            System.out.println("ID: "+ sim.getId() + "|" + sim.getTitle() + "|" + sim.getSimilarity());
+//        }
+//    }
 
     public static void stringSplitSearch(String text) throws IOException{
 
@@ -104,7 +104,7 @@ public class SearchResultController implements Initializable {
             simPodcasts = new ArrayList<>();
             for (Podcast podcast : MainFormController.podcastList) {
                 SimilarityPodcast simPodcast = new SimilarityPodcast();
-                simPodcast.setId(podcast.getId());
+                simPodcast.setId(podcast.get_id());
                 simPodcast.setTitle(podcast.getTitle());
 
                 simPodcast.setWordIndex(topWordSimilarity(text, podcast.getTitle()).getStringIndex());
@@ -120,7 +120,7 @@ public class SearchResultController implements Initializable {
             simPodcasts = new ArrayList<>();
             for (Podcast podcast : MainFormController.podcastList) {
                 SimilarityPodcast simPodcast = new SimilarityPodcast();
-                simPodcast.setId(podcast.getId());
+                simPodcast.setId(podcast.get_id());
                 simPodcast.setTitle(podcast.getTitle());
                 simPodcast.setSimilarity(service.score(text, podcast.getTitle()));
 
@@ -137,18 +137,18 @@ public class SearchResultController implements Initializable {
             }
         });
 
-        String imageURL = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getCover();
-        String title  = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getTitle();
-        String artist  = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getPodcaster();
-
-        Image image = new Image(Objects.requireNonNull(SearchController.class.getResourceAsStream(imageURL)));
-        // put data to view
-        staticImg.setImage(image);
-        staticTitle.setText(title);
-        staticArtist.setText(artist);
+//        String imageURL = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getImageUrl();
+//        String title  = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getTitle();
+//        String artist  = MainFormController.podcastList.get(simPodcasts.get(simPodcasts.size() - 1).getId()).getOwner();
+//
+//        Image image = new Image(Objects.requireNonNull(SearchController.class.getResourceAsStream(imageURL)));
+//        // put data to view
+//        staticImg.setImage(image);
+//        staticTitle.setText(title);
+//        staticArtist.setText(artist);
 
         // add top 5 similarity podcasts to view
-        top5Similarity();
+//        top5Similarity();
 
 //        System.out.println("sorted!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 //        for (SimilarityPodcast sim : simPodcasts){
@@ -191,10 +191,10 @@ public class SearchResultController implements Initializable {
 
     public static void top5Similarity() throws IOException{
         int n = simPodcasts.size() - 2;
-        for (int i = n; i > n - 5; i--){
-            HBox hBox = getHBox(MainFormController.podcastList.get(simPodcasts.get(i).getId()));
-            podcastContainerStatic.getChildren().add(hBox);
-        }
+//        for (int i = n; i > n - 5; i--){
+//            HBox hBox = getHBox(MainFormController.podcastList.get(simPodcasts.get(i).getId()));
+//            podcastContainerStatic.getChildren().add(hBox);
+//        }
     }
 
     private static HBox getHBox(Podcast podcast) throws IOException {

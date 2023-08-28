@@ -74,7 +74,7 @@ public class PlaylistController implements Initializable {
 
 
                             FXMLLoader fxmlLoader1 = new FXMLLoader();
-                            fxmlLoader1.setLocation(getClass().getResource("/view/PlaylistHBox.fxml"));
+                            fxmlLoader1.setLocation(getClass().getResource("/view/playlist/PlaylistHBox.fxml"));
                             CheckBox playlistH = fxmlLoader1.load();
 
                             PlaylistHboxController playlistHBoxController = fxmlLoader1.getController();

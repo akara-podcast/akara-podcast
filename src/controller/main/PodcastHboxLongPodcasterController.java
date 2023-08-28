@@ -30,6 +30,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
 import javafx.scene.paint.Color;
 import model.Podcast;
+import model.RecentlyPlayed;
 
 import java.io.File;
 import java.net.URL;
@@ -73,19 +74,24 @@ public class PodcastHboxLongPodcasterController implements Initializable {
 
     private File file;
 
+    private RecentlyPlayed recently;
+
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
 
     public void setData(Podcast podcast) {
-        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
+        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getImageUrl())));
 
         this.podcast = podcast;
+        recently = new RecentlyPlayed(podcast.get_id(), podcast.getImageUrl(), podcast.getTitle(),
+                podcast.getPodcastDescription(), podcast.getPodcastDescription(), podcast.getDuration(), podcast.getPodcastUrl(),
+                podcast.getPodcastCategoryName());
 
         imgHboxLongPodcaster.setImage(image);
         titleHboxLongPodcaster.setText(podcast.getTitle());
         datePostHboxLongPodcaster.setText(podcast.getCreatedAt());
-        genreHboxLongPodcaster.setText(podcast.getGenre());
+        genreHboxLongPodcaster.setText(podcast.getPodcastCategoryName());
         durationHboxLongPodcaster.setText(podcast.getDuration() + " min");
 
         file = new File(podcast.getPodcastUrl());
@@ -102,9 +108,9 @@ public class PodcastHboxLongPodcasterController implements Initializable {
 
         if (!isPlaying){
             String title = this.podcast.getTitle();
-            String podcaster = this.podcast.getPodcaster();
+            String podcaster = this.podcast.getOwner();
             String duration = this.podcast.getDuration();
-            String genre = this.podcast.getGenre();
+            String genre = this.podcast.getPodcastCategoryName();
             String source = media.getSource();
             Image image = imgHboxLongPodcaster.getImage();
 
@@ -121,6 +127,7 @@ public class PodcastHboxLongPodcasterController implements Initializable {
             MediaPlayerController.setDurationMediaPlayerStatic(duration);
             MediaPlayerController.setGenreMediaPlayerStatic(genre);
             MediaPlayerController.setMediaStatic(media, file);
+            MediaPlayerController.writeToFile(recently);
             playImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
             isPlaying = true;
         }

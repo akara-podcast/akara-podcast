@@ -170,13 +170,16 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="button_forget_password" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Forget Password?" textFill="#5d5fef" underline="true">
+                        <Button fx:id="button_forget_password" mnemonicParsing="false" onMouseClicked="#forgotClicked" onMouseEntered="#underLine" onMouseExited="#removeUnderLine" style="-fx-background-color: transparent;" text="Forget Password?" textFill="#5d5fef">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                            <VBox.margin>
                               <Insets left="210.0" top="10.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Label opacity="0.55" text="Terms &amp; Conditions">
                            <VBox.margin>

@@ -5,6 +5,9 @@ module src.akara {
     requires javafx.media;
     requires javafaker;
     requires string.similarity;
+    requires unirest.objectmapper.jackson;
+    requires unirest.object.mappers.gson;
+    requires unirest.java;
 
     opens controller to javafx.fxml;
     exports controller;
@@ -24,4 +27,6 @@ module src.akara {
     opens controller.user to javafx.fxml;
     exports controller.additional;
     opens controller.additional to javafx.fxml;
+    exports model;
+    opens model;
 }

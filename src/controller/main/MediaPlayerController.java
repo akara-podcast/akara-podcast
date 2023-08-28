@@ -32,12 +32,13 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import model.Playlist;
+import model.RecentlyPlayed;
 import podcastData.DataInitializer;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.*;
+
 
 public class MediaPlayerController implements Initializable {
 
@@ -144,7 +145,7 @@ public class MediaPlayerController implements Initializable {
 
     public static void setMediaStatic(Media media, File file) {
         // pause current media play
-        if (isPlaying){
+        if (isPlaying) {
             staticPlayImg.setImage(new Image(Objects.requireNonNull(MediaPlayerController.class.getResource("/image/play.png")).toString()));
             mediaPlayerStatic.pause();
             timer.cancel();
@@ -170,11 +171,11 @@ public class MediaPlayerController implements Initializable {
         }
     }
 
-    public static void pauseMedia(){
+    public static void pauseMedia() {
         // pause current media play
-        if (isPlaying){
+        if (isPlaying) {
             staticPlayImg.setImage(new Image(Objects.requireNonNull(MediaPlayerController.class.getResource("/image/play.png")).toString()));
-            mediaPlayerStatic.pause();
+            mediaPlayerStatic.stop();
             timer.cancel();
             isPlaying = false;
         }
@@ -205,7 +206,7 @@ public class MediaPlayerController implements Initializable {
                     dialog.setTitle("Add to...");
                     dialog.initStyle(StageStyle.TRANSPARENT);
 
-                    for (CheckBox playlist : Playlist.getPlaylistHBoxArr()){
+                    for (CheckBox playlist : Playlist.getPlaylistHBoxArr()) {
                         playlist.setSelected(false);
                         // add playlist to container
                         AddPlaylistDialogController.staticPlaylistContainer.getChildren().add(playlist);
@@ -215,9 +216,9 @@ public class MediaPlayerController implements Initializable {
 
                     // apply button in dialog clicked
                     if (clickedButton.get() == ButtonType.APPLY) {
-                        for (CheckBox playlist : Playlist.getPlaylistHBoxArr()){
+                        for (CheckBox playlist : Playlist.getPlaylistHBoxArr()) {
                             // add playlist to container
-                            if (playlist.isSelected()){
+                            if (playlist.isSelected()) {
                                 int id = Integer.parseInt(playlist.getId());
                                 List<HBox> playlistArr = Playlist.getPlayListPodcastArr().get(id);
 
@@ -277,7 +278,7 @@ public class MediaPlayerController implements Initializable {
 
         files = directory.listFiles();
 
-        if(files != null) {
+        if (files != null) {
             System.out.println("It's not null!");
             songs.addAll(Arrays.asList(files));
         }
@@ -285,15 +286,15 @@ public class MediaPlayerController implements Initializable {
         media = new Media(songs.get(songNumber).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
 
-        mediaStatic  = media;
+        mediaStatic = media;
         mediaPlayerStatic = mediaPlayer;
 
-        DataInitializer dataInitializer = new DataInitializer();
+//        DataInitializer dataInitializer = new DataInitializer();
 
-        titleMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getTitle());
-        podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getPodcaster());
+        titleMediaPlayer.setText(MainFormController.podcastList.get(songNumber).getTitle());
+        podcasterMediaPlayer.setText(MainFormController.podcastList.get(songNumber).getOwner());
 
-        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(dataInitializer.randomImage())));
+        Image image = new Image(MainFormController.podcastList.get(songNumber).getImageUrl());
         imgMediaPlayer.setImage(image);
         //endregion
     }
@@ -318,7 +319,6 @@ public class MediaPlayerController implements Initializable {
         if (!isPlaying) {
             staticPlayImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
             System.out.println(mediaStatic.getSource());
-            mediaPlayerStatic = new MediaPlayer(mediaStatic);
             beginTimer();
             mediaPlayerStatic.play();
             isPlaying = true;
@@ -334,12 +334,12 @@ public class MediaPlayerController implements Initializable {
     void prevoiusMedia(ActionEvent event) {
 
 
-        if(songNumber > 0) {
+        if (songNumber > 0) {
             mediaPlayerStatic.stop();
 
             songNumber--;
 
-            if(running) {
+            if (running) {
                 cancelTimer();
             }
 
@@ -349,20 +349,19 @@ public class MediaPlayerController implements Initializable {
             DataInitializer dataInitializer = new DataInitializer();
 
             titleMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getTitle());
-            podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getPodcaster());
+            podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getOwner());
 
             Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(dataInitializer.randomImage())));
             imgMediaPlayer.setImage(image);
 
             playMediaTest();
-        }
-        else {
+        } else {
 
             songNumber = songs.size() - 1;
 
             mediaPlayerStatic.stop();
 
-            if(running) {
+            if (running) {
 
                 cancelTimer();
             }
@@ -373,7 +372,7 @@ public class MediaPlayerController implements Initializable {
             DataInitializer dataInitializer = new DataInitializer();
 
             titleMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getTitle());
-            podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getPodcaster());
+            podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getOwner());
 
             Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(dataInitializer.randomImage())));
             imgMediaPlayer.setImage(image);
@@ -385,13 +384,13 @@ public class MediaPlayerController implements Initializable {
     @FXML
     void nextMedia(ActionEvent event) {
 
-        if(songNumber < songs.size() - 1) {
+        if (songNumber < songs.size() - 1) {
 
             songNumber++;
 
             mediaPlayerStatic.stop();
 
-            if(running) {
+            if (running) {
 
                 cancelTimer();
             }
@@ -402,15 +401,14 @@ public class MediaPlayerController implements Initializable {
             DataInitializer dataInitializer = new DataInitializer();
 
             titleMediaPlayer.setText(songs.get(songNumber).getName());
-            podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getPodcaster());
+            podcasterMediaPlayer.setText(dataInitializer.podcastList().get(songNumber).getOwner());
 
             Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(dataInitializer.randomImage())));
             imgMediaPlayerStatic.setImage(image);
 
             playMediaTest();
 
-        }
-        else {
+        } else {
 
             songNumber = 0;
 
@@ -437,6 +435,58 @@ public class MediaPlayerController implements Initializable {
 
     //endregion
 
+    //#region WRITE_TO_FILE
+    public static void writeToFile(RecentlyPlayed podcast){
+        File recentFile = new File("src/podcastData/recentPlayed.txt");
+        List<RecentlyPlayed> recentlyPlayedList = new ArrayList<RecentlyPlayed>();
+
+        try {
+            if (new BufferedReader(new FileReader(recentFile)).readLine() == null){
+                System.out.println("No recently played found!");
+            }
+            else {
+                FileInputStream fi = new FileInputStream(recentFile);
+                ObjectInputStream oi = new ObjectInputStream(fi);
+                List<RecentlyPlayed> recentlyPlayed = (List<RecentlyPlayed>) oi.readObject();
+                recentlyPlayedList.addAll(recentlyPlayed);
+                oi.close();
+                fi.close();
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        if (recentFile.isFile()) {
+            try {
+                FileOutputStream fileOutputStream = new FileOutputStream(recentFile);
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
+                recentlyPlayedList.add(podcast);
+                // write chav
+                objectOutputStream.writeObject(recentlyPlayedList);
+
+                objectOutputStream.close();
+                fileOutputStream.close();
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else { // create a file if it's not exist
+
+            try {
+                if (recentFile.createNewFile()) {
+                    System.out.println("File created: " + recentFile.getName());
+                } else {
+                    System.out.println("File already exists.");
+                }
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
+    }
+    //#endregion
+
     //region MEDIA_PLAYER_TIMER
     public static void beginTimer() {
 
@@ -449,9 +499,9 @@ public class MediaPlayerController implements Initializable {
                 running = true;
                 double current = mediaPlayerStatic.getCurrentTime().toSeconds();
                 double end = mediaStatic.getDuration().toSeconds();
-                podcastProgressBarStatic.setProgress(current/end);
+                podcastProgressBarStatic.setProgress(current / end);
 
-                if(current/end == 1) {
+                if (current / end == 1) {
 
                     cancelTimer();
                 }
@@ -488,9 +538,9 @@ public class MediaPlayerController implements Initializable {
                 running = true;
                 double current = mediaPlayerStatic.getCurrentTime().toSeconds();
                 double end = mediaStatic.getDuration().toSeconds();
-                podcastProgressBar.setProgress(current/end);
+                podcastProgressBar.setProgress(current / end);
 
-                if(current/end == 1) {
+                if (current / end == 1) {
 
                     cancelTimer();
                 }

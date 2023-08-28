@@ -36,27 +36,27 @@ public class DataInitializer {
     public List<Podcast> podcastList() {
 
         List<Podcast> podcastList = new ArrayList<>();
-        for (int i = 0; i < 1000; i++) {
-            Podcast podcast = new Podcast();
-            podcast.setId(i);
-
-
-            podcast.setTitle(titleList.get(i));
-
-
-            podcast.setDescription(faker.lorem().paragraph());
-            podcast.setCover(randomImage());
-            podcast.setGenre(randomGenre());
-            podcast.setPodcaster(faker.artist().name());
-            podcast.setDuration(String.valueOf(faker.random().nextInt(30, 60)));
-            podcast.setPodcastUrl(randomSoundPodcast());
-            podcast.setCreatedAt(faker.business().creditCardExpiry());
-            podcast.setUpdatedAt(faker.business().creditCardExpiry());
-            podcast.setWasPlayed(faker.random().nextBoolean());
-            podcast.setViewCount(Integer.parseInt(faker.phoneNumber().subscriberNumber()));
-            podcast.setCreatedAt(faker.backToTheFuture().date());
-            podcastList.add(podcast);
-        }
+//        for (String i = 0; i < 1000; i++) {
+//            Podcast podcast = new Podcast();
+//            podcast.set_id(i);
+//
+//
+//            podcast.setTitle(titleList.get(i));
+//
+//
+//            podcast.setPodcastDescription(faker.lorem().paragraph());
+//            podcast.setImageUrl(randomImage());
+//            podcast.setPodcastCategoryName(randomGenre());
+//            podcast.setOwner(faker.artist().name());
+//            podcast.setDuration(String.valueOf(faker.random().nextInt(30, 60)));
+//            podcast.setPodcastUrl(randomSoundPodcast());
+//            podcast.setCreatedAt(faker.business().creditCardExpiry());
+//            podcast.setUpdatedAt(faker.business().creditCardExpiry());
+//            podcast.setWasPlayed(faker.random().nextBoolean());
+//            podcast.setViewed(Integer.parseInt(faker.phoneNumber().subscriberNumber()));
+//            podcast.setCreatedAt(faker.backToTheFuture().date());
+//            podcastList.add(podcast);
+//        }
 
         return podcastList;
     }

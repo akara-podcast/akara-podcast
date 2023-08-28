@@ -29,6 +29,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
 import javafx.scene.paint.Color;
 import model.Podcast;
+import model.RecentlyPlayed;
 
 import java.io.File;
 import java.util.Objects;
@@ -70,12 +71,14 @@ public class PodcastHboxController {
     private String source;
     private boolean isPlaying = false;
 
+    private RecentlyPlayed podcast;
+
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
 
-    public void setData(Podcast podcast) {
-        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
+    public void setData(RecentlyPlayed podcast) {
+        Image image = new Image(podcast.getCover());
 
         img.setImage(image);
         title.setText(podcast.getTitle());
@@ -83,12 +86,13 @@ public class PodcastHboxController {
         podcaster = podcast.getPodcaster();
         duration = podcast.getDuration();
         genre = podcast.getGenre();
+        this.podcast = podcast;
 
         // media source
         source = podcast.getPodcastUrl();
-        file = new File(source);
-        media = new Media(file.toURI().toString());
-
+//        file = new File(source);
+//        media = new Media(file.toURI().toString());
+        media = new Media(source);
     }
 
     @FXML
@@ -115,6 +119,7 @@ public class PodcastHboxController {
             MediaPlayerController.setDurationMediaPlayerStatic(duration);
             MediaPlayerController.setGenreMediaPlayerStatic(genre);
             MediaPlayerController.setMediaStatic(media, file);
+            MediaPlayerController.writeToFile(podcast);
             playImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
             isPlaying = true;
         }

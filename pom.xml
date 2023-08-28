@@ -61,6 +61,28 @@
             <artifactId>string-similarity</artifactId>
             <version>1.0.0</version>
         </dependency>
+
+
+        <!-- Pull in as a traditional dependency -->
+        <dependency>
+            <groupId>com.konghq</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>3.11.09</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.konghq/unirest-objectmapper-jackson -->
+        <dependency>
+            <groupId>com.konghq</groupId>
+            <artifactId>unirest-objectmapper-jackson</artifactId>
+            <version>3.11.09</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/com.konghq/unirest-object-mappers-gson -->
+        <dependency>
+            <groupId>com.konghq</groupId>
+            <artifactId>unirest-object-mappers-gson</artifactId>
+            <version>3.11.09</version>
+        </dependency>
     </dependencies>
 
     <build>

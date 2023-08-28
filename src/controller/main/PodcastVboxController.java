@@ -28,6 +28,7 @@ import javafx.scene.media.Media;
 
 import javafx.scene.paint.Color;
 import model.Podcast;
+import model.RecentlyPlayed;
 
 import java.io.File;
 import java.net.URL;
@@ -76,20 +77,27 @@ public class PodcastVboxController implements Initializable {
 
     public static ImageView staticPlayImg;
 
+    private RecentlyPlayed recently;
+
     //------------------------------------------------------------------------------------
     //  Methods declaration                                                              |
     //------------------------------------------------------------------------------------
 
     public void setData(Podcast podcast) {
-        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(podcast.getCover())));
+        Image image = new Image(podcast.getImageUrl());
         imgVbox.setImage(image);
         titleVbox.setText(podcast.getTitle());
-        podcasterVbox.setText(podcast.getPodcaster());
+        podcasterVbox.setText(podcast.getOwner());
         durationVbox.setText(podcast.getDuration());
-        genreVbox.setText(podcast.getGenre());
+        genreVbox.setText(podcast.getPodcastCategoryName());
 
-        file = new File(podcast.getPodcastUrl());
-        media = new Media(file.toURI().toString());
+        recently = new RecentlyPlayed(podcast.get_id(), podcast.getImageUrl(), podcast.getTitle(),
+                podcast.getPodcastDescription(), podcast.getPodcastDescription(), podcast.getDuration(), podcast.getPodcastUrl(),
+                podcast.getPodcastCategoryName());
+
+//        file = new File(podcast.getPodcastUrl());
+//        media = new Media(file.toURI().toString());
+        media = new Media(podcast.getPodcastUrl());
 
     }
 
@@ -123,6 +131,7 @@ public class PodcastVboxController implements Initializable {
             MediaPlayerController.setDurationMediaPlayerStatic(duration);
             MediaPlayerController.setGenreMediaPlayerStatic(genre);
             MediaPlayerController.setMediaStatic(media, file);
+            MediaPlayerController.writeToFile(recently);
             playImg.setImage(new Image(Objects.requireNonNull(getClass().getResource("/image/pause.png")).toString()));
             isPlaying = true;
         }
